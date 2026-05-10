@@ -1,0 +1,16 @@
+{
+  "name": "typescript-bootcamp",
+  "version": "1.0.0",
+  "description": "Modül 2.6 Mini Proje: Type-safe ToDo Manager",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/main.js",
+    "dev": "tsc --watch",
+    "type-check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
