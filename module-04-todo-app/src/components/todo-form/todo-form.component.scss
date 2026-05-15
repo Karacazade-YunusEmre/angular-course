@@ -1,0 +1,88 @@
+/* ===================================================================
+   TODO FORM
+   =================================================================== */
+
+.todo-form {
+  padding: 24px 28px;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+
+  form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+
+  input[type="text"] {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 15px;
+    font-family: inherit;
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    }
+
+    &::placeholder {
+      color: var(--color-text-muted);
+    }
+  }
+
+  select {
+    padding: 12px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    font-family: inherit;
+    background: var(--color-surface);
+    color: var(--color-text);
+    cursor: pointer;
+    min-width: 110px;
+
+    &:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 12px 20px;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  border-radius: var(--radius-md);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+
+  &:hover:not(:disabled) {
+    background: var(--color-primary-hover);
+  }
+
+  &:active:not(:disabled) {
+    transform: scale(0.97);
+  }
+
+  &:disabled {
+    background: var(--color-border-strong);
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .icon {
+    font-size: 18px;
+    line-height: 1;
+  }
+}

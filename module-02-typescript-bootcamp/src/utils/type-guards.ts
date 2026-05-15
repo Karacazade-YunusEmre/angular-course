@@ -62,19 +62,14 @@ export function isTodo(obj: unknown): obj is Todo {
   // 3. Date kontrolü — JSON'dan parse edildiyse string olabilir
   // Burada esnek davranıyoruz: hem Date object hem string kabul ediyoruz
   const createdAtValid =
-    candidate.createdAt instanceof Date ||
-    typeof candidate.createdAt === 'string';
+    candidate.createdAt instanceof Date || typeof candidate.createdAt === 'string';
   const updatedAtValid =
-    candidate.updatedAt instanceof Date ||
-    typeof candidate.updatedAt === 'string';
+    candidate.updatedAt instanceof Date || typeof candidate.updatedAt === 'string';
 
   if (!createdAtValid || !updatedAtValid) return false;
 
   // 4. Optional property kontrolü — varsa string olmalı
-  if (
-    candidate.description !== undefined &&
-    typeof candidate.description !== 'string'
-  ) {
+  if (candidate.description !== undefined && typeof candidate.description !== 'string') {
     return false;
   }
 

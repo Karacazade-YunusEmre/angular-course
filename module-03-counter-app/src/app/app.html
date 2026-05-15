@@ -1,0 +1,61 @@
+<main class="counter-container">
+  <h1>Counter App</h1>
+
+  <!-- Counter display -->
+  <div class="counter-display"
+       [class.positive]="isPositive()"
+       [class.negative]="isNegative()"
+       [class.zero]="isZero()">
+    {{ count() }}
+  </div>
+
+  <!-- Status info -->
+  <div class="counter-info">
+    <p>{{ isEven() ? 'Çift sayı' : 'Tek sayı' }}</p>
+    <p>En yüksek: {{ maxValue() }} | En düşük: {{ minValue() }}</p>
+  </div>
+
+  <!-- Step selector -->
+  <div class="step-selector">
+    <span>Step:</span>
+    @for (s of [1, 5, 10]; track s) {
+      <button
+        [class.active]="step() === s"
+        (click)="setStep(s)">
+        {{ s }}
+      </button>
+    }
+  </div>
+
+  <!-- Action buttons -->
+  <div class="actions">
+    <button class="btn-decrement" (click)="decrement()">
+      − {{ step() }}
+    </button>
+    <button class="btn-reset" (click)="reset()">
+      Reset
+    </button>
+    <button class="btn-increment" (click)="increment()">
+      + {{ step() }}
+    </button>
+  </div>
+
+  <!-- History -->
+  @if (history().length > 0) {
+    <div class="history">
+      <h3>Son İşlemler</h3>
+
+      <ul>
+        @for (entry of history(); track entry.timestamp) {
+          <li>
+            <span [class.positive]="entry.delta > 0" [class.negative]="entry.delta < 0">
+              {{ entry.delta > 0 ? '+' : '' }}{{ entry.delta }}
+            </span>
+            : {{ entry.oldValue }} → {{ entry.newValue }}
+          </li>
+        }
+      </ul>
+    </div>
+  }
+</main>
+
