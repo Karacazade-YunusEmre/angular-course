@@ -10,6 +10,11 @@ export interface Todo {
   readonly createdAt: Date;
 }
 
+export interface PriorityOption {
+  key: Priority;
+  value: string;
+}
+
 export type CreateTodoInput = Omit<Todo, 'id' | 'createdAt'>;
 
-export type UpdateTodoInput = Pick<Todo, 'title'>;
+export type UpdateTodoInput = Pick<Todo, 'title' | 'completed'>;

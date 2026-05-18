@@ -1,0 +1,11 @@
+<main class="todo-app">
+  <app-header />
+
+  <app-todo-form [priorityOptions]="priorityOptions" (addTodo)="addTodo($event)" />
+
+  <app-todo-filter />
+
+  <app-todo-list [todos]="todos()" />
+
+  <app-footer />
+</main>

@@ -1,5 +1,11 @@
 import { Injectable, signal } from '@angular/core';
-import { CreateTodoInput, FilterMode, Priority, Todo, UpdateTodoInput } from '../models/todo.model';
+import {
+  CreateTodoInput,
+  FilterMode,
+  PriorityOption,
+  Todo,
+  UpdateTodoInput,
+} from '../models/todo.model';
 
 @Injectable({ providedIn: 'root' })
 export class TodoService {
@@ -8,7 +14,11 @@ export class TodoService {
 
   todos = this._todos.asReadonly();
   filterMode = this._filterMode.asReadonly();
-  priorities = signal<Record<Priority, number>>({ low: 0, medium: 1, high: 2 });
+  priorityOptions: PriorityOption[] = [
+    { key: 'low', value: 'Low' },
+    { key: 'medium', value: 'Medium' },
+    { key: 'high', value: 'High' },
+  ];
 
   static readonly LOCALSTORAGE_TODO_KEY = 'todos';
 
@@ -32,7 +42,7 @@ export class TodoService {
     if (currentTodo === undefined) return;
 
     this._todos.update((todos) => [
-      ...this._todos().filter((t) => t.id !== id),
+      ...todos.filter((t) => t.id !== id),
       { ...currentTodo, ...todoInput },
     ]);
 

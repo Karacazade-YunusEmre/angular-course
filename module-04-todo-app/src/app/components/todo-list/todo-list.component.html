@@ -1,0 +1,19 @@
+<section class="todo-list">
+
+  @for (todo of todos(); track todo.id) {
+    <div [class]="getPriorityClass(todo.priority)" class="todo-item">
+      <input type="checkbox" id="todo-1">
+      <label for="todo-1" class="todo-title">{{ todo.title }}</label>
+      <span [class]="getPriorityClass(todo.priority)" class="priority-pill">{{ todo.priority }}</span>
+      <button class="btn-delete" aria-label="Sil">×</button>
+    </div>
+  } @empty {
+    <!-- BOŞ DURUM (eğer liste boşsa bu görünmeli) -->
+    <div class="empty-state">
+      <div class="empty-icon">📭</div>
+      <h3>Henüz todo yok</h3>
+      <p>Yukarıdaki formu kullanarak ilk todo'nu ekle!</p>
+    </div>
+  }
+
+</section>
