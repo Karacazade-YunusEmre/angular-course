@@ -1,17 +1,24 @@
-import { ChangeDetectionStrategy, Component, computed, input } from '@angular/core';
-import { Priority, Todo } from '../../models/todo.model';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { Priority, Todo, ToggleTodoInput } from '../../models/todo.model';
+import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Component({
   selector: 'app-todo-list',
-  imports: [],
+  imports: [TodoItemComponent],
   templateUrl: './todo-list.component.html',
   styleUrl: './todo-list.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class TodoListComponent {
   todos = input.required<Todo[]>();
+  toggleTodo = output<ToggleTodoInput>();
+  deleteTodo = output<string>();
 
-  getPriorityClass(priority: Priority): string {
-    return `priority-${priority}`;
+  protected onToggleTodo($event: ToggleTodoInput) {
+    this.toggleTodo.emit($event);
+  }
+
+  protected onDeleteTodo($event: string) {
+    this.deleteTodo.emit($event);
   }
 }

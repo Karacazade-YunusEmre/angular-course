@@ -1,0 +1,6 @@
+<div [class]="getPriorityClass(todo().priority)" [class.completed]="todo().completed" class="todo-item">
+  <input [id]="'todo-' + todo().id" type="checkbox" [checked]="todo().completed" (change)="onChange($event, todo().id)">
+  <label [for]="'todo-' + todo().id" class="todo-title">{{ todo().title }}</label>
+  <span [class]="getPriorityClass(todo().priority)" class="priority-pill">{{ todo().priority }}</span>
+  <button (click)="deleteTodoEvent(todo().id)" class="btn-delete" aria-label="Sil">×</button>
+</div>

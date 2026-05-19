@@ -3,9 +3,14 @@
 
   <app-todo-form [priorityOptions]="priorityOptions" (addTodo)="addTodo($event)" />
 
-  <app-todo-filter />
+  <app-todo-filter [total]="total()" [active]="active()" [completed]="completed()"
+                   [activeFilter]="activeFilter()" (onChangeFilter)="changeFilter($event)" />
 
-  <app-todo-list [todos]="todos()" />
+  <app-todo-stats [total]="total()" [active]="active()" [completed]="completed()"
+                  [high]="high()" [medium]="medium()" [low]="low()" />
 
-  <app-footer />
+  <app-todo-list [todos]="todos()" (toggleTodo)="toggleTodo($event)"
+                 (deleteTodo)="deleteTodo($event)" />
+
+  <app-footer [completedCount]="completed()" (clearCompletedCount)="clearCompletedTodos()" />
 </main>

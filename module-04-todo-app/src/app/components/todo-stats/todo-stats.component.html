@@ -1,0 +1,21 @@
+<section class="todo-stats">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">{{ total() }}</div>
+      <div class="stat-label">Toplam</div>
+    </div>
+    <div class="stat-card stat-active">
+      <div class="stat-value">{{ active() }}</div>
+      <div class="stat-label">Aktif</div>
+    </div>
+    <div class="stat-card stat-completed">
+      <div class="stat-value">{{ completed() }}</div>
+      <div class="stat-label">Tamamlanan</div>
+    </div>
+  </div>
+  <div class="priority-badges">
+    <span class="badge badge-high">Yüksek: {{high()}}</span>
+    <span class="badge badge-medium">Orta: {{medium()}}</span>
+    <span class="badge badge-low">Düşük: {{low()}}</span>
+  </div>
+</section>

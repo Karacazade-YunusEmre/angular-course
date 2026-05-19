@@ -17,4 +17,6 @@ export interface PriorityOption {
 
 export type CreateTodoInput = Omit<Todo, 'id' | 'createdAt'>;
 
-export type UpdateTodoInput = Pick<Todo, 'title' | 'completed'>;
+export type ToggleTodoInput = Pick<Todo, 'id'| 'completed'>;
+
+export type UpdateTodoInput = Pick<Todo, 'id' | 'title'>;

@@ -1,5 +1,5 @@
 <section class="todo-form">
-  <form (submit)="onsubmit()">
+  <form (submit)="onSubmit($event)">
     <input
       type="text"
       placeholder="Yeni todo... (örn: Angular öğren)"
@@ -11,7 +11,7 @@
         <option [value]="priority.key" [selected]="priority.key === selectedPriority()" >{{ priority.value }}</option>
       }
     </select>
-    <button type="submit" class="btn-primary">
+    <button [disabled]="!isValid()"  type="submit" class="btn-primary">
       <span class="icon">+</span> Ekle
     </button>
   </form>

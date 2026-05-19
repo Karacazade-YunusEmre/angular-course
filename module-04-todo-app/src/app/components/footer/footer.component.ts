@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +7,11 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './footer.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FooterComponent {}
+export class FooterComponent {
+  completedCount = input.required<number>();
+  clearCompletedCount = output();
+
+  clear(): void {
+    this.clearCompletedCount.emit();
+  }
+}

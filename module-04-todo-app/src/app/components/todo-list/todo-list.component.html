@@ -1,12 +1,7 @@
 <section class="todo-list">
 
   @for (todo of todos(); track todo.id) {
-    <div [class]="getPriorityClass(todo.priority)" class="todo-item">
-      <input type="checkbox" id="todo-1">
-      <label for="todo-1" class="todo-title">{{ todo.title }}</label>
-      <span [class]="getPriorityClass(todo.priority)" class="priority-pill">{{ todo.priority }}</span>
-      <button class="btn-delete" aria-label="Sil">×</button>
-    </div>
+    <app-todo-item [todo]="todo" (toggleTodo)="onToggleTodo($event)" (deleteTodo)="onDeleteTodo($event)" />
   } @empty {
     <!-- BOŞ DURUM (eğer liste boşsa bu görünmeli) -->
     <div class="empty-state">

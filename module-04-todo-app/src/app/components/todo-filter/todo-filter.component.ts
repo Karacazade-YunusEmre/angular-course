@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
+import { FilterMode } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todo-filter',
@@ -7,4 +8,15 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   styleUrl: './todo-filter.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class TodoFilterComponent {}
+export class TodoFilterComponent {
+  total = input.required<number>();
+  completed = input.required<number>();
+  active = input.required<number>();
+
+  activeFilter = input.required<FilterMode>();
+  onChangeFilter = output<FilterMode>();
+
+  changeFilter(filter: FilterMode): void {
+    this.onChangeFilter.emit(filter);
+  }
+}

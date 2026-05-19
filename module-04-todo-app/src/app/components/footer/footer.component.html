@@ -2,7 +2,7 @@
         FOOTER
         ============================================================ -->
 <footer class="app-footer">
-  <button class="btn-clear">
-    <span class="icon">🗑️</span> Tamamlananları Temizle (2)
+  <button (click)="clear()" class="btn-clear">
+    <span class="icon">🗑️</span> Tamamlananları Temizle ({{ completedCount() }})
   </button>
 </footer>
