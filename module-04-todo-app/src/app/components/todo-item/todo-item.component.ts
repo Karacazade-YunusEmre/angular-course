@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { Priority, Todo, ToggleTodoInput } from '../../models/todo.model';
+import { ChangeDetectionStrategy, Component, input, output, signal } from '@angular/core';
+import { Priority, Todo, UpdateTodoInput } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todo-item',
@@ -10,20 +10,51 @@ import { Priority, Todo, ToggleTodoInput } from '../../models/todo.model';
 })
 export class TodoItemComponent {
   todo = input.required<Todo>();
-  toggleTodo = output<ToggleTodoInput>();
+  toggleTodo = output<string>();
   deleteTodo = output<string>();
+  updateTodo = output<UpdateTodoInput>();
 
-  getPriorityClass(priority: Priority): string {
+  isEditing = signal(false);
+  editText = signal('');
+
+  protected getPriorityClass(priority: Priority): string {
     return `priority-${priority}`;
   }
 
-  onChange(event: Event, id: string): void {
-    const target = event.target as HTMLInputElement;
-
-    this.toggleTodo.emit({ id: id, completed: target.checked });
+  protected onChange(id: string): void {
+    this.toggleTodo.emit(id);
   }
 
-  deleteTodoEvent(id: string): void {
+  protected deleteTodoEvent(id: string): void {
     this.deleteTodo.emit(id);
+  }
+
+  protected onEditInput($event: Event) {
+    const target = $event.target as HTMLInputElement;
+    this.editText.set(target.value);
+  }
+
+  protected onEditEnter() {
+    const trimmedText = this.editText().trim();
+    if (trimmedText.length === 0) return;
+    if (trimmedText === this.todo().title) {
+      this.isEditing.set(false);
+      return;
+    }
+
+    this.updateTodo.emit({
+      id: this.todo().id,
+      title: trimmedText,
+    });
+    this.isEditing.set(false);
+  }
+
+  protected cancelEdit() {
+    this.isEditing.set(false);
+  }
+
+  protected startEditMode() {
+    this.editText.set(this.todo().title);
+    this.isEditing.set(true);
   }
 }

@@ -1,10 +1,10 @@
-import { computed, Injectable, signal } from '@angular/core';
+import { computed, effect, Injectable, signal } from '@angular/core';
 import {
   CreateTodoInput,
   FilterMode,
+  isTodoArray,
   PriorityOption,
   Todo,
-  ToggleTodoInput,
   UpdateTodoInput,
 } from '../models/todo.model';
 
@@ -46,6 +46,10 @@ export class TodoService {
 
   constructor() {
     this._todos.set(this.getTodos());
+
+    effect(() => {
+      localStorage.setItem(TodoService.LOCALSTORAGE_TODO_KEY, JSON.stringify(this._todos()));
+    });
   }
 
   changeFilterMode(filterMode: FilterMode): void {
@@ -59,31 +63,22 @@ export class TodoService {
       createdAt: new Date(),
     };
     this._todos.update((todos) => [...todos, newTodo]);
-
-    this.saveTodos();
   }
 
-  toggle(toggleInput: ToggleTodoInput): void {
+  toggle(id: string): void {
     this._todos.update((todos) =>
-      todos.map((todo) =>
-        todo.id === toggleInput.id ? { ...todo, completed: toggleInput.completed } : todo,
-      ),
+      todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo)),
     );
-
-    this.saveTodos();
   }
 
   update(todoInput: UpdateTodoInput): void {
     this._todos.update((todos) =>
       todos.map((todo) => (todo.id === todoInput.id ? { ...todo, title: todoInput.title } : todo)),
     );
-
-    this.saveTodos();
   }
 
   delete(id: string): void {
     this._todos.update((todos) => todos.filter((t) => t.id !== id));
-    this.saveTodos();
   }
 
   clearCompletedTodos(): void {
@@ -91,16 +86,25 @@ export class TodoService {
     if (!result) return;
 
     this._todos.update((todos) => todos.filter((t) => !t.completed));
-    this.saveTodos();
   }
 
   private getTodos(): Todo[] {
-    const storageValues = localStorage.getItem(TodoService.LOCALSTORAGE_TODO_KEY);
+    const raw = localStorage.getItem(TodoService.LOCALSTORAGE_TODO_KEY);
+    if (!raw) return [];
 
-    return storageValues ? JSON.parse(storageValues) : [];
-  }
+    try {
+      const parsed: unknown = JSON.parse(raw);
 
-  private saveTodos() {
-    localStorage.setItem(TodoService.LOCALSTORAGE_TODO_KEY, JSON.stringify(this._todos()));
+      if (!isTodoArray(parsed)) {
+        console.warn('Invalid todos in storage, resetting');
+        return [];
+      }
+      return parsed.map((t) => ({
+        ...t,
+        createdAt: new Date(t.createdAt),
+      }));
+    } catch (error) {
+      return [];
+    }
   }
 }

@@ -1,11 +1,11 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { FooterComponent } from './components/footer/footer.component';
 import { HeaderComponent } from './components/header/header.component';
 import { TodoFilterComponent } from './components/todo-filter/todo-filter.component';
 import { TodoFormComponent } from './components/todo-form/todo-form.component';
 import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { TodoService } from './services/todo.service';
-import { CreateTodoInput, FilterMode, ToggleTodoInput } from './models/todo.model';
+import { CreateTodoInput, FilterMode, UpdateTodoInput } from './models/todo.model';
 import { TodoStatsComponent } from './components/todo-stats/todo-stats.component';
 
 @Component({
@@ -20,6 +20,7 @@ import { TodoStatsComponent } from './components/todo-stats/todo-stats.component
   ],
   templateUrl: 'app.html',
   styleUrl: 'app.scss',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {
   private readonly todoService = inject(TodoService);
@@ -41,8 +42,8 @@ export class App {
     this.todoService.add(todoInput);
   }
 
-  toggleTodo(toggleTodo: ToggleTodoInput): void {
-    this.todoService.toggle(toggleTodo);
+  toggleTodo(id: string): void {
+    this.todoService.toggle(id);
   }
 
   deleteTodo(id: string): void {
@@ -55,5 +56,9 @@ export class App {
 
   clearCompletedTodos(): void {
     this.todoService.clearCompletedTodos();
+  }
+
+  protected updateTodo($event: UpdateTodoInput) {
+    this.todoService.update($event);
   }
 }

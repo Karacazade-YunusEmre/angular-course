@@ -1,6 +1,32 @@
-<div [class]="getPriorityClass(todo().priority)" [class.completed]="todo().completed" class="todo-item">
-  <input [id]="'todo-' + todo().id" type="checkbox" [checked]="todo().completed" (change)="onChange($event, todo().id)">
-  <label [for]="'todo-' + todo().id" class="todo-title">{{ todo().title }}</label>
-  <span [class]="getPriorityClass(todo().priority)" class="priority-pill">{{ todo().priority }}</span>
-  <button (click)="deleteTodoEvent(todo().id)" class="btn-delete" aria-label="Sil">×</button>
+<div
+  [class]="getPriorityClass(todo().priority)"
+  [class.completed]="todo().completed"
+  class="todo-item">
+  @if (isEditing() && !todo().completed) {
+    <!-- Edit Mode -->
+    <input
+      type="text"
+      [value]="editText()"
+      (input)="onEditInput($event)"
+      (keydown.enter)="onEditEnter()"
+      (keydown.escape)="cancelEdit()"
+      (blur)="cancelEdit()"
+      autofocus>
+  } @else {
+    <!-- Normal Mode -->
+    <input
+      [id]="'todo-' + todo().id"
+      type="checkbox"
+      [checked]="todo().completed"
+      (change)="onChange(todo().id)">
+    <label
+      (dblclick)="startEditMode()"
+      [for]="'todo-' + todo().id"
+      class="todo-title">{{ todo().title }}</label>
+    <span
+      [class]="getPriorityClass(todo().priority)"
+      class="priority-pill">{{ todo().priority }}</span>
+    <button (click)="deleteTodoEvent(todo().id)" class="btn-delete" aria-label="Sil">×</button>
+  }
 </div>
+

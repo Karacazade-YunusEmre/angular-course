@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, input, output } from '@angular/core';
-import { Priority, Todo, ToggleTodoInput } from '../../models/todo.model';
+import { Todo, UpdateTodoInput } from '../../models/todo.model';
 import { TodoItemComponent } from '../todo-item/todo-item.component';
 
 @Component({
@@ -11,14 +11,19 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
 })
 export class TodoListComponent {
   todos = input.required<Todo[]>();
-  toggleTodo = output<ToggleTodoInput>();
+  toggleTodo = output<string>();
   deleteTodo = output<string>();
+  updateTodo = output<UpdateTodoInput>();
 
-  protected onToggleTodo($event: ToggleTodoInput) {
-    this.toggleTodo.emit($event);
+  protected onToggleTodo(id: string) {
+    this.toggleTodo.emit(id);
   }
 
   protected onDeleteTodo($event: string) {
     this.deleteTodo.emit($event);
+  }
+
+  protected updateTodoEvent(input: UpdateTodoInput) {
+    this.updateTodo.emit(input);
   }
 }

@@ -1,7 +1,11 @@
 <section class="todo-list">
 
   @for (todo of todos(); track todo.id) {
-    <app-todo-item [todo]="todo" (toggleTodo)="onToggleTodo($event)" (deleteTodo)="onDeleteTodo($event)" />
+    <app-todo-item
+      [todo]="todo"
+      (toggleTodo)="onToggleTodo($event)"
+      (deleteTodo)="onDeleteTodo($event)"
+      (updateTodo)="updateTodoEvent($event)" />
   } @empty {
     <!-- BOŞ DURUM (eğer liste boşsa bu görünmeli) -->
     <div class="empty-state">

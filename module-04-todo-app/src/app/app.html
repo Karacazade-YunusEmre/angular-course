@@ -1,16 +1,32 @@
 <main class="todo-app">
   <app-header />
 
-  <app-todo-form [priorityOptions]="priorityOptions" (addTodo)="addTodo($event)" />
+  <app-todo-form
+    [priorityOptions]="priorityOptions"
+    (addTodo)="addTodo($event)" />
 
-  <app-todo-filter [total]="total()" [active]="active()" [completed]="completed()"
-                   [activeFilter]="activeFilter()" (onChangeFilter)="changeFilter($event)" />
+  <app-todo-filter
+    [total]="total()"
+    [active]="active()"
+    [completed]="completed()"
+    [activeFilter]="activeFilter()"
+    (onChangeFilter)="changeFilter($event)" />
 
-  <app-todo-stats [total]="total()" [active]="active()" [completed]="completed()"
-                  [high]="high()" [medium]="medium()" [low]="low()" />
+  <app-todo-stats
+    [total]="total()"
+    [active]="active()"
+    [completed]="completed()"
+    [high]="high()"
+    [medium]="medium()"
+    [low]="low()" />
 
-  <app-todo-list [todos]="todos()" (toggleTodo)="toggleTodo($event)"
-                 (deleteTodo)="deleteTodo($event)" />
+  <app-todo-list
+    [todos]="todos()"
+    (toggleTodo)="toggleTodo($event)"
+    (deleteTodo)="deleteTodo($event)"
+    (updateTodo)="updateTodo($event)" />
 
-  <app-footer [completedCount]="completed()" (clearCompletedCount)="clearCompletedTodos()" />
+  <app-footer
+    [completedCount]="completed()"
+    (clearCompletedCount)="clearCompletedTodos()" />
 </main>

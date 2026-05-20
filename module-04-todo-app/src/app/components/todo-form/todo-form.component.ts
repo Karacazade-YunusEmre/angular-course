@@ -20,9 +20,6 @@ export class TodoFormComponent {
   onInputChange(event: Event) {
     const target = event.target as HTMLInputElement;
 
-    if (!target) return;
-    if (target.value.length === 0 || target.value === ' ') return;
-
     this.title.set(target.value);
   }
 
@@ -33,9 +30,9 @@ export class TodoFormComponent {
     this.selectedPriority.set(target.value as Priority);
   }
 
-  onSubmit(evet: Event): void {
-    evet.preventDefault();
-    if (this.title().trim().length === 0) return;
+  onSubmit(event: Event): void {
+    event.preventDefault();
+    if (!this.isValid()) return;
 
     this.addTodo.emit({
       title: this.title(),
