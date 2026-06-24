@@ -1,0 +1,147 @@
+/* ===================================================================
+   Reactive Filter & Search — stil kaynağı (SCSS)
+   styles.css ile aynı sonucu üretir. Bölme rehberi:
+     • .page                                  -> sadece ÖNİZLEME arka planı
+     • .filter-card / .filter-header
+       / .filter-controls / .result-meta
+       / .result-list / .empty                -> ProductSearch (parent) .scss
+     • .result-item ve .item-*                -> ProductItem (child) .scss (bölersen)
+=================================================================== */
+
+/* --- Renk değişkenleri --- */
+$accent:  #DD0031;
+$accent2: #7A1FA2;
+$ink:     #1f2430;
+$muted:   #6b7280;
+$line:    #e6e8ee;
+
+/* === DEMO SAYFA ARKA PLANI (yalnızca önizleme) === */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  background: #f3f1f5;
+}
+
+/* === KART KAPSAYICI ===  HTML: <div class="filter-card"> */
+.filter-card {
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10);
+  overflow: hidden;
+}
+
+/* === BAŞLIK ===  HTML: <header class="filter-header"> <h1> + <p class="subtitle"> */
+.filter-header {
+  padding: 22px 24px 18px;
+  background: linear-gradient(135deg, $accent, $accent2);
+  color: #fff;
+
+  h1 { margin: 0; font-size: 22px; font-weight: 800; letter-spacing: -0.2px; }
+  .subtitle { margin: 4px 0 0; opacity: 0.85; font-size: 13px; }
+}
+
+/* === ARAMA + KATEGORİ ===  HTML: <div class="filter-controls"> <input class="search-input"> <select class="category-select"> */
+.filter-controls {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px 12px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid $line;
+  border-radius: 10px;
+  font-size: 14px;
+  outline: none;
+
+  &::placeholder { color: #aab; }
+  &:focus { border-color: $accent; box-shadow: 0 0 0 3px rgba(221, 0, 49, 0.12); }
+}
+
+.category-select {
+  padding: 10px 12px;
+  border: 1px solid $line;
+  border-radius: 10px;
+  font-size: 14px;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+
+  &:focus { border-color: $accent; }
+}
+
+/* === SONUÇ SAYISI ===  HTML: <p class="result-meta"> */
+.result-meta {
+  margin: 0;
+  padding: 4px 22px 10px;
+  color: $muted;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* === SONUÇ LİSTESİ ===  HTML: <ul class="result-list"> */
+.result-list {
+  list-style: none;
+  margin: 0;
+  padding: 0 0 8px;
+  min-height: 90px;
+}
+
+/* === SONUÇ SATIRI (ProductItem) ===
+   HTML: <li class="result-item"> <span class="item-name"> <span class="item-category"> <span class="item-price"> */
+.result-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border-bottom: 1px solid #eef0f5;
+
+  &:last-child { border-bottom: none; }
+  &:hover { background: #faf9fb; }
+}
+
+.item-name {
+  flex: 1;
+  font-size: 15px;
+  color: $ink;
+  font-weight: 600;
+}
+
+.item-category {
+  font-size: 12px;
+  color: $accent2;
+  background: rgba(122, 31, 162, 0.08);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.item-price {
+  font-size: 14px;
+  color: $ink;
+  min-width: 52px;
+  text-align: right;
+}
+
+/* === BOŞ DURUM ===  HTML: <li class="empty"> + <svg class="empty-icon"> + <span> */
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: $muted;
+  padding: 32px 20px;
+  font-size: 14px;
+
+  .empty-icon { width: 34px; height: 34px; color: #c9ced9; }
+}

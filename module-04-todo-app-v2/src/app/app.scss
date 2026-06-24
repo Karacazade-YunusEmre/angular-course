@@ -1,0 +1,167 @@
+@use "../variables" as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px 16px;
+  background: #f3f1f5;
+}
+
+/*
+   === KART KAPSAYICI ===
+   HTML:  <div class="todo-card">   (TodoList)
+*/
+.todo-card {
+  width: 100%;
+  max-width: 460px;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10);
+  overflow: hidden;
+}
+
+
+/*
+    === BAŞLIK ALANI ===
+    HTML:  <header class="todo-header"> <h1> + <p class="subtitle">
+*/
+.todo-header {
+  padding: 22px 24px 18px;
+  background: linear-gradient(135deg, $accent, $accent2);
+  color: #fff;
+
+  h1 {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+  }
+
+  .subtitle {
+    margin: 4px 0 0;
+    opacity: 0.85;
+    font-size: 13px;
+  }
+}
+
+
+/*
+    === LİSTE KAPSAYICI ===
+    HTML:  <ul class="todo-list">
+*/
+.todo-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+  min-height: 90px;
+}
+
+
+/*
+    === GÖREV SATIRI (TaskItem child) ===
+    HTML:  <li class="task-item"> <label class="item-label">
+            <input class="item-check"> <span class="item-title">
+          </label> <button class="item-del">
+    Not: tamamlanan görevde <li>'ye "done" sınıfı eklenir.
+*/
+.task-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 22px;
+  border-bottom: 1px solid #eef0f5;
+  transition: background 0.12s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: #faf9fb;
+  }
+
+  &.done .item-title {
+    text-decoration: line-through;
+    color: #9aa3b2;
+  }
+}
+
+.item-label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.item-check {
+  width: 18px;
+  height: 18px;
+  accent-color: $accent;
+  cursor: pointer;
+  flex: none;
+}
+
+.item-title {
+  font-size: 15px;
+  color: $ink;
+}
+
+.item-del {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  background: transparent;
+  color: #9aa3b2;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.12s ease;
+
+  &:hover {
+    background: #fff1f3;
+    color: $accent;
+  }
+}
+
+
+/*
+    === BOŞ DURUM ===
+    HTML:  <li class="empty"> <svg class="empty-icon"> + <span>
+*/
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  color: $muted;
+  padding: 30px 20px;
+  font-size: 14px;
+
+  .empty-icon {
+    width: 34px;
+    height: 34px;
+    color: #c9ced9;
+  }
+}
+
+
+/*
+    === ALT BİLGİ ===
+    HTML:  <footer class="todo-footer"> <span> x2
+*/
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 22px;
+  border-top: 1px solid $line;
+  color: $muted;
+  font-size: 13px;
+  font-weight: 600;
+}

@@ -1,0 +1,14 @@
+<!-- Görev ekleme satırı -->
+<div class="add-row">
+  <input
+    (input)="onInput($event)"
+    [value]="title()"
+    id="taskInput"
+    class="add-input"
+    placeholder="Yeni görev ekle..." />
+  <button
+    (click)="add()"
+    id="addButton"
+    class="add-btn">Ekle
+  </button>
+</div>

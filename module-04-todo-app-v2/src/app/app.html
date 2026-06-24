@@ -1,0 +1,51 @@
+<main class="page">
+
+  <!-- ===== TodoList (parent) ===== -->
+  <div class="todo-card">
+
+    <!-- Başlık -->
+    <header class="todo-header">
+      <h1>Yapılacaklar</h1>
+      <p class="subtitle">Bugün ne yapacaksın?</p>
+    </header>
+
+    <app-task-input (taskAdded)="addTodo($event)" />
+
+    <ul class="todo-list">
+      @for (todo of todos(); track todo.id) {
+        <li class="task-item" [class.done]="todo.completed">
+          <label class="item-label">
+            <input
+              [checked]="todo.completed"
+              (change)="toggleChange(todo.id)"
+              type="checkbox"
+              class="item-check">
+            <span class="item-title">{{ todo.title }}</span>
+          </label>
+          <button
+            (click)="deleteTodo(todo.id)"
+            class="item-del"
+            aria-label="Sil">&times;
+          </button>
+        </li>
+      } @empty {
+        <li class="empty">
+          <svg class="empty-icon" viewBox="0 0 24 24" fill="none"
+               stroke="currentColor" stroke-width="1.8"
+               stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9" />
+            <path d="M8 12.5l2.5 2.5L16 9.5" />
+          </svg>
+          <span>Henüz görev yok. Yukarıdan ekleyerek başla.</span>
+        </li>
+      }
+    </ul>
+
+    <!-- Alt bilgi -->
+    <footer class="todo-footer">
+      <span>{{ remainingTodos() }} görev kaldı</span>
+      <span>Toplam {{ todos().length }}</span>
+    </footer>
+  </div>
+
+</main>
