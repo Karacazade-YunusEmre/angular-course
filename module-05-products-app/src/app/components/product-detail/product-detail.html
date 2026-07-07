@@ -1,0 +1,71 @@
+<main class="page">
+  <div class="card">
+
+    <div class="detail-top">
+      <a [routerLink]="['']" class="back-link">&larr; Ürünlere dön</a>
+    </div>
+
+
+    @if (product.isLoading()) {
+      <!-- ===== YÜKLENİYOR DURUMU: ===== -->
+      <div class="skeleton">
+        <div class="skel-row" style="height:200px"></div>
+        <div class="skel-row"></div>
+        <div class="skel-row" style="height:120px"></div>
+      </div>
+    } @else if (product.error()) {
+      <!-- ===== HATA DURUMU: ===== -->
+      <div class="state-box">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 3l9 16H3z" />
+          <path d="M12 10v4M12 17h.01" />
+        </svg>
+        <span>Ürün bulunamadı ya da bir hata oluştu.</span>
+        <button (click)="product.reload()" class="btn">Tekrar dene</button>
+      </div>
+    } @else if (product.hasValue()) {
+      <!-- ===== DETAY DURUMU: ===== -->
+
+      @let productValue = product.value();
+      <div class="gallery">
+        <div class="main-img thumb-ph">
+          <img
+            [src]="productValue.thumbnail"
+            [alt]="productValue.title"
+            width="200"
+            height="120"
+            class="thumb" />
+        </div>
+        <div class="thumbs">
+          @for (img of productValue.images; track img) {
+            <img [src]="img" [alt]="productValue.title" width="56" height="56" class="thumb-sm" />
+          }
+        </div>
+      </div>
+
+      <div class="detail-body">
+        <div class="d-brand">{{ productValue.brand }}</div>
+        <h1 class="d-title">{{ productValue.title }}</h1>
+
+        <div class="d-price">
+          <span class="now">{{ productValue.price }} $</span>
+          <span class="old">{{ oldPrice() | number: '1.2-2' }} $</span>
+          <span class="badge">%{{ productValue.discountPercentage }} indirim</span>
+        </div>
+
+        <div class="rating">
+          <span class="stars">&#9733;&#9733;&#9733;&#9733;&#9734;</span>
+          <span>{{ productValue.rating }}</span>
+        </div>
+
+        <div class="d-meta">
+          <span class="badge">{{ productValue.category }}</span>
+          <span class="d-stock">Stokta ({{ productValue.stock }} adet)</span>
+        </div>
+
+        <p class="d-desc">{{ productValue.description }}</p>
+      </div>
+    }
+
+  </div>
+</main>

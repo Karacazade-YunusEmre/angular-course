@@ -1,0 +1,65 @@
+<main class="page">
+  <div class="card">
+
+    <header class="head">
+      <h1>Ürünler</h1>
+      <p class="subtitle">DummyJSON API'sinden canlı ürünler</p>
+    </header>
+
+    @if (productResponse.isLoading()) {
+      <!-- ===== YÜKLENİYOR DURUMU: ===== -->
+      <div class="skeleton">
+        <div class="skel-row"></div>
+        <div class="skel-row"></div>
+        <div class="skel-row"></div>
+      </div>
+    } @else if (productResponse.error()) {
+      <!-- ===== HATA DURUMU: ===== -->
+      <div class="state-box">
+        <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M12 3l9 16H3z" />
+          <path d="M12 10v4M12 17h.01" />
+        </svg>
+        <span>Ürünler yüklenemedi.</span>
+        <button class="btn">Tekrar dene</button>
+      </div>
+    } @else if (productResponse.hasValue()) {
+      <!-- Arama (gelen listeyi yerel süzer) -->
+      <div class="search-row">
+        <input
+          [value]="filterText()"
+          (input)="filterTextOnChange($event)"
+          class="search-input"
+          type="text"
+          placeholder="Ürün ara..."
+        />
+      </div>
+
+      @let total = productResponse.value().products.length;
+      @let shown = filtered().length;
+      <p class="result-meta">{{ total }} üründen {{ shown }} tanesi</p>
+
+      <!-- ===== SONUÇ DURUMU: ===== -->
+      <ul class="product-grid">
+        @for (product of filtered(); track product.id) {
+          <li [routerLink]="['/product',product.id]" class="product-card">
+            <img
+              [src]="product.thumbnail"
+              [alt]="product.title"
+              width="200"
+              height="120"
+              class="thumb" />
+            <div class="body">
+              <p class="p-title">{{ product.title }}</p>
+              <div class="p-row"><span class="p-price">{{ product.price }} $</span><span
+                class="badge">{{ product.category }}</span>
+              </div>
+            </div>
+          </li>
+        }
+      </ul>
+    }
+
+
+  </div>
+</main>
