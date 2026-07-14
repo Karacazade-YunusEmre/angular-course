@@ -1,0 +1,79 @@
+/* ===================================================================
+   Sipariş Özeti — stil kaynağı (SCSS)
+   BÖLME REHBERİ:
+     • .page ................................ sadece ÖNİZLEME arka planı
+     • .card .head .......................... kapsayıcı + başlık
+     • .order-list .order-row .order-main
+       .order-sub .customer .date .total
+       .discount .note ...................... satır düzeni
+     • .status.status-* ..................... durum rozeti
+       (Angular'da renkleri [appStatusColor] DIRECTIVE'i verecek;
+        buradaki renkler yalnızca referans görünüm içindir)
+=================================================================== */
+
+/* --- Renk değişkenleri --- */
+$accent:  #DD0031;
+$accent2: #7A1FA2;
+$ink:     #1f2430;
+$muted:   #6b7280;
+$line:    #e6e8ee;
+
+/* === DEMO SAYFA ARKA PLANI (yalnızca önizleme) === */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: $ink; }
+.page {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px 16px;
+  background: #f3f1f5;
+}
+
+/* === KART + BAŞLIK === */
+.card {
+  width: 100%; max-width: 540px; background: #fff;
+  border: 1px solid $line; border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10); overflow: hidden;
+}
+.head {
+  padding: 20px 24px 16px;
+  background: linear-gradient(135deg, $accent, $accent2); color: #fff;
+  h1 { margin: 0; font-size: 21px; font-weight: 800; }
+  .subtitle { margin: 3px 0 0; opacity: .85; font-size: 12.5px; }
+}
+
+/* === SİPARİŞ LİSTESİ === */
+.order-list { list-style: none; margin: 0; padding: 6px 0; }
+
+/* Satır — HTML: <li class="order-row"> */
+.order-row {
+  padding: 14px 22px;
+  border-bottom: 1px solid #eef0f5;
+  &:last-child { border-bottom: none; }
+}
+
+/* Üst satır: müşteri + tarih */
+.order-main { display: flex; align-items: baseline; justify-content: space-between; }
+.customer { font-size: 15px; font-weight: 700; color: $ink; }
+.date { font-size: 12.5px; color: $muted; }
+
+/* Alt satır: tutar + indirim + durum */
+.order-sub { display: flex; align-items: center; gap: 10px; margin: 7px 0 6px; }
+.total { font-size: 15px; font-weight: 800; color: $accent; }
+.discount { font-size: 12px; color: $muted; font-weight: 600; }
+
+/* === DURUM ROZETİ ===
+   HTML: <span class="status status-*">  (Angular'da directive rengi verecek) */
+.status {
+  margin-left: auto;
+  font-size: 11.5px; font-weight: 700;
+  padding: 3px 11px; border-radius: 999px; color: #fff;
+}
+.status-pending   { background: #f59e0b; }  /* Bekliyor  -> turuncu */
+.status-shipped   { background: #3b82f6; }  /* Kargoda   -> mavi */
+.status-delivered { background: #22a06b; }  /* Teslim    -> yeşil */
+.status-cancelled { background: #ef4444; }  /* İptal     -> kırmızı */
+
+/* Not (custom truncate pipe ile kısaltılacak) */
+.note { margin: 2px 0 0; font-size: 13px; color: #556; line-height: 1.5; }

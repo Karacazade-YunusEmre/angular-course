@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sipariş Özeti</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!--
+    SİPARİŞ ÖZETİ — STATİK referans (JS YOK).
+    Buradaki değerler ZATEN biçimli yazılmıştır (Ürün Adı, 14 Tem 2026, ₺1,712.00 ...).
+    Senin işin: bu görünümü Angular'da PIPE'lar ve DIRECTIVE ile üretmek.
+
+    Eşleştirme:
+      • Müşteri  -> {{ order.customer | titlecase }}
+      • Tarih    -> {{ order.date | date:'dd MMM yyyy' }}
+      • Tutar    -> {{ order.total | currency:'TRY' }}
+      • İndirim  -> {{ order.discount | percent }}
+      • Durum    -> <span [appStatusColor]="order.status"> (custom DIRECTIVE)
+      • Not      -> {{ order.note | truncate:50 }} (custom PIPE)
+  -->
+  <main class="page">
+    <div class="card">
+
+      <header class="head">
+        <h1>Siparişler</h1>
+        <p class="subtitle">Pipe ve directive alıştırması</p>
+      </header>
+
+      <ul class="order-list">
+
+        <!-- @for (order of orders(); track order.id) { ...bu <li>... } -->
+        <li class="order-row">
+          <div class="order-main">
+            <span class="customer">Ayşe Yılmaz</span>
+            <span class="date">14 Tem 2026</span>
+          </div>
+          <div class="order-sub">
+            <span class="total">₺1,712.00</span>
+            <span class="discount">%10 indirim</span>
+            <span class="status status-shipped">Kargoda</span>
+          </div>
+          <p class="note">Kapıda ödeme, akşam teslim tercih edildi; zili çalmadan…</p>
+        </li>
+
+        <li class="order-row">
+          <div class="order-main">
+            <span class="customer">Mehmet Demir</span>
+            <span class="date">13 Tem 2026</span>
+          </div>
+          <div class="order-sub">
+            <span class="total">₺429.90</span>
+            <span class="discount">%0 indirim</span>
+            <span class="status status-pending">Bekliyor</span>
+          </div>
+          <p class="note">Fatura adresi ile teslim adresi farklı, dikkat…</p>
+        </li>
+
+        <li class="order-row">
+          <div class="order-main">
+            <span class="customer">Zeynep Kaya</span>
+            <span class="date">11 Tem 2026</span>
+          </div>
+          <div class="order-sub">
+            <span class="total">₺3,058.50</span>
+            <span class="discount">%15 indirim</span>
+            <span class="status status-delivered">Teslim Edildi</span>
+          </div>
+          <p class="note">Hediye paketi istendi, not kartı eklendi.</p>
+        </li>
+
+        <li class="order-row">
+          <div class="order-main">
+            <span class="customer">Can Öztürk</span>
+            <span class="date">9 Tem 2026</span>
+          </div>
+          <div class="order-sub">
+            <span class="total">₺89.00</span>
+            <span class="discount">%0 indirim</span>
+            <span class="status status-cancelled">İptal</span>
+          </div>
+          <p class="note">Müşteri talebiyle iptal edildi.</p>
+        </li>
+
+      </ul>
+
+    </div>
+  </main>
+</body>
+</html>
