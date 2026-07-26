@@ -1,0 +1,27 @@
+<main class="page">
+  <div class="card">
+
+    <header class="head">
+      <h1>Siparişler</h1>
+      <p class="subtitle">Pipe ve directive alıştırması</p>
+    </header>
+
+    <ul class="order-list">
+      @for (order of orders(); track order.id) {
+        <li class="order-row">
+          <div class="order-main">
+            <span class="customer">{{ order.customerName | titlecase }}</span>
+            <span class="date">{{ order.orderDate | date:'d MMM y' }}</span>
+          </div>
+          <div class="order-sub">
+            <span class="total">{{ order.totalPrice | currency:'TRY':'symbol':'1.2-2' }}</span>
+            <span class="discount">{{ order.discount | percent }}</span>
+            <span [appStatusColor]="order.status" class="status">{{ order.status | orderStatus }}</span>
+          </div>
+          <p class="note">{{ order.description | truncate:50 }}</p>
+        </li>
+      }
+
+    </ul>
+  </div>
+</main>
