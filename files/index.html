@@ -3,89 +3,77 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sipariş Özeti</title>
+  <title>Sepet</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!--
-    SİPARİŞ ÖZETİ — STATİK referans (JS YOK).
-    Buradaki değerler ZATEN biçimli yazılmıştır (Ürün Adı, 14 Tem 2026, ₺1,712.00 ...).
-    Senin işin: bu görünümü Angular'da PIPE'lar ve DIRECTIVE ile üretmek.
+    SEPET — STATİK referans (JS YOK).
+    İki bölüm aynı CartService singleton'ına bağlanacak:
+      • ProductList  -> her üründe "Sepete Ekle" -> cart.add(product)
+      • CartSummary  -> cart.items() / cart.count() / cart.total()
+    Bir yerde ekleyince diğeri anında güncellenir (DI + signal).
 
     Eşleştirme:
-      • Müşteri  -> {{ order.customer | titlecase }}
-      • Tarih    -> {{ order.date | date:'dd MMM yyyy' }}
-      • Tutar    -> {{ order.total | currency:'TRY' }}
-      • İndirim  -> {{ order.discount | percent }}
-      • Durum    -> <span [appStatusColor]="order.status"> (custom DIRECTIVE)
-      • Not      -> {{ order.note | truncate:50 }} (custom PIPE)
+      • Ürün fiyatı  -> {{ p.price | currency:'TRY' }}
+      • "Sepete Ekle" -> (click)="cart.add(p)"
+      • Sepet başlığı -> Sepet ({{ cart.count() }})
+      • Toplam        -> {{ cart.total() | currency:'TRY' }}
+      • Çıkar (×)     -> (click)="cart.remove(item.id)"
   -->
   <main class="page">
-    <div class="card">
 
+    <!-- ===== ProductList ===== -->
+    <div class="card">
       <header class="head">
-        <h1>Siparişler</h1>
-        <p class="subtitle">Pipe ve directive alıştırması</p>
+        <h1>Mağaza</h1>
+        <p class="subtitle">Bir ürünü sepete ekle</p>
+      </header>
+      <ul class="product-list">
+        <li class="product-row">
+          <span class="p-name">Kablosuz Kulaklık</span>
+          <span class="p-price">₺1,299.00</span>
+          <button class="add-btn">Sepete Ekle</button>
+        </li>
+        <li class="product-row">
+          <span class="p-name">Mekanik Klavye</span>
+          <span class="p-price">₺2,450.00</span>
+          <button class="add-btn">Sepete Ekle</button>
+        </li>
+        <li class="product-row">
+          <span class="p-name">USB-C Kablo</span>
+          <span class="p-price">₺149.00</span>
+          <button class="add-btn">Sepete Ekle</button>
+        </li>
+      </ul>
+    </div>
+
+    <!-- ===== CartSummary ===== -->
+    <div class="card cart">
+      <header class="head cart-head">
+        <h1>Sepet (2)</h1>
+        <button class="clear-btn">Temizle</button>
       </header>
 
-      <ul class="order-list">
-
-        <!-- @for (order of orders(); track order.id) { ...bu <li>... } -->
-        <li class="order-row">
-          <div class="order-main">
-            <span class="customer">Ayşe Yılmaz</span>
-            <span class="date">14 Tem 2026</span>
-          </div>
-          <div class="order-sub">
-            <span class="total">₺1,712.00</span>
-            <span class="discount">%10 indirim</span>
-            <span class="status status-shipped">Kargoda</span>
-          </div>
-          <p class="note">Kapıda ödeme, akşam teslim tercih edildi; zili çalmadan…</p>
+      <ul class="cart-list">
+        <li class="cart-row">
+          <span class="c-name">Kablosuz Kulaklık</span>
+          <span class="c-price">₺1,299.00</span>
+          <button class="remove-btn" aria-label="Çıkar">&times;</button>
         </li>
-
-        <li class="order-row">
-          <div class="order-main">
-            <span class="customer">Mehmet Demir</span>
-            <span class="date">13 Tem 2026</span>
-          </div>
-          <div class="order-sub">
-            <span class="total">₺429.90</span>
-            <span class="discount">%0 indirim</span>
-            <span class="status status-pending">Bekliyor</span>
-          </div>
-          <p class="note">Fatura adresi ile teslim adresi farklı, dikkat…</p>
+        <li class="cart-row">
+          <span class="c-name">USB-C Kablo</span>
+          <span class="c-price">₺149.00</span>
+          <button class="remove-btn" aria-label="Çıkar">&times;</button>
         </li>
-
-        <li class="order-row">
-          <div class="order-main">
-            <span class="customer">Zeynep Kaya</span>
-            <span class="date">11 Tem 2026</span>
-          </div>
-          <div class="order-sub">
-            <span class="total">₺3,058.50</span>
-            <span class="discount">%15 indirim</span>
-            <span class="status status-delivered">Teslim Edildi</span>
-          </div>
-          <p class="note">Hediye paketi istendi, not kartı eklendi.</p>
-        </li>
-
-        <li class="order-row">
-          <div class="order-main">
-            <span class="customer">Can Öztürk</span>
-            <span class="date">9 Tem 2026</span>
-          </div>
-          <div class="order-sub">
-            <span class="total">₺89.00</span>
-            <span class="discount">%0 indirim</span>
-            <span class="status status-cancelled">İptal</span>
-          </div>
-          <p class="note">Müşteri talebiyle iptal edildi.</p>
-        </li>
-
       </ul>
 
+      <div class="cart-total">
+        <span>Toplam</span>
+        <span class="total-value">₺1,448.00</span>
+      </div>
     </div>
+
   </main>
 </body>
 </html>
