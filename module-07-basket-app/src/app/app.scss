@@ -1,0 +1,157 @@
+@use '../styles/variables' as *;
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 40px 16px;
+  background: #f3f1f5;
+}
+
+.card {
+  width: 100%;
+  max-width: 440px;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10);
+  overflow: hidden;
+}
+
+.head {
+  padding: 18px 22px 14px;
+  background: linear-gradient(135deg, $accent, $accent2);
+  color: #fff;
+
+  h1 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 800;
+  }
+
+  .subtitle {
+    margin: 3px 0 0;
+    opacity: .85;
+    font-size: 12.5px;
+  }
+}
+
+/* === ÜRÜN LİSTESİ (ProductList) === */
+.product-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-bottom: 1px solid #eef0f5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.p-name {
+  flex: 1;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.p-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.add-btn {
+  border: none;
+  border-radius: 9px;
+  padding: 7px 13px;
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, $accent, $accent2);
+}
+
+/* === SEPET (CartSummary) === */
+.cart-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.clear-btn {
+  border: 1px solid rgba(255, 255, 255, .5);
+  background: rgba(255, 255, 255, .12);
+  color: #fff;
+  border-radius: 8px;
+  padding: 5px 11px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 6px 0;
+}
+
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px;
+  border-bottom: 1px solid #eef0f5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.c-name {
+  flex: 1;
+  font-size: 14px;
+}
+
+.c-price {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: $ink;
+}
+
+.remove-btn {
+  border: none;
+  background: #f4eef2;
+  color: $accent;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* Toplam satırı */
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  border-top: 2px solid #efe9f3;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.total-value {
+  color: $accent;
+  font-size: 17px;
+  font-weight: 800;
+}
