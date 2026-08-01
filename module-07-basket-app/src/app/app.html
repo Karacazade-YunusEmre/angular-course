@@ -12,7 +12,7 @@
         <li class="product-row">
           <span class="p-name">{{ product.name }}</span>
           <span class="p-price">{{ product.price | currency:'TRY' }}</span>
-          <button (click)="addToCard(product.id)" class="add-btn">Sepete Ekle</button>
+          <button (click)="addToCart(product.id)" class="add-btn">Sepete Ekle</button>
         </li>
       }
 
@@ -22,8 +22,8 @@
   <!-- ===== CartSummary ===== -->
   <div class="card cart">
     <header class="head cart-head">
-      <h1>Sepet</h1>
-      <button (click)="clearToCard()" class="clear-btn">Temizle</button>
+      <h1>Sepet {{cartService.count()}}</h1>
+      <button (click)="clearCart()" class="clear-btn">Temizle</button>
     </header>
 
     <ul class="cart-list">
@@ -32,15 +32,17 @@
         <li class="cart-row">
           <span class="c-name">{{ product.name }}</span>
           <span class="c-price">{{ product.price | currency: 'TRY' }}</span>
-          <button (click)="removeFromCard(product)" class="remove-btn" aria-label="Çıkar">&times;</button>
+          <button (click)="removeFromCart(product)" class="remove-btn" aria-label="Çıkar">&times;</button>
         </li>
+      } @empty {
+        <li class="cart-row">Sepetiniz boş.</li>
       }
 
     </ul>
 
     <div class="cart-total">
       <span>Toplam</span>
-      <span class="total-value">{{ cardTotalPrice() | currency : 'TRY' }}</span>
+      <span class="total-value">{{ cartService.total() | currency : 'TRY' }}</span>
     </div>
   </div>
 

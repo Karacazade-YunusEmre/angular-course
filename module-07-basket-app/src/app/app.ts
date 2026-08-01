@@ -15,31 +15,22 @@ export class App {
   protected readonly cartService = inject(CartService);
 
   protected readonly productList = computed(() => {
-    return this.productService
-      .products()
-      .filter((curr) => !this.cartService.products().includes(curr));
-  });
-  protected readonly cardTotalPrice = computed(() => {
-    let total = 0;
-    this.cartService.products().forEach((product) => {
-      total += product.price;
-    });
-
-    return total;
+    const cartIds = new Set<string>(this.cartService.products().map((i) => i.id));
+    return this.productService.products().filter((curr) => !cartIds.has(curr.id));
   });
 
-  addToCard(id: string): void {
+  addToCart(id: string): void {
     const curr = this.productService.products().find((product) => product.id === id);
     if (!curr) return;
 
     this.cartService.addProduct(curr);
   }
 
-  removeFromCard(product: Product): void {
-    this.cartService.removeProduct(product);
+  removeFromCart(product: Product): void {
+    this.cartService.removeProduct(product.id);
   }
 
-  clearToCard(): void {
+  clearCart(): void {
     this.cartService.clearProducts();
   }
 }
