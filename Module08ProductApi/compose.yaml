@@ -1,0 +1,21 @@
+﻿services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2025-latest
+    container_name: module08-sql
+    environment:
+      ACCEPT_EULA: "Y"                      # lisans onayı — zorunlu
+      MSSQL_SA_PASSWORD: "Passw0rd!2026"    # en az 8 karakter, 4 setten 3'ü
+      MSSQL_PID: "Developer"                # ücretsiz geliştirici sürümü
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P \"$$MSSQL_SA_PASSWORD\" -C -Q 'SELECT 1' || exit 1" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
+    ports:
+      - "1433:1433"
+    volumes:
+      - mssql-data:/var/opt/mssql           # container silinse de veri kalsın
+    restart: unless-stopped
+volumes:
+  mssql-data:

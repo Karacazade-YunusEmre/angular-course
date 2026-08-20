@@ -1,0 +1,2144 @@
+[
+  {
+    "id": 1,
+    "name": "Terra Aroma Difüzör Max",
+    "category": "Ev & Yaşam",
+    "price": 1277.59,
+    "stock": 471,
+    "description": "Aroma Difüzör · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-30T09:11:00"
+  },
+  {
+    "id": 2,
+    "name": "Marin Felsefe Klasikleri Eco",
+    "category": "Kitap",
+    "price": 338.52,
+    "stock": 43,
+    "description": "Felsefe Klasikleri · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-03-12T21:38:00"
+  },
+  {
+    "id": 3,
+    "name": "Mese Çamaşır Sepeti Lite",
+    "category": "Ev & Yaşam",
+    "price": 741.45,
+    "stock": 11,
+    "description": "Çamaşır Sepeti · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-04-07T02:05:00"
+  },
+  {
+    "id": 4,
+    "name": "Nova Atlama İpi Standart",
+    "category": "Spor",
+    "price": 408.72,
+    "stock": 72,
+    "description": "Atlama İpi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-27T12:18:00"
+  },
+  {
+    "id": 5,
+    "name": "Kaya Yoga Matı Pro",
+    "category": "Spor",
+    "price": 719.79,
+    "stock": 59,
+    "description": "Yoga Matı · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-06T03:27:00"
+  },
+  {
+    "id": 6,
+    "name": "Marin Sweatshirt Max",
+    "category": "Giyim",
+    "price": 1168.16,
+    "stock": 0,
+    "description": "Sweatshirt · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-24T03:21:00"
+  },
+  {
+    "id": 7,
+    "name": "Zenit Kablosuz Kulaklık Air",
+    "category": "Elektronik",
+    "price": 1368.92,
+    "stock": 8,
+    "description": "Kablosuz Kulaklık · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-25T04:01:00"
+  },
+  {
+    "id": 8,
+    "name": "Orbit Ahşap Eğitici Oyuncak Classic",
+    "category": "Oyuncak",
+    "price": 625.53,
+    "stock": 8,
+    "description": "Ahşap Eğitici Oyuncak · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-20T12:03:00"
+  },
+  {
+    "id": 9,
+    "name": "Mese Halı Yıkama Fırçası Air",
+    "category": "Ev & Yaşam",
+    "price": 223.91,
+    "stock": 219,
+    "description": "Halı Yıkama Fırçası · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-14T07:01:00"
+  },
+  {
+    "id": 10,
+    "name": "Marin Saç Kurutma Makinesi Air",
+    "category": "Kozmetik",
+    "price": 1661.95,
+    "stock": 367,
+    "description": "Saç Kurutma Makinesi · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-02-24T09:09:00"
+  },
+  {
+    "id": 11,
+    "name": "Nova Felsefe Klasikleri Classic",
+    "category": "Kitap",
+    "price": 262.58,
+    "stock": 5,
+    "description": "Felsefe Klasikleri · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-03-21T18:20:00"
+  },
+  {
+    "id": 12,
+    "name": "Marin Tablet Kalemi Lite",
+    "category": "Elektronik",
+    "price": 855.07,
+    "stock": 429,
+    "description": "Tablet Kalemi · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-02-11T16:12:00"
+  },
+  {
+    "id": 13,
+    "name": "Mese French Press Classic",
+    "category": "Mutfak",
+    "price": 615.12,
+    "stock": 9,
+    "description": "French Press · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-06-17T07:56:00"
+  },
+  {
+    "id": 14,
+    "name": "Zenit Taşınabilir Şarj Cihazı Standart",
+    "category": "Elektronik",
+    "price": 875.2,
+    "stock": 460,
+    "description": "Taşınabilir Şarj Cihazı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-01-18T06:46:00"
+  },
+  {
+    "id": 15,
+    "name": "Mese HDMI Kablo 2m Plus",
+    "category": "Elektronik",
+    "price": 465.87,
+    "stock": 67,
+    "description": "HDMI Kablo 2m · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-06-26T22:53:00"
+  },
+  {
+    "id": 16,
+    "name": "Orbit Kablosuz Kulaklık Plus",
+    "category": "Elektronik",
+    "price": 1641.05,
+    "stock": 192,
+    "description": "Kablosuz Kulaklık · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-10T11:24:00"
+  },
+  {
+    "id": 17,
+    "name": "Orbit Kot Pantolon Mini",
+    "category": "Giyim",
+    "price": 1582.07,
+    "stock": 253,
+    "description": "Kot Pantolon · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-07T15:44:00"
+  },
+  {
+    "id": 18,
+    "name": "Vertex Şapka Classic",
+    "category": "Giyim",
+    "price": 683.1,
+    "stock": 441,
+    "description": "Şapka · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-11T11:42:00"
+  },
+  {
+    "id": 19,
+    "name": "Zenit Pamuklu Tişört Classic",
+    "category": "Giyim",
+    "price": 639.38,
+    "stock": 27,
+    "description": "Pamuklu Tişört · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-06-05T22:05:00"
+  },
+  {
+    "id": 20,
+    "name": "Marin Masa Lambası Classic",
+    "category": "Ev & Yaşam",
+    "price": 945.85,
+    "stock": 75,
+    "description": "Masa Lambası · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-04-22T10:54:00"
+  },
+  {
+    "id": 21,
+    "name": "Atlas Espresso Makinesi Standart",
+    "category": "Mutfak",
+    "price": 6237.07,
+    "stock": 436,
+    "description": "Espresso Makinesi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-04T10:29:00"
+  },
+  {
+    "id": 22,
+    "name": "Atlas Kablosuz Şarj Pedi Premium",
+    "category": "Elektronik",
+    "price": 581.13,
+    "stock": 127,
+    "description": "Kablosuz Şarj Pedi · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-04-12T15:43:00"
+  },
+  {
+    "id": 23,
+    "name": "Aurora Çocuk Hikaye Kitabı Lite",
+    "category": "Kitap",
+    "price": 218.72,
+    "stock": 4,
+    "description": "Çocuk Hikaye Kitabı · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-20T13:35:00"
+  },
+  {
+    "id": 24,
+    "name": "Terra Battaniye Air",
+    "category": "Ev & Yaşam",
+    "price": 1696.39,
+    "stock": 403,
+    "description": "Battaniye · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-03-01T04:36:00"
+  },
+  {
+    "id": 25,
+    "name": "Vertex Gömlek Standart",
+    "category": "Giyim",
+    "price": 761.57,
+    "stock": 18,
+    "description": "Gömlek · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-18T21:29:00"
+  },
+  {
+    "id": 26,
+    "name": "Kaya Yastık Seti Eco",
+    "category": "Ev & Yaşam",
+    "price": 648.58,
+    "stock": 0,
+    "description": "Yastık Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-06T09:33:00"
+  },
+  {
+    "id": 27,
+    "name": "Vertex Akıllı Saat Standart",
+    "category": "Elektronik",
+    "price": 3284.42,
+    "stock": 19,
+    "description": "Akıllı Saat · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-06-12T00:15:00"
+  },
+  {
+    "id": 28,
+    "name": "Nova Felsefe Klasikleri Standart",
+    "category": "Kitap",
+    "price": 445.28,
+    "stock": 13,
+    "description": "Felsefe Klasikleri · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-06-01T07:14:00"
+  },
+  {
+    "id": 29,
+    "name": "Marin Su Matarası Eco",
+    "category": "Spor",
+    "price": 225.18,
+    "stock": 191,
+    "description": "Su Matarası · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-01-31T19:06:00"
+  },
+  {
+    "id": 30,
+    "name": "Marin Mekanik Klavye Mini",
+    "category": "Elektronik",
+    "price": 3767.84,
+    "stock": 137,
+    "description": "Mekanik Klavye · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-01-23T19:25:00"
+  },
+  {
+    "id": 31,
+    "name": "Marin Kahve Değirmeni Standart",
+    "category": "Mutfak",
+    "price": 2242.89,
+    "stock": 395,
+    "description": "Kahve Değirmeni · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-29T05:17:00"
+  },
+  {
+    "id": 32,
+    "name": "Vertex Deri Kemer Pro",
+    "category": "Giyim",
+    "price": 1279.15,
+    "stock": 160,
+    "description": "Deri Kemer · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-01-18T03:55:00"
+  },
+  {
+    "id": 33,
+    "name": "Mese Espresso Makinesi Premium",
+    "category": "Mutfak",
+    "price": 9688.34,
+    "stock": 112,
+    "description": "Espresso Makinesi · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-06-13T22:40:00"
+  },
+  {
+    "id": 34,
+    "name": "Mese Ayakkabılık Lite",
+    "category": "Ev & Yaşam",
+    "price": 2452.53,
+    "stock": 9,
+    "description": "Ayakkabılık · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-19T14:38:00"
+  },
+  {
+    "id": 35,
+    "name": "Nova USB-C Hub Plus",
+    "category": "Elektronik",
+    "price": 1861.05,
+    "stock": 279,
+    "description": "USB-C Hub · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-02-12T05:19:00"
+  },
+  {
+    "id": 36,
+    "name": "Pilot Bebek Arabası Oyuncak Pro",
+    "category": "Oyuncak",
+    "price": 448.83,
+    "stock": 11,
+    "description": "Bebek Arabası Oyuncak · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-05-17T01:29:00"
+  },
+  {
+    "id": 37,
+    "name": "Kaya Şampuan Standart",
+    "category": "Kozmetik",
+    "price": 168.59,
+    "stock": 211,
+    "description": "Şampuan · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-03-21T08:01:00"
+  },
+  {
+    "id": 38,
+    "name": "Lumen Çamaşır Sepeti Classic",
+    "category": "Ev & Yaşam",
+    "price": 559.67,
+    "stock": 7,
+    "description": "Çamaşır Sepeti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-01-31T22:26:00"
+  },
+  {
+    "id": 39,
+    "name": "Aurora Peluş Ayı Plus",
+    "category": "Oyuncak",
+    "price": 376.6,
+    "stock": 160,
+    "description": "Peluş Ayı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-17T05:19:00"
+  },
+  {
+    "id": 40,
+    "name": "Zenit Uzaktan Kumandalı Araba Pro",
+    "category": "Oyuncak",
+    "price": 2166.95,
+    "stock": 0,
+    "description": "Uzaktan Kumandalı Araba · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-01-27T05:49:00"
+  },
+  {
+    "id": 41,
+    "name": "Marin Uzaktan Kumandalı Araba Max",
+    "category": "Oyuncak",
+    "price": 1723.44,
+    "stock": 107,
+    "description": "Uzaktan Kumandalı Araba · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-07-03T04:46:00"
+  },
+  {
+    "id": 42,
+    "name": "Terra Yüz Maskesi Seti Pro",
+    "category": "Kozmetik",
+    "price": 372.58,
+    "stock": 223,
+    "description": "Yüz Maskesi Seti · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-06-04T00:16:00"
+  },
+  {
+    "id": 43,
+    "name": "Mese Sweatshirt Lite",
+    "category": "Giyim",
+    "price": 1206.44,
+    "stock": 389,
+    "description": "Sweatshirt · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-02-20T22:55:00"
+  },
+  {
+    "id": 44,
+    "name": "Vertex Su Matarası Plus",
+    "category": "Spor",
+    "price": 560.87,
+    "stock": 484,
+    "description": "Su Matarası · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-18T13:21:00"
+  },
+  {
+    "id": 45,
+    "name": "Mese Saklama Kabı Seti Plus",
+    "category": "Mutfak",
+    "price": 788.81,
+    "stock": 276,
+    "description": "Saklama Kabı Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-03T00:28:00"
+  },
+  {
+    "id": 46,
+    "name": "Aurora Oyun Mousepad Eco",
+    "category": "Elektronik",
+    "price": 232.98,
+    "stock": 226,
+    "description": "Oyun Mousepad · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-02-15T03:15:00"
+  },
+  {
+    "id": 47,
+    "name": "Marin Tıraş Köpüğü Plus",
+    "category": "Kozmetik",
+    "price": 227.08,
+    "stock": 238,
+    "description": "Tıraş Köpüğü · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-27T07:28:00"
+  },
+  {
+    "id": 48,
+    "name": "Marin Çelik Tencere Seti Eco",
+    "category": "Mutfak",
+    "price": 5201.66,
+    "stock": 309,
+    "description": "Çelik Tencere Seti · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-01-25T20:34:00"
+  },
+  {
+    "id": 49,
+    "name": "Vertex Perde Seti Lite",
+    "category": "Ev & Yaşam",
+    "price": 1886.64,
+    "stock": 46,
+    "description": "Perde Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-14T16:41:00"
+  },
+  {
+    "id": 50,
+    "name": "Nova Güneş Kremi Lite",
+    "category": "Kozmetik",
+    "price": 312.3,
+    "stock": 5,
+    "description": "Güneş Kremi · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-05T08:38:00"
+  },
+  {
+    "id": 51,
+    "name": "Atlas Web Kamerası Plus",
+    "category": "Elektronik",
+    "price": 1657.09,
+    "stock": 211,
+    "description": "Web Kamerası · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-08T01:28:00"
+  },
+  {
+    "id": 52,
+    "name": "Aurora Su Isıtıcısı Classic",
+    "category": "Mutfak",
+    "price": 797.06,
+    "stock": 330,
+    "description": "Su Isıtıcısı · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-17T04:14:00"
+  },
+  {
+    "id": 53,
+    "name": "Lumen Direnç Bandı Standart",
+    "category": "Spor",
+    "price": 334.58,
+    "stock": 316,
+    "description": "Direnç Bandı · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-10T06:59:00"
+  },
+  {
+    "id": 54,
+    "name": "Orbit Şapka Lite",
+    "category": "Giyim",
+    "price": 689.46,
+    "stock": 481,
+    "description": "Şapka · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-29T20:03:00"
+  },
+  {
+    "id": 55,
+    "name": "Aurora Web Kamerası Lite",
+    "category": "Elektronik",
+    "price": 2289.62,
+    "stock": 409,
+    "description": "Web Kamerası · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-31T13:08:00"
+  },
+  {
+    "id": 56,
+    "name": "Lumen Peluş Ayı Premium",
+    "category": "Oyuncak",
+    "price": 664.87,
+    "stock": 5,
+    "description": "Peluş Ayı · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-06T01:58:00"
+  },
+  {
+    "id": 57,
+    "name": "Atlas Kablosuz Kulaklık Premium",
+    "category": "Elektronik",
+    "price": 2221.94,
+    "stock": 162,
+    "description": "Kablosuz Kulaklık · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-01-16T14:44:00"
+  },
+  {
+    "id": 58,
+    "name": "Terra Spor Ayakkabı Plus",
+    "category": "Giyim",
+    "price": 4490.76,
+    "stock": 242,
+    "description": "Spor Ayakkabı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-10T05:45:00"
+  },
+  {
+    "id": 59,
+    "name": "Mese USB-C Hub Pro",
+    "category": "Elektronik",
+    "price": 700.02,
+    "stock": 445,
+    "description": "USB-C Hub · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-03T16:03:00"
+  },
+  {
+    "id": 60,
+    "name": "Marin Spor Çantası Max",
+    "category": "Spor",
+    "price": 1694.93,
+    "stock": 355,
+    "description": "Spor Çantası · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-07-13T06:25:00"
+  },
+  {
+    "id": 61,
+    "name": "Kaya Battaniye Premium",
+    "category": "Ev & Yaşam",
+    "price": 1949.59,
+    "stock": 127,
+    "description": "Battaniye · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-06T03:38:00"
+  },
+  {
+    "id": 62,
+    "name": "Terra Masa Lambası Classic",
+    "category": "Ev & Yaşam",
+    "price": 1660.56,
+    "stock": 176,
+    "description": "Masa Lambası · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-14T16:01:00"
+  },
+  {
+    "id": 63,
+    "name": "Marin Duvar Saati Eco",
+    "category": "Ev & Yaşam",
+    "price": 435.1,
+    "stock": 273,
+    "description": "Duvar Saati · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-27T16:09:00"
+  },
+  {
+    "id": 64,
+    "name": "Aurora Akıllı Saat Pro",
+    "category": "Elektronik",
+    "price": 3372.65,
+    "stock": 460,
+    "description": "Akıllı Saat · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-09T11:32:00"
+  },
+  {
+    "id": 65,
+    "name": "Lumen Roman Pro",
+    "category": "Kitap",
+    "price": 182.14,
+    "stock": 321,
+    "description": "Roman · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-04-07T09:11:00"
+  },
+  {
+    "id": 66,
+    "name": "Aurora Yastık Seti Eco",
+    "category": "Ev & Yaşam",
+    "price": 905.29,
+    "stock": 180,
+    "description": "Yastık Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-07T04:32:00"
+  },
+  {
+    "id": 67,
+    "name": "Nova Saç Kurutma Makinesi Max",
+    "category": "Kozmetik",
+    "price": 1040.19,
+    "stock": 207,
+    "description": "Saç Kurutma Makinesi · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-17T21:36:00"
+  },
+  {
+    "id": 68,
+    "name": "Atlas Halı Yıkama Fırçası Max",
+    "category": "Ev & Yaşam",
+    "price": 535.2,
+    "stock": 338,
+    "description": "Halı Yıkama Fırçası · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-05-31T09:58:00"
+  },
+  {
+    "id": 69,
+    "name": "Atlas Şapka Premium",
+    "category": "Giyim",
+    "price": 408.56,
+    "stock": 99,
+    "description": "Şapka · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-02T05:06:00"
+  },
+  {
+    "id": 70,
+    "name": "Terra Web Kamerası Classic",
+    "category": "Elektronik",
+    "price": 1020.65,
+    "stock": 0,
+    "description": "Web Kamerası · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-06-05T16:37:00"
+  },
+  {
+    "id": 71,
+    "name": "Mese Koşu Bandı Eco",
+    "category": "Spor",
+    "price": 19428.4,
+    "stock": 263,
+    "description": "Koşu Bandı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-23T13:03:00"
+  },
+  {
+    "id": 72,
+    "name": "Kaya Pamuklu Tişört Standart",
+    "category": "Giyim",
+    "price": 788.13,
+    "stock": 18,
+    "description": "Pamuklu Tişört · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-02-21T21:12:00"
+  },
+  {
+    "id": 73,
+    "name": "Mese Su Isıtıcısı Standart",
+    "category": "Mutfak",
+    "price": 1020.69,
+    "stock": 239,
+    "description": "Su Isıtıcısı · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-04T03:39:00"
+  },
+  {
+    "id": 74,
+    "name": "Mese Şiir Seçkisi Eco",
+    "category": "Kitap",
+    "price": 171.83,
+    "stock": 17,
+    "description": "Şiir Seçkisi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-13T20:27:00"
+  },
+  {
+    "id": 75,
+    "name": "Lumen Kablosuz Mouse Plus",
+    "category": "Elektronik",
+    "price": 509.57,
+    "stock": 295,
+    "description": "Kablosuz Mouse · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-03-24T08:37:00"
+  },
+  {
+    "id": 76,
+    "name": "Marin Mekanik Klavye Mini",
+    "category": "Elektronik",
+    "price": 1897.3,
+    "stock": 363,
+    "description": "Mekanik Klavye · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-03-25T07:59:00"
+  },
+  {
+    "id": 77,
+    "name": "Aurora Espresso Makinesi Standart",
+    "category": "Mutfak",
+    "price": 6804.63,
+    "stock": 363,
+    "description": "Espresso Makinesi · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-02-10T14:21:00"
+  },
+  {
+    "id": 78,
+    "name": "Kaya Ahşap Eğitici Oyuncak Eco",
+    "category": "Oyuncak",
+    "price": 591.69,
+    "stock": 481,
+    "description": "Ahşap Eğitici Oyuncak · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-24T19:59:00"
+  },
+  {
+    "id": 79,
+    "name": "Mese Yün Atkı Mini",
+    "category": "Giyim",
+    "price": 792.21,
+    "stock": 237,
+    "description": "Yün Atkı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-07-10T17:29:00"
+  },
+  {
+    "id": 80,
+    "name": "Orbit Lego Uyumlu Blok Seti Premium",
+    "category": "Oyuncak",
+    "price": 1336.03,
+    "stock": 302,
+    "description": "Lego Uyumlu Blok Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-18T04:56:00"
+  },
+  {
+    "id": 81,
+    "name": "Zenit Kot Pantolon Air",
+    "category": "Giyim",
+    "price": 1072.7,
+    "stock": 42,
+    "description": "Kot Pantolon · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-07T08:30:00"
+  },
+  {
+    "id": 82,
+    "name": "Atlas Güneş Kremi Max",
+    "category": "Kozmetik",
+    "price": 502.89,
+    "stock": 0,
+    "description": "Güneş Kremi · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-15T16:36:00"
+  },
+  {
+    "id": 83,
+    "name": "Mese Atlama İpi Mini",
+    "category": "Spor",
+    "price": 426.75,
+    "stock": 222,
+    "description": "Atlama İpi · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-05-23T20:15:00"
+  },
+  {
+    "id": 84,
+    "name": "Pilot Web Kamerası Max",
+    "category": "Elektronik",
+    "price": 1402.61,
+    "stock": 236,
+    "description": "Web Kamerası · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-11T02:48:00"
+  },
+  {
+    "id": 85,
+    "name": "Pilot Çorap Seti Mini",
+    "category": "Giyim",
+    "price": 180.61,
+    "stock": 155,
+    "description": "Çorap Seti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-06-01T12:29:00"
+  },
+  {
+    "id": 86,
+    "name": "Aurora Kablosuz Kulaklık Pro",
+    "category": "Elektronik",
+    "price": 2930.41,
+    "stock": 5,
+    "description": "Kablosuz Kulaklık · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-11T06:47:00"
+  },
+  {
+    "id": 87,
+    "name": "Aurora Pamuklu Tişört Plus",
+    "category": "Giyim",
+    "price": 673.97,
+    "stock": 194,
+    "description": "Pamuklu Tişört · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-24T17:52:00"
+  },
+  {
+    "id": 88,
+    "name": "Aurora Güneş Kremi Plus",
+    "category": "Kozmetik",
+    "price": 465.35,
+    "stock": 8,
+    "description": "Güneş Kremi · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-03T05:50:00"
+  },
+  {
+    "id": 89,
+    "name": "Aurora Duvar Saati Air",
+    "category": "Ev & Yaşam",
+    "price": 452.19,
+    "stock": 376,
+    "description": "Duvar Saati · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-27T23:03:00"
+  },
+  {
+    "id": 90,
+    "name": "Pilot HDMI Kablo 2m Pro",
+    "category": "Elektronik",
+    "price": 188.16,
+    "stock": 373,
+    "description": "HDMI Kablo 2m · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-23T02:02:00"
+  },
+  {
+    "id": 91,
+    "name": "Atlas Dambıl Seti Mini",
+    "category": "Spor",
+    "price": 1475.09,
+    "stock": 59,
+    "description": "Dambıl Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-26T05:07:00"
+  },
+  {
+    "id": 92,
+    "name": "Kaya Taşınabilir Şarj Cihazı Mini",
+    "category": "Elektronik",
+    "price": 596.39,
+    "stock": 280,
+    "description": "Taşınabilir Şarj Cihazı · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-21T11:48:00"
+  },
+  {
+    "id": 93,
+    "name": "Lumen Saklama Kabı Seti Lite",
+    "category": "Mutfak",
+    "price": 340.75,
+    "stock": 324,
+    "description": "Saklama Kabı Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-09T18:28:00"
+  },
+  {
+    "id": 94,
+    "name": "Mese Harici SSD 1TB Classic",
+    "category": "Elektronik",
+    "price": 3701.23,
+    "stock": 104,
+    "description": "Harici SSD 1TB · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-04-22T09:24:00"
+  },
+  {
+    "id": 95,
+    "name": "Orbit Parfüm Classic",
+    "category": "Kozmetik",
+    "price": 3171.12,
+    "stock": 415,
+    "description": "Parfüm · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-06-13T08:48:00"
+  },
+  {
+    "id": 96,
+    "name": "Pilot Su Matarası Premium",
+    "category": "Spor",
+    "price": 503.9,
+    "stock": 489,
+    "description": "Su Matarası · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-03-28T21:26:00"
+  },
+  {
+    "id": 97,
+    "name": "Aurora Güneş Kremi Lite",
+    "category": "Kozmetik",
+    "price": 884.68,
+    "stock": 294,
+    "description": "Güneş Kremi · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-01-20T05:32:00"
+  },
+  {
+    "id": 98,
+    "name": "Vertex Bıçak Seti Eco",
+    "category": "Mutfak",
+    "price": 1394.79,
+    "stock": 196,
+    "description": "Bıçak Seti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-04T08:35:00"
+  },
+  {
+    "id": 99,
+    "name": "Lumen Parfüm Pro",
+    "category": "Kozmetik",
+    "price": 1991.13,
+    "stock": 349,
+    "description": "Parfüm · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-01T06:29:00"
+  },
+  {
+    "id": 100,
+    "name": "Orbit Slime Seti Premium",
+    "category": "Oyuncak",
+    "price": 221.35,
+    "stock": 250,
+    "description": "Slime Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-04T17:52:00"
+  },
+  {
+    "id": 101,
+    "name": "Vertex Monitör 24 inç Air",
+    "category": "Elektronik",
+    "price": 7330.25,
+    "stock": 421,
+    "description": "Monitör 24 inç · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-06-07T06:45:00"
+  },
+  {
+    "id": 102,
+    "name": "Lumen Ayakkabılık Plus",
+    "category": "Ev & Yaşam",
+    "price": 1358.44,
+    "stock": 0,
+    "description": "Ayakkabılık · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-05T03:43:00"
+  },
+  {
+    "id": 103,
+    "name": "Lumen Oje Seti Standart",
+    "category": "Kozmetik",
+    "price": 624.95,
+    "stock": 410,
+    "description": "Oje Seti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-04T03:08:00"
+  },
+  {
+    "id": 104,
+    "name": "Mese Tıraş Köpüğü Mini",
+    "category": "Kozmetik",
+    "price": 424.78,
+    "stock": 430,
+    "description": "Tıraş Köpüğü · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-06T08:27:00"
+  },
+  {
+    "id": 105,
+    "name": "Orbit Nemlendirici Krem Classic",
+    "category": "Kozmetik",
+    "price": 267.32,
+    "stock": 449,
+    "description": "Nemlendirici Krem · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-06-30T19:50:00"
+  },
+  {
+    "id": 106,
+    "name": "Lumen USB-C Hub Mini",
+    "category": "Elektronik",
+    "price": 1578.39,
+    "stock": 418,
+    "description": "USB-C Hub · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-30T09:38:00"
+  },
+  {
+    "id": 107,
+    "name": "Aurora Pamuklu Tişört Standart",
+    "category": "Giyim",
+    "price": 769.88,
+    "stock": 98,
+    "description": "Pamuklu Tişört · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-05-23T07:18:00"
+  },
+  {
+    "id": 108,
+    "name": "Aurora Bebek Arabası Oyuncak Air",
+    "category": "Oyuncak",
+    "price": 809.52,
+    "stock": 305,
+    "description": "Bebek Arabası Oyuncak · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-18T13:12:00"
+  },
+  {
+    "id": 109,
+    "name": "Lumen Yapboz 1000 Parça Max",
+    "category": "Oyuncak",
+    "price": 595.85,
+    "stock": 82,
+    "description": "Yapboz 1000 Parça · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-07T13:15:00"
+  },
+  {
+    "id": 110,
+    "name": "Zenit Oyun Mousepad Lite",
+    "category": "Elektronik",
+    "price": 408.61,
+    "stock": 287,
+    "description": "Oyun Mousepad · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-05T17:13:00"
+  },
+  {
+    "id": 111,
+    "name": "Mese Halı Yıkama Fırçası Classic",
+    "category": "Ev & Yaşam",
+    "price": 308.17,
+    "stock": 219,
+    "description": "Halı Yıkama Fırçası · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-12T06:43:00"
+  },
+  {
+    "id": 112,
+    "name": "Kaya Dambıl Seti Lite",
+    "category": "Spor",
+    "price": 1531.62,
+    "stock": 288,
+    "description": "Dambıl Seti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-04T21:55:00"
+  },
+  {
+    "id": 113,
+    "name": "Terra Tablet Kalemi Lite",
+    "category": "Elektronik",
+    "price": 918.63,
+    "stock": 236,
+    "description": "Tablet Kalemi · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-30T23:55:00"
+  },
+  {
+    "id": 114,
+    "name": "Pilot Tablet Kalemi Standart",
+    "category": "Elektronik",
+    "price": 994.32,
+    "stock": 15,
+    "description": "Tablet Kalemi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-03-19T11:28:00"
+  },
+  {
+    "id": 115,
+    "name": "Mese Saksı Seti Max",
+    "category": "Ev & Yaşam",
+    "price": 689.78,
+    "stock": 306,
+    "description": "Saksı Seti · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-06-16T19:48:00"
+  },
+  {
+    "id": 116,
+    "name": "Terra Tost Makinesi Max",
+    "category": "Mutfak",
+    "price": 1782.19,
+    "stock": 14,
+    "description": "Tost Makinesi · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-11T07:38:00"
+  },
+  {
+    "id": 117,
+    "name": "Nova Monitör 24 inç Pro",
+    "category": "Elektronik",
+    "price": 6711.98,
+    "stock": 456,
+    "description": "Monitör 24 inç · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-30T14:03:00"
+  },
+  {
+    "id": 118,
+    "name": "Zenit Yemek Tarifleri Air",
+    "category": "Kitap",
+    "price": 154.75,
+    "stock": 35,
+    "description": "Yemek Tarifleri · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-02-08T08:33:00"
+  },
+  {
+    "id": 119,
+    "name": "Mese Battaniye Standart",
+    "category": "Ev & Yaşam",
+    "price": 1362.24,
+    "stock": 16,
+    "description": "Battaniye · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-28T06:05:00"
+  },
+  {
+    "id": 120,
+    "name": "Pilot Spor Ayakkabı Air",
+    "category": "Giyim",
+    "price": 4352.25,
+    "stock": 474,
+    "description": "Spor Ayakkabı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-20T02:02:00"
+  },
+  {
+    "id": 121,
+    "name": "Zenit Çocuk Hikaye Kitabı Premium",
+    "category": "Kitap",
+    "price": 170.1,
+    "stock": 230,
+    "description": "Çocuk Hikaye Kitabı · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-16T06:48:00"
+  },
+  {
+    "id": 122,
+    "name": "Terra Kablosuz Mouse Eco",
+    "category": "Elektronik",
+    "price": 1356.82,
+    "stock": 355,
+    "description": "Kablosuz Mouse · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-22T21:56:00"
+  },
+  {
+    "id": 123,
+    "name": "Kaya Su Isıtıcısı Standart",
+    "category": "Mutfak",
+    "price": 741.6,
+    "stock": 47,
+    "description": "Su Isıtıcısı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-22T13:51:00"
+  },
+  {
+    "id": 124,
+    "name": "Nova Gömlek Eco",
+    "category": "Giyim",
+    "price": 1836.93,
+    "stock": 488,
+    "description": "Gömlek · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-20T16:41:00"
+  },
+  {
+    "id": 125,
+    "name": "Zenit Mikrofon Standı Eco",
+    "category": "Elektronik",
+    "price": 996.27,
+    "stock": 0,
+    "description": "Mikrofon Standı · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-11T01:16:00"
+  },
+  {
+    "id": 126,
+    "name": "Aurora Bluetooth Hoparlör Premium",
+    "category": "Elektronik",
+    "price": 1103.43,
+    "stock": 473,
+    "description": "Bluetooth Hoparlör · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-18T03:12:00"
+  },
+  {
+    "id": 127,
+    "name": "Zenit Deri Kemer Standart",
+    "category": "Giyim",
+    "price": 1148.56,
+    "stock": 417,
+    "description": "Deri Kemer · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-03-15T04:51:00"
+  },
+  {
+    "id": 128,
+    "name": "Marin Spor Çantası Air",
+    "category": "Spor",
+    "price": 1184.61,
+    "stock": 0,
+    "description": "Spor Çantası · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-04T14:13:00"
+  },
+  {
+    "id": 129,
+    "name": "Vertex Blender Classic",
+    "category": "Mutfak",
+    "price": 2273.38,
+    "stock": 382,
+    "description": "Blender · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-31T13:17:00"
+  },
+  {
+    "id": 130,
+    "name": "Zenit Espresso Makinesi Eco",
+    "category": "Mutfak",
+    "price": 12531.47,
+    "stock": 364,
+    "description": "Espresso Makinesi · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-25T03:02:00"
+  },
+  {
+    "id": 131,
+    "name": "Mese Spor Çantası Classic",
+    "category": "Spor",
+    "price": 832.18,
+    "stock": 3,
+    "description": "Spor Çantası · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-03-31T12:32:00"
+  },
+  {
+    "id": 132,
+    "name": "Lumen Monitör 24 inç Classic",
+    "category": "Elektronik",
+    "price": 5130.89,
+    "stock": 316,
+    "description": "Monitör 24 inç · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-06-02T10:47:00"
+  },
+  {
+    "id": 133,
+    "name": "Kaya Tarih Kitabı Eco",
+    "category": "Kitap",
+    "price": 294.08,
+    "stock": 329,
+    "description": "Tarih Kitabı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-05T12:50:00"
+  },
+  {
+    "id": 134,
+    "name": "Zenit Perde Seti Pro",
+    "category": "Ev & Yaşam",
+    "price": 1075.29,
+    "stock": 463,
+    "description": "Perde Seti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-05-13T14:03:00"
+  },
+  {
+    "id": 135,
+    "name": "Nova Blender Premium",
+    "category": "Mutfak",
+    "price": 2087.77,
+    "stock": 346,
+    "description": "Blender · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-20T12:55:00"
+  },
+  {
+    "id": 136,
+    "name": "Orbit Yüz Maskesi Seti Air",
+    "category": "Kozmetik",
+    "price": 688.22,
+    "stock": 478,
+    "description": "Yüz Maskesi Seti · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-04-23T19:11:00"
+  },
+  {
+    "id": 137,
+    "name": "Lumen Kutu Oyunu Standart",
+    "category": "Oyuncak",
+    "price": 1295.17,
+    "stock": 470,
+    "description": "Kutu Oyunu · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-04T00:01:00"
+  },
+  {
+    "id": 138,
+    "name": "Aurora Lego Uyumlu Blok Seti Plus",
+    "category": "Oyuncak",
+    "price": 1066.15,
+    "stock": 265,
+    "description": "Lego Uyumlu Blok Seti · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-05-29T22:49:00"
+  },
+  {
+    "id": 139,
+    "name": "Atlas Pilates Topu Standart",
+    "category": "Spor",
+    "price": 377.7,
+    "stock": 16,
+    "description": "Pilates Topu · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-05T20:43:00"
+  },
+  {
+    "id": 140,
+    "name": "Marin Perde Seti Pro",
+    "category": "Ev & Yaşam",
+    "price": 2482.89,
+    "stock": 122,
+    "description": "Perde Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-01-21T04:09:00"
+  },
+  {
+    "id": 141,
+    "name": "Kaya Yemek Tarifleri Air",
+    "category": "Kitap",
+    "price": 296.85,
+    "stock": 10,
+    "description": "Yemek Tarifleri · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-09T03:38:00"
+  },
+  {
+    "id": 142,
+    "name": "Marin Duvar Saati Eco",
+    "category": "Ev & Yaşam",
+    "price": 533.63,
+    "stock": 404,
+    "description": "Duvar Saati · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-17T06:19:00"
+  },
+  {
+    "id": 143,
+    "name": "Marin Uzaktan Kumandalı Araba Plus",
+    "category": "Oyuncak",
+    "price": 1516.6,
+    "stock": 370,
+    "description": "Uzaktan Kumandalı Araba · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-28T18:29:00"
+  },
+  {
+    "id": 144,
+    "name": "Marin Roman Eco",
+    "category": "Kitap",
+    "price": 341.48,
+    "stock": 0,
+    "description": "Roman · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-10T16:08:00"
+  },
+  {
+    "id": 145,
+    "name": "Kaya Perde Seti Mini",
+    "category": "Ev & Yaşam",
+    "price": 1343.49,
+    "stock": 409,
+    "description": "Perde Seti · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-04-22T17:48:00"
+  },
+  {
+    "id": 146,
+    "name": "Vertex Çamaşır Sepeti Classic",
+    "category": "Ev & Yaşam",
+    "price": 810.92,
+    "stock": 17,
+    "description": "Çamaşır Sepeti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-05-20T05:15:00"
+  },
+  {
+    "id": 147,
+    "name": "Pilot Yastık Seti Mini",
+    "category": "Ev & Yaşam",
+    "price": 1435.2,
+    "stock": 9,
+    "description": "Yastık Seti · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-03-02T03:16:00"
+  },
+  {
+    "id": 148,
+    "name": "Mese Kışlık Mont Plus",
+    "category": "Giyim",
+    "price": 5299.89,
+    "stock": 258,
+    "description": "Kışlık Mont · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-30T06:34:00"
+  },
+  {
+    "id": 149,
+    "name": "Marin Şampuan Lite",
+    "category": "Kozmetik",
+    "price": 384.57,
+    "stock": 289,
+    "description": "Şampuan · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-06-04T01:50:00"
+  },
+  {
+    "id": 150,
+    "name": "Vertex Su Isıtıcısı Standart",
+    "category": "Mutfak",
+    "price": 1247.39,
+    "stock": 46,
+    "description": "Su Isıtıcısı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-03-21T00:07:00"
+  },
+  {
+    "id": 151,
+    "name": "Zenit Şapka Air",
+    "category": "Giyim",
+    "price": 668.53,
+    "stock": 12,
+    "description": "Şapka · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-11T23:28:00"
+  },
+  {
+    "id": 152,
+    "name": "Terra Bıçak Seti Classic",
+    "category": "Mutfak",
+    "price": 2041.56,
+    "stock": 19,
+    "description": "Bıçak Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-30T04:18:00"
+  },
+  {
+    "id": 153,
+    "name": "Aurora Peluş Ayı Max",
+    "category": "Oyuncak",
+    "price": 881.05,
+    "stock": 250,
+    "description": "Peluş Ayı · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-15T06:33:00"
+  },
+  {
+    "id": 154,
+    "name": "Aurora Sweatshirt Standart",
+    "category": "Giyim",
+    "price": 1525.91,
+    "stock": 13,
+    "description": "Sweatshirt · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-06-30T11:54:00"
+  },
+  {
+    "id": 155,
+    "name": "Marin Aroma Difüzör Classic",
+    "category": "Ev & Yaşam",
+    "price": 999.24,
+    "stock": 306,
+    "description": "Aroma Difüzör · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-04-30T04:47:00"
+  },
+  {
+    "id": 156,
+    "name": "Nova Koşu Bandı Mini",
+    "category": "Spor",
+    "price": 17116.39,
+    "stock": 251,
+    "description": "Koşu Bandı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-01-24T10:23:00"
+  },
+  {
+    "id": 157,
+    "name": "Vertex Tost Makinesi Pro",
+    "category": "Mutfak",
+    "price": 1269.36,
+    "stock": 379,
+    "description": "Tost Makinesi · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-11T11:43:00"
+  },
+  {
+    "id": 158,
+    "name": "Mese Pilates Topu Plus",
+    "category": "Spor",
+    "price": 676.97,
+    "stock": 234,
+    "description": "Pilates Topu · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-02-25T15:51:00"
+  },
+  {
+    "id": 159,
+    "name": "Nova Ahşap Eğitici Oyuncak Max",
+    "category": "Oyuncak",
+    "price": 606.72,
+    "stock": 124,
+    "description": "Ahşap Eğitici Oyuncak · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-13T04:09:00"
+  },
+  {
+    "id": 160,
+    "name": "Zenit Slime Seti Standart",
+    "category": "Oyuncak",
+    "price": 220.44,
+    "stock": 0,
+    "description": "Slime Seti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-11T22:08:00"
+  },
+  {
+    "id": 161,
+    "name": "Aurora Roman Premium",
+    "category": "Kitap",
+    "price": 142.86,
+    "stock": 8,
+    "description": "Roman · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-04-09T13:50:00"
+  },
+  {
+    "id": 162,
+    "name": "Vertex Battaniye Premium",
+    "category": "Ev & Yaşam",
+    "price": 1162.93,
+    "stock": 226,
+    "description": "Battaniye · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-07-12T18:35:00"
+  },
+  {
+    "id": 163,
+    "name": "Aurora Çorap Seti Standart",
+    "category": "Giyim",
+    "price": 486.01,
+    "stock": 8,
+    "description": "Çorap Seti · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-07-08T08:43:00"
+  },
+  {
+    "id": 164,
+    "name": "Atlas Slime Seti Mini",
+    "category": "Oyuncak",
+    "price": 373.43,
+    "stock": 225,
+    "description": "Slime Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-01-29T03:35:00"
+  },
+  {
+    "id": 165,
+    "name": "Marin Taşınabilir Şarj Cihazı Premium",
+    "category": "Elektronik",
+    "price": 1074.79,
+    "stock": 194,
+    "description": "Taşınabilir Şarj Cihazı · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-02-12T18:27:00"
+  },
+  {
+    "id": 166,
+    "name": "Mese Spor Ayakkabı Max",
+    "category": "Giyim",
+    "price": 3519.8,
+    "stock": 43,
+    "description": "Spor Ayakkabı · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-08T10:18:00"
+  },
+  {
+    "id": 167,
+    "name": "Kaya Kutu Oyunu Premium",
+    "category": "Oyuncak",
+    "price": 783.37,
+    "stock": 19,
+    "description": "Kutu Oyunu · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-04-15T10:03:00"
+  },
+  {
+    "id": 168,
+    "name": "Terra Deri Kemer Classic",
+    "category": "Giyim",
+    "price": 957.8,
+    "stock": 389,
+    "description": "Deri Kemer · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-07-03T06:53:00"
+  },
+  {
+    "id": 169,
+    "name": "Orbit Direnç Bandı Max",
+    "category": "Spor",
+    "price": 243.51,
+    "stock": 7,
+    "description": "Direnç Bandı · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-03-01T04:09:00"
+  },
+  {
+    "id": 170,
+    "name": "Orbit Yastık Seti Air",
+    "category": "Ev & Yaşam",
+    "price": 522.47,
+    "stock": 189,
+    "description": "Yastık Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-06-23T19:42:00"
+  },
+  {
+    "id": 171,
+    "name": "Vertex Kesme Tahtası Mini",
+    "category": "Mutfak",
+    "price": 256.96,
+    "stock": 462,
+    "description": "Kesme Tahtası · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-26T09:42:00"
+  },
+  {
+    "id": 172,
+    "name": "Marin Kablosuz Şarj Pedi Premium",
+    "category": "Elektronik",
+    "price": 703.47,
+    "stock": 500,
+    "description": "Kablosuz Şarj Pedi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-18T17:07:00"
+  },
+  {
+    "id": 173,
+    "name": "Terra Kesme Tahtası Plus",
+    "category": "Mutfak",
+    "price": 473.61,
+    "stock": 244,
+    "description": "Kesme Tahtası · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-07-13T00:07:00"
+  },
+  {
+    "id": 174,
+    "name": "Mese Kahve Değirmeni Air",
+    "category": "Mutfak",
+    "price": 2467.9,
+    "stock": 185,
+    "description": "Kahve Değirmeni · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-18T11:17:00"
+  },
+  {
+    "id": 175,
+    "name": "Atlas Kot Pantolon Plus",
+    "category": "Giyim",
+    "price": 2038.96,
+    "stock": 357,
+    "description": "Kot Pantolon · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-20T13:28:00"
+  },
+  {
+    "id": 176,
+    "name": "Aurora Peluş Ayı Premium",
+    "category": "Oyuncak",
+    "price": 348.46,
+    "stock": 11,
+    "description": "Peluş Ayı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-03-13T20:33:00"
+  },
+  {
+    "id": 177,
+    "name": "Kaya Masa Lambası Mini",
+    "category": "Ev & Yaşam",
+    "price": 961.18,
+    "stock": 0,
+    "description": "Masa Lambası · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-03-27T20:41:00"
+  },
+  {
+    "id": 178,
+    "name": "Pilot Oje Seti Air",
+    "category": "Kozmetik",
+    "price": 608.36,
+    "stock": 9,
+    "description": "Oje Seti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-07-14T23:13:00"
+  },
+  {
+    "id": 179,
+    "name": "Lumen Bilim Kurgu Serisi Air",
+    "category": "Kitap",
+    "price": 385.74,
+    "stock": 263,
+    "description": "Bilim Kurgu Serisi · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-05-09T20:32:00"
+  },
+  {
+    "id": 180,
+    "name": "Zenit Mekanik Klavye Max",
+    "category": "Elektronik",
+    "price": 2918.88,
+    "stock": 15,
+    "description": "Mekanik Klavye · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-22T17:59:00"
+  },
+  {
+    "id": 181,
+    "name": "Zenit Saksı Seti Premium",
+    "category": "Ev & Yaşam",
+    "price": 483.71,
+    "stock": 248,
+    "description": "Saksı Seti · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-02-25T08:55:00"
+  },
+  {
+    "id": 182,
+    "name": "Aurora Koşu Bandı Lite",
+    "category": "Spor",
+    "price": 18839.13,
+    "stock": 256,
+    "description": "Koşu Bandı · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-06-13T02:50:00"
+  },
+  {
+    "id": 183,
+    "name": "Aurora Kablosuz Şarj Pedi Classic",
+    "category": "Elektronik",
+    "price": 763.1,
+    "stock": 18,
+    "description": "Kablosuz Şarj Pedi · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-07-14T18:39:00"
+  },
+  {
+    "id": 184,
+    "name": "Vertex Tost Makinesi Eco",
+    "category": "Mutfak",
+    "price": 1956.89,
+    "stock": 237,
+    "description": "Tost Makinesi · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-02-14T02:14:00"
+  },
+  {
+    "id": 185,
+    "name": "Nova Kişisel Gelişim Max",
+    "category": "Kitap",
+    "price": 175.52,
+    "stock": 491,
+    "description": "Kişisel Gelişim · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-04-11T20:00:00"
+  },
+  {
+    "id": 186,
+    "name": "Lumen Nemlendirici Krem Pro",
+    "category": "Kozmetik",
+    "price": 435.47,
+    "stock": 376,
+    "description": "Nemlendirici Krem · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-02-20T07:30:00"
+  },
+  {
+    "id": 187,
+    "name": "Lumen Yüz Maskesi Seti Max",
+    "category": "Kozmetik",
+    "price": 233.71,
+    "stock": 254,
+    "description": "Yüz Maskesi Seti · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-01-24T18:12:00"
+  },
+  {
+    "id": 188,
+    "name": "Atlas Gömlek Plus",
+    "category": "Giyim",
+    "price": 1417.38,
+    "stock": 210,
+    "description": "Gömlek · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-02-12T06:14:00"
+  },
+  {
+    "id": 189,
+    "name": "Zenit HDMI Kablo 2m Premium",
+    "category": "Elektronik",
+    "price": 200.83,
+    "stock": 10,
+    "description": "HDMI Kablo 2m · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-18T10:57:00"
+  },
+  {
+    "id": 190,
+    "name": "Zenit Kışlık Mont Air",
+    "category": "Giyim",
+    "price": 5059.52,
+    "stock": 19,
+    "description": "Kışlık Mont · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-02-20T16:29:00"
+  },
+  {
+    "id": 191,
+    "name": "Kaya Tıraş Köpüğü Eco",
+    "category": "Kozmetik",
+    "price": 447.43,
+    "stock": 10,
+    "description": "Tıraş Köpüğü · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-04-07T12:05:00"
+  },
+  {
+    "id": 192,
+    "name": "Aurora Taşınabilir Şarj Cihazı Max",
+    "category": "Elektronik",
+    "price": 963.7,
+    "stock": 236,
+    "description": "Taşınabilir Şarj Cihazı · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-16T11:24:00"
+  },
+  {
+    "id": 193,
+    "name": "Orbit Pilates Topu Eco",
+    "category": "Spor",
+    "price": 321.08,
+    "stock": 103,
+    "description": "Pilates Topu · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-03T07:49:00"
+  },
+  {
+    "id": 194,
+    "name": "Terra Duvar Saati Max",
+    "category": "Ev & Yaşam",
+    "price": 316.1,
+    "stock": 16,
+    "description": "Duvar Saati · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-06-20T11:29:00"
+  },
+  {
+    "id": 195,
+    "name": "Mese Bilim Kurgu Serisi Premium",
+    "category": "Kitap",
+    "price": 248.7,
+    "stock": 392,
+    "description": "Bilim Kurgu Serisi · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-07-03T01:19:00"
+  },
+  {
+    "id": 196,
+    "name": "Nova Tarih Kitabı Pro",
+    "category": "Kitap",
+    "price": 448.53,
+    "stock": 238,
+    "description": "Tarih Kitabı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-07-09T12:31:00"
+  },
+  {
+    "id": 197,
+    "name": "Atlas Yoga Matı Air",
+    "category": "Spor",
+    "price": 595.09,
+    "stock": 186,
+    "description": "Yoga Matı · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-28T04:29:00"
+  },
+  {
+    "id": 198,
+    "name": "Mese Halı Yıkama Fırçası Pro",
+    "category": "Ev & Yaşam",
+    "price": 576.1,
+    "stock": 219,
+    "description": "Halı Yıkama Fırçası · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-03T02:47:00"
+  },
+  {
+    "id": 199,
+    "name": "Atlas Oje Seti Standart",
+    "category": "Kozmetik",
+    "price": 273.08,
+    "stock": 3,
+    "description": "Oje Seti · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-10T14:57:00"
+  },
+  {
+    "id": 200,
+    "name": "Kaya Çocuk Hikaye Kitabı Lite",
+    "category": "Kitap",
+    "price": 125.26,
+    "stock": 150,
+    "description": "Çocuk Hikaye Kitabı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-04-20T13:43:00"
+  },
+  {
+    "id": 201,
+    "name": "Nova Bluetooth Hoparlör Classic",
+    "category": "Elektronik",
+    "price": 1847.26,
+    "stock": 457,
+    "description": "Bluetooth Hoparlör · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-03-15T12:24:00"
+  },
+  {
+    "id": 202,
+    "name": "Lumen Şiir Seçkisi Max",
+    "category": "Kitap",
+    "price": 237.43,
+    "stock": 0,
+    "description": "Şiir Seçkisi · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-02-04T17:28:00"
+  },
+  {
+    "id": 203,
+    "name": "Aurora Koşu Bandı Mini",
+    "category": "Spor",
+    "price": 24717.17,
+    "stock": 6,
+    "description": "Koşu Bandı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-01-25T16:45:00"
+  },
+  {
+    "id": 204,
+    "name": "Atlas Pilates Topu Standart",
+    "category": "Spor",
+    "price": 273.03,
+    "stock": 388,
+    "description": "Pilates Topu · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-03-16T23:39:00"
+  },
+  {
+    "id": 205,
+    "name": "Marin Yüz Maskesi Seti Classic",
+    "category": "Kozmetik",
+    "price": 356.36,
+    "stock": 44,
+    "description": "Yüz Maskesi Seti · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-07-01T19:17:00"
+  },
+  {
+    "id": 206,
+    "name": "Marin Çelik Tencere Seti Mini",
+    "category": "Mutfak",
+    "price": 2181.72,
+    "stock": 26,
+    "description": "Çelik Tencere Seti · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-05-03T00:06:00"
+  },
+  {
+    "id": 207,
+    "name": "Aurora Tarih Kitabı Lite",
+    "category": "Kitap",
+    "price": 225.3,
+    "stock": 5,
+    "description": "Tarih Kitabı · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-03-27T04:40:00"
+  },
+  {
+    "id": 208,
+    "name": "Kaya Kesme Tahtası Pro",
+    "category": "Mutfak",
+    "price": 292.79,
+    "stock": 407,
+    "description": "Kesme Tahtası · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-23T05:28:00"
+  },
+  {
+    "id": 209,
+    "name": "Marin Harici SSD 1TB Premium",
+    "category": "Elektronik",
+    "price": 3638.26,
+    "stock": 494,
+    "description": "Harici SSD 1TB · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-16T14:26:00"
+  },
+  {
+    "id": 210,
+    "name": "Marin Direnç Bandı Mini",
+    "category": "Spor",
+    "price": 209.38,
+    "stock": 0,
+    "description": "Direnç Bandı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-05-09T05:19:00"
+  },
+  {
+    "id": 211,
+    "name": "Mese Bıçak Seti Standart",
+    "category": "Mutfak",
+    "price": 1533.31,
+    "stock": 0,
+    "description": "Bıçak Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-31T16:25:00"
+  },
+  {
+    "id": 212,
+    "name": "Atlas Tost Makinesi Lite",
+    "category": "Mutfak",
+    "price": 2415.14,
+    "stock": 7,
+    "description": "Tost Makinesi · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-24T06:05:00"
+  },
+  {
+    "id": 213,
+    "name": "Orbit Bluetooth Hoparlör Eco",
+    "category": "Elektronik",
+    "price": 1059.01,
+    "stock": 0,
+    "description": "Bluetooth Hoparlör · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-05-13T02:07:00"
+  },
+  {
+    "id": 214,
+    "name": "Mese Tıraş Köpüğü Pro",
+    "category": "Kozmetik",
+    "price": 361.58,
+    "stock": 334,
+    "description": "Tıraş Köpüğü · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-05-06T17:40:00"
+  },
+  {
+    "id": 215,
+    "name": "Orbit Spor Ayakkabı Air",
+    "category": "Giyim",
+    "price": 1764.82,
+    "stock": 309,
+    "description": "Spor Ayakkabı · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-07-08T14:10:00"
+  },
+  {
+    "id": 216,
+    "name": "Marin Uzaktan Kumandalı Araba Classic",
+    "category": "Oyuncak",
+    "price": 2056.22,
+    "stock": 347,
+    "description": "Uzaktan Kumandalı Araba · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-01-23T00:56:00"
+  },
+  {
+    "id": 217,
+    "name": "Vertex Roman Max",
+    "category": "Kitap",
+    "price": 345.76,
+    "stock": 428,
+    "description": "Roman · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-02-28T12:42:00"
+  },
+  {
+    "id": 218,
+    "name": "Zenit Spor Çantası Lite",
+    "category": "Spor",
+    "price": 935.98,
+    "stock": 425,
+    "description": "Spor Çantası · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-04-09T13:42:00"
+  },
+  {
+    "id": 219,
+    "name": "Terra Yün Atkı Air",
+    "category": "Giyim",
+    "price": 718.33,
+    "stock": 13,
+    "description": "Yün Atkı · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-06-10T20:36:00"
+  },
+  {
+    "id": 220,
+    "name": "Marin Gömlek Standart",
+    "category": "Giyim",
+    "price": 1872.14,
+    "stock": 229,
+    "description": "Gömlek · Günlük kullanım için tasarlanmış dayanıklı bir üründür.",
+    "createdAt": "2026-02-13T13:02:00"
+  },
+  {
+    "id": 221,
+    "name": "Lumen Çorap Seti Lite",
+    "category": "Giyim",
+    "price": 467.37,
+    "stock": 232,
+    "description": "Çorap Seti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-02-28T15:08:00"
+  },
+  {
+    "id": 222,
+    "name": "Kaya Oje Seti Mini",
+    "category": "Kozmetik",
+    "price": 484.29,
+    "stock": 4,
+    "description": "Oje Seti · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-01-22T08:11:00"
+  },
+  {
+    "id": 223,
+    "name": "Marin Deri Kemer Lite",
+    "category": "Giyim",
+    "price": 1212.06,
+    "stock": 178,
+    "description": "Deri Kemer · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-07T10:37:00"
+  },
+  {
+    "id": 224,
+    "name": "Orbit Bıçak Seti Standart",
+    "category": "Mutfak",
+    "price": 1223.1,
+    "stock": 4,
+    "description": "Bıçak Seti · Kompakt tasarımı sayesinde az yer kaplar.",
+    "createdAt": "2026-03-05T19:07:00"
+  },
+  {
+    "id": 225,
+    "name": "Marin Tarih Kitabı Premium",
+    "category": "Kitap",
+    "price": 356.88,
+    "stock": 15,
+    "description": "Tarih Kitabı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-03-14T22:21:00"
+  },
+  {
+    "id": 226,
+    "name": "Atlas Çelik Tencere Seti Classic",
+    "category": "Mutfak",
+    "price": 2210.59,
+    "stock": 341,
+    "description": "Çelik Tencere Seti · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-03-18T12:44:00"
+  },
+  {
+    "id": 227,
+    "name": "Marin Yapboz 1000 Parça Mini",
+    "category": "Oyuncak",
+    "price": 532.92,
+    "stock": 301,
+    "description": "Yapboz 1000 Parça · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-06-02T18:57:00"
+  },
+  {
+    "id": 228,
+    "name": "Lumen Atlama İpi Plus",
+    "category": "Spor",
+    "price": 272.78,
+    "stock": 445,
+    "description": "Atlama İpi · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-05-06T11:58:00"
+  },
+  {
+    "id": 229,
+    "name": "Pilot Kişisel Gelişim Eco",
+    "category": "Kitap",
+    "price": 270.8,
+    "stock": 33,
+    "description": "Kişisel Gelişim · Modern çizgileri ve şık görünümüyle dikkat çeker.",
+    "createdAt": "2026-06-20T06:53:00"
+  },
+  {
+    "id": 230,
+    "name": "Zenit Saklama Kabı Seti Pro",
+    "category": "Mutfak",
+    "price": 921.6,
+    "stock": 329,
+    "description": "Saklama Kabı Seti · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-03-20T09:05:00"
+  },
+  {
+    "id": 231,
+    "name": "Nova HDMI Kablo 2m Pro",
+    "category": "Elektronik",
+    "price": 265.74,
+    "stock": 9,
+    "description": "HDMI Kablo 2m · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-02-26T08:28:00"
+  },
+  {
+    "id": 232,
+    "name": "Terra Kahve Değirmeni Standart",
+    "category": "Mutfak",
+    "price": 1981.71,
+    "stock": 192,
+    "description": "Kahve Değirmeni · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-01-23T00:54:00"
+  },
+  {
+    "id": 233,
+    "name": "Terra Kişisel Gelişim Lite",
+    "category": "Kitap",
+    "price": 197.03,
+    "stock": 78,
+    "description": "Kişisel Gelişim · Fiyat/performans dengesiyle öne çıkan bir seçenektir.",
+    "createdAt": "2026-03-28T03:14:00"
+  },
+  {
+    "id": 234,
+    "name": "Pilot French Press Pro",
+    "category": "Mutfak",
+    "price": 736.47,
+    "stock": 8,
+    "description": "French Press · Kullanıcı dostu tasarımı ile pratik kullanım sunar.",
+    "createdAt": "2026-04-30T00:35:00"
+  },
+  {
+    "id": 235,
+    "name": "Vertex Mikrofon Standı Air",
+    "category": "Elektronik",
+    "price": 390.61,
+    "stock": 254,
+    "description": "Mikrofon Standı · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-04-05T11:00:00"
+  },
+  {
+    "id": 236,
+    "name": "Pilot Çorap Seti Premium",
+    "category": "Giyim",
+    "price": 468.72,
+    "stock": 151,
+    "description": "Çorap Seti · Hediyelik olarak da tercih edilen popüler bir üründür.",
+    "createdAt": "2026-05-18T18:47:00"
+  },
+  {
+    "id": 237,
+    "name": "Atlas Ahşap Eğitici Oyuncak Mini",
+    "category": "Oyuncak",
+    "price": 812.94,
+    "stock": 224,
+    "description": "Ahşap Eğitici Oyuncak · Yüksek kalite malzeme ile üretilmiştir, uzun ömürlüdür.",
+    "createdAt": "2026-02-17T20:32:00"
+  },
+  {
+    "id": 238,
+    "name": "Nova Kişisel Gelişim Plus",
+    "category": "Kitap",
+    "price": 267.11,
+    "stock": 315,
+    "description": "Kişisel Gelişim · Bakımı kolay, temizliği pratiktir.",
+    "createdAt": "2026-05-24T15:09:00"
+  }
+]
