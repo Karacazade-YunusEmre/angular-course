@@ -1,13 +1,19 @@
 /* ===================================================================
-   Sepet — stil kaynağı (SCSS)
-   BÖLME REHBERİ:
+   Ürün Yönetim Paneli — stil kaynağı (SCSS)
+   Backend: ProductsApi (.NET 10)
+
+   BÖLME REHBERİ (Angular component'lerine ayırırken)
      • .page ................................ sadece ÖNİZLEME arka planı
-     • .card .head .......................... ortak kart + başlık
-     • .product-list .product-row .p-name
-       .p-price .add-btn .................... ProductList
-     • .cart .cart-head .clear-btn
-       .cart-list .cart-row .c-name .c-price
-       .remove-btn .cart-total .............. CartSummary
+     • .card .head .......................... kapsayıcı + başlık
+     • .form-row ............................ ProductForm  (ekleme)
+     • .filters .filter-group .range ........ ProductFilters (arama/filtre)
+     • .result-meta ......................... sonuç bilgisi
+     • .admin-list .admin-row .a-* .......... ProductList (liste)
+     • .stock.stock-* ....................... stok rozeti
+         (rengi [appStockLevel] DIRECTIVE'i verecek — Modül 6;
+          buradaki sınıflar yalnızca referans görünüm içindir)
+     • .pager .pg-btn ....................... Pagination
+     • .skeleton .state-box ................. yükleniyor / hata / boş durum
 =================================================================== */
 
 /* --- Renk değişkenleri --- */
@@ -16,68 +22,270 @@ $accent2: #7A1FA2;
 $ink:     #1f2430;
 $muted:   #6b7280;
 $line:    #e6e8ee;
+$soft:    #f4f2f7;
 
 /* === DEMO SAYFA ARKA PLANI (yalnızca önizleme) === */
 * { box-sizing: border-box; }
-body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: $ink; }
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: $ink;
+}
 .page {
   min-height: 100vh;
-  display: flex; flex-direction: column; align-items: center;
-  gap: 18px; padding: 40px 16px; background: #f3f1f5;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 36px 16px;
+  background: #f3f1f5;
 }
 
-/* === ORTAK KART + BAŞLIK === */
+/* === KART + BAŞLIK ===  HTML: <div class="card"> <header class="head"> */
 .card {
-  width: 100%; max-width: 440px; background: #fff;
-  border: 1px solid $line; border-radius: 18px;
-  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10); overflow: hidden;
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10);
+  overflow: hidden;
 }
 .head {
-  padding: 18px 22px 14px;
-  background: linear-gradient(135deg, $accent, $accent2); color: #fff;
-  h1 { margin: 0; font-size: 19px; font-weight: 800; }
+  padding: 20px 22px 16px;
+  background: linear-gradient(135deg, $accent, $accent2);
+  color: #fff;
+
+  h1 { margin: 0; font-size: 20px; font-weight: 800; }
   .subtitle { margin: 3px 0 0; opacity: .85; font-size: 12.5px; }
 }
 
-/* === ÜRÜN LİSTESİ (ProductList) === */
-.product-list { list-style: none; margin: 0; padding: 6px 0; }
-.product-row {
-  display: flex; align-items: center; gap: 12px;
-  padding: 12px 22px; border-bottom: 1px solid #eef0f5;
-  &:last-child { border-bottom: none; }
+/* === ORTAK FORM ELEMANLARI === */
+.f-input,
+.f-select {
+  padding: 8px 11px;
+  border: 1px solid $line;
+  border-radius: 9px;
+  font-size: 13.5px;
+  outline: none;
+  background: #fff;
+  min-width: 0;
+  color: $ink;
+
+  &::placeholder { color: #aab; }
+  &:focus { border-color: $accent; box-shadow: 0 0 0 3px rgba(221, 0, 49, .12); }
 }
-.p-name { flex: 1; font-size: 14.5px; font-weight: 600; }
-.p-price { font-size: 14px; font-weight: 700; color: $ink; }
-.add-btn {
-  border: none; border-radius: 9px; padding: 7px 13px; cursor: pointer;
-  font-size: 12.5px; font-weight: 700; color: #fff;
-  background: linear-gradient(135deg, $accent, $accent2);
+.f-select { cursor: pointer; }
+.f-select.sm { padding: 5px 8px; font-size: 12.5px; }
+
+.f-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: $muted;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  margin-bottom: 4px;
 }
 
-/* === SEPET (CartSummary) === */
-.cart-head { display: flex; align-items: center; justify-content: space-between; }
-.clear-btn {
-  border: 1px solid rgba(255,255,255,.5); background: rgba(255,255,255,.12);
-  color: #fff; border-radius: 8px; padding: 5px 11px; font-size: 12px;
-  font-weight: 600; cursor: pointer;
+/* Butonlar */
+.btn {
+  border: none;
+  border-radius: 9px;
+  padding: 9px 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
 }
-.cart-list { list-style: none; margin: 0; padding: 6px 0; }
-.cart-row {
-  display: flex; align-items: center; gap: 10px;
-  padding: 10px 22px; border-bottom: 1px solid #eef0f5;
-  &:last-child { border-bottom: none; }
-}
-.c-name { flex: 1; font-size: 14px; }
-.c-price { font-size: 13.5px; font-weight: 700; color: $ink; }
-.remove-btn {
-  border: none; background: #f4eef2; color: $accent; cursor: pointer;
-  width: 24px; height: 24px; border-radius: 6px; font-size: 16px; line-height: 1;
+.btn-primary { color: #fff; background: linear-gradient(135deg, $accent, $accent2); }
+.btn-ghost {
+  color: $muted;
+  background: #fff;
+  border: 1px solid $line;
+  align-self: flex-end;
 }
 
-/* Toplam satırı */
-.cart-total {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 14px 22px; border-top: 2px solid #efe9f3;
-  font-weight: 700; font-size: 15px;
+/* === EKLEME FORMU ===  HTML: <section class="form-row"> */
+.form-row {
+  display: flex;
+  gap: 8px;
+  padding: 16px 20px 12px;
+  border-bottom: 1px solid #f1f0f5;
 }
-.total-value { color: $accent; font-size: 17px; font-weight: 800; }
+.f-name { flex: 1; }
+.f-cat  { width: 120px; }
+.f-num  { width: 82px; }
+
+/* === ARAMA / FİLTRE PANELİ ===  HTML: <section class="filters"> */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 10px;
+  padding: 14px 20px 12px;
+  background: #fbfafc;
+  border-bottom: 1px solid #f1f0f5;
+}
+.filter-group {
+  display: flex;
+  flex-direction: column;
+
+  &.grow { flex: 1; min-width: 160px; }
+  > .f-input { width: 100%; }
+}
+
+/* min – max ikilisi */
+.range {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  .dash { color: #bfc4cf; font-size: 13px; }
+}
+
+/* === SONUÇ BİLGİSİ ===  HTML: <p class="result-meta"> */
+.result-meta {
+  margin: 0;
+  padding: 10px 22px 8px;
+  font-size: 13px;
+  color: $ink;
+
+  strong { color: $accent; }
+  .muted { color: $muted; }
+}
+.muted { color: $muted; }
+
+/* === LİSTE ===  HTML: <ul class="admin-list"> <li class="admin-row"> */
+.admin-list { list-style: none; margin: 0; padding: 0; }
+.admin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 22px;
+  border-top: 1px solid #eef0f5;
+
+  &:hover { background: #faf9fb; }
+}
+.a-main { flex: 1; min-width: 0; }
+.a-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.a-cat {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: $accent2;
+  background: rgba(122, 31, 162, .08);
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+.a-price {
+  font-size: 13.5px;
+  font-weight: 800;
+  min-width: 92px;
+  text-align: right;
+}
+
+/* === STOK ROZETİ ===
+   HTML: <span class="stock stock-*">
+   Angular'da: <span [appStockLevel]="product.stock"> (Modül 6 directive'i) */
+.stock {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 999px;
+  min-width: 78px;
+  text-align: center;
+}
+.stock-ok  { background: #22a06b; }  /* bol stok  -> yeşil   */
+.stock-low { background: #f59e0b; }  /* az stok   -> turuncu */
+.stock-out { background: #ef4444; }  /* tükendi   -> kırmızı */
+
+/* Silme butonu */
+.del-btn {
+  border: none;
+  background: #f4eef2;
+  color: $accent;
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* === PAGINATION ===  HTML: <nav class="pager"> */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 20px 16px;
+  border-top: 2px solid #efe9f3;
+}
+.page-size {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  .f-label { margin: 0; }
+}
+.pages { display: flex; align-items: center; gap: 5px; }
+
+.pg-btn {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid $line;
+  background: #fff;
+  color: $ink;
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover { border-color: $accent2; color: $accent2; }
+
+  /* Aktif sayfa — Angular'da: [class.active]="p === page()" */
+  &.active {
+    color: #fff;
+    border-color: transparent;
+    background: linear-gradient(135deg, $accent, $accent2);
+  }
+
+  /* Devre dışı — Angular'da: [disabled]="!hasPrevious()" */
+  &:disabled {
+    color: #c3c8d2;
+    background: #fafafc;
+    cursor: not-allowed;
+  }
+}
+.pg-gap { color: #bfc4cf; padding: 0 2px; }
+
+/* === DURUMLAR: yükleniyor / hata / boş === */
+.skeleton { padding: 12px 20px; }
+.skel-row {
+  height: 46px;
+  border-radius: 10px;
+  margin: 9px 0;
+  background: linear-gradient(90deg, #f0eef4 25%, #e7e3ee 37%, #f0eef4 63%);
+}
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 13.5px;
+
+  .state-title { font-size: 15px; font-weight: 700; }
+}

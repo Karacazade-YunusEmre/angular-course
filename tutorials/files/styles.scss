@@ -1,0 +1,109 @@
+/* ===================================================================
+   Ürün Yönetim Paneli — stil kaynağı (SCSS)
+   BÖLME REHBERİ:
+     • .page ................................ sadece ÖNİZLEME arka planı
+     • .card .head .......................... kapsayıcı + başlık
+     • .form-row .f-input .add-btn .......... ekleme formu
+     • .search-row .search-input .result-meta  arama
+     • .admin-list .admin-row .a-name
+       .a-price .del-btn .................... liste satırı
+     • .stock.stock-* ....................... stok rozeti
+       (Angular'da rengi [appStockLevel] DIRECTIVE'i verecek;
+        buradaki renkler yalnızca referans görünüm içindir)
+     • .skeleton .skel-row .state-box ....... yükleniyor / hata / boş
+=================================================================== */
+
+/* --- Renk değişkenleri --- */
+$accent:  #DD0031;
+$accent2: #7A1FA2;
+$ink:     #1f2430;
+$muted:   #6b7280;
+$line:    #e6e8ee;
+
+/* === DEMO SAYFA ARKA PLANI (yalnızca önizleme) === */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; color: $ink; }
+.page {
+  min-height: 100vh; display: flex; align-items: flex-start; justify-content: center;
+  padding: 40px 16px; background: #f3f1f5;
+}
+
+/* === KART + BAŞLIK === */
+.card {
+  width: 100%; max-width: 560px; background: #fff;
+  border: 1px solid $line; border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.10); overflow: hidden;
+}
+.head {
+  padding: 20px 22px 16px;
+  background: linear-gradient(135deg, $accent, $accent2); color: #fff;
+  h1 { margin: 0; font-size: 20px; font-weight: 800; }
+  .subtitle { margin: 3px 0 0; opacity: .85; font-size: 12.5px; }
+}
+
+/* === EKLEME FORMU ===  HTML: <div class="form-row"> === */
+.form-row {
+  display: flex; gap: 8px; padding: 16px 20px 10px;
+  border-bottom: 1px solid #f1f0f5;
+}
+.f-input {
+  padding: 9px 12px; border: 1px solid $line; border-radius: 9px;
+  font-size: 13.5px; outline: none; min-width: 0;
+  &::placeholder { color: #aab; }
+  &:focus { border-color: $accent; box-shadow: 0 0 0 3px rgba(221,0,49,.12); }
+}
+.f-title { flex: 1; }
+.f-price, .f-stock { width: 78px; }
+.add-btn {
+  border: none; border-radius: 9px; padding: 9px 16px; cursor: pointer;
+  font-size: 13px; font-weight: 700; color: #fff;
+  background: linear-gradient(135deg, $accent, $accent2);
+}
+
+/* === ARAMA ===  HTML: <div class="search-row"> === */
+.search-row { padding: 12px 20px 4px; }
+.search-input {
+  width: 100%; padding: 9px 13px; border: 1px solid $line; border-radius: 9px;
+  font-size: 13.5px; outline: none;
+  &::placeholder { color: #aab; }
+  &:focus { border-color: $accent; }
+}
+.result-meta { margin: 0; padding: 6px 22px 6px; color: $muted; font-size: 12.5px; font-weight: 600; }
+
+/* === LİSTE ===  HTML: <ul class="admin-list"> <li class="admin-row"> === */
+.admin-list { list-style: none; margin: 0; padding: 0 0 8px; }
+.admin-row {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 22px; border-bottom: 1px solid #eef0f5;
+  &:last-child { border-bottom: none; }
+  &:hover { background: #faf9fb; }
+}
+.a-name { flex: 1; font-size: 14px; font-weight: 600; }
+.a-price { font-size: 13.5px; font-weight: 700; color: $ink; min-width: 58px; text-align: right; }
+
+/* === STOK ROZETİ ===
+   HTML: <span class="stock stock-*">  (Angular'da directive rengi verecek) */
+.stock {
+  font-size: 11.5px; font-weight: 700; color: #fff;
+  padding: 3px 10px; border-radius: 999px; min-width: 72px; text-align: center;
+}
+.stock-ok  { background: #22a06b; }  /* bol stok  -> yeşil */
+.stock-low { background: #f59e0b; }  /* az stok   -> turuncu */
+.stock-out { background: #ef4444; }  /* tükendi   -> kırmızı */
+
+/* Silme butonu */
+.del-btn {
+  border: none; background: #f4eef2; color: $accent; cursor: pointer;
+  width: 26px; height: 26px; border-radius: 7px; font-size: 17px; line-height: 1;
+}
+
+/* === DURUMLAR: yükleniyor / hata / boş === */
+.skeleton { padding: 12px 20px; }
+.skel-row {
+  height: 46px; border-radius: 10px; margin: 9px 0;
+  background: linear-gradient(90deg, #f0eef4 25%, #e7e3ee 37%, #f0eef4 63%);
+}
+.state-box {
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+  text-align: center; color: $muted; padding: 30px 20px; font-size: 14px;
+}

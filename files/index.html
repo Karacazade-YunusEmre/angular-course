@@ -3,77 +3,217 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sepet</title>
+  <title>Ürün Yönetim Paneli</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <!--
-    SEPET — STATİK referans (JS YOK).
-    İki bölüm aynı CartService singleton'ına bağlanacak:
-      • ProductList  -> her üründe "Sepete Ekle" -> cart.add(product)
-      • CartSummary  -> cart.items() / cart.count() / cart.total()
-    Bir yerde ekleyince diğeri anında güncellenir (DI + signal).
+    ÜRÜN YÖNETİM PANELİ — STATİK referans (JS YOK)
+    Backend: ProductsApi (.NET 10)  ·  http://localhost:5080
 
-    Eşleştirme:
-      • Ürün fiyatı  -> {{ p.price | currency:'TRY' }}
-      • "Sepete Ekle" -> (click)="cart.add(p)"
-      • Sepet başlığı -> Sepet ({{ cart.count() }})
-      • Toplam        -> {{ cart.total() | currency:'TRY' }}
-      • Çıkar (×)     -> (click)="cart.remove(item.id)"
+    ANGULAR KARŞILIKLARI
+    ────────────────────────────────────────────────────────────────
+    Servis (Modül 7 + 8):
+      private readonly response = httpResource<PagedResult<Product>>(
+        () => `${BASE}/api/products?${this.queryString()}`
+      );
+      readonly products = computed(() => this.response.value()?.items ?? []);
+      readonly total    = computed(() => this.response.value()?.total ?? 0);
+
+    Filtre alanları birer signal olur; queryString() bir computed'dir:
+      name, minPrice, maxPrice, minStock, maxStock, sort, page, pageSize
+      → filtre değişince URL değişir → httpResource İSTEĞİ OTOMATİK YENİLER.
+      (Bu yüzden burada arama YEREL değil, SUNUCU tarafında yapılır.)
+
+    Ekle  -> http.post(`${BASE}/api/products`, body).subscribe(() => reload())
+    Sil   -> http.delete(`${BASE}/api/products/${id}`).subscribe(() => reload())
+
+    Test kolaylıkları:
+      ?delay=1500                      → yükleniyor ekranını görmek için
+      GET /api/products/error-demo     → hata ekranını görmek için
   -->
   <main class="page">
-
-    <!-- ===== ProductList ===== -->
     <div class="card">
+
       <header class="head">
-        <h1>Mağaza</h1>
-        <p class="subtitle">Bir ürünü sepete ekle</p>
-      </header>
-      <ul class="product-list">
-        <li class="product-row">
-          <span class="p-name">Kablosuz Kulaklık</span>
-          <span class="p-price">₺1,299.00</span>
-          <button class="add-btn">Sepete Ekle</button>
-        </li>
-        <li class="product-row">
-          <span class="p-name">Mekanik Klavye</span>
-          <span class="p-price">₺2,450.00</span>
-          <button class="add-btn">Sepete Ekle</button>
-        </li>
-        <li class="product-row">
-          <span class="p-name">USB-C Kablo</span>
-          <span class="p-price">₺149.00</span>
-          <button class="add-btn">Sepete Ekle</button>
-        </li>
-      </ul>
-    </div>
-
-    <!-- ===== CartSummary ===== -->
-    <div class="card cart">
-      <header class="head cart-head">
-        <h1>Sepet (2)</h1>
-        <button class="clear-btn">Temizle</button>
+        <h1>Ürün Yönetimi</h1>
+        <p class="subtitle">ProductsApi · listele, ara, sayfala, ekle, sil</p>
       </header>
 
-      <ul class="cart-list">
-        <li class="cart-row">
-          <span class="c-name">Kablosuz Kulaklık</span>
-          <span class="c-price">₺1,299.00</span>
-          <button class="remove-btn" aria-label="Çıkar">&times;</button>
+      <!-- ===================================================================
+           EKLEME FORMU
+           (click)="add()" → POST /api/products, sonra reload()
+      ==================================================================== -->
+      <section class="form-row">
+        <input class="f-input f-name"  type="text" placeholder="Ürün adı" value="" />
+        <input class="f-input f-cat"   type="text" placeholder="Kategori" value="" />
+        <input class="f-input f-num"   type="text" placeholder="Fiyat" value="" />
+        <input class="f-input f-num"   type="text" placeholder="Stok" value="" />
+        <button class="btn btn-primary">Ekle</button>
+      </section>
+
+      <!-- ===================================================================
+           ARAMA / FİLTRE PANELİ
+           Her alan bir signal; değişince sunucuya yeni istek gider.
+           name → ?name=   |  fiyat → ?minPrice=&maxPrice=
+           stok → ?minStock=&maxStock=  |  sıralama → ?sort=
+      ==================================================================== -->
+      <section class="filters">
+
+        <div class="filter-group grow">
+          <label class="f-label">Ürün adı</label>
+          <input class="f-input" type="text" placeholder="ada göre ara..." value="kahve" />
+        </div>
+
+        <div class="filter-group">
+          <label class="f-label">Fiyat aralığı</label>
+          <div class="range">
+            <input class="f-input f-num" type="text" placeholder="min" value="500" />
+            <span class="dash">–</span>
+            <input class="f-input f-num" type="text" placeholder="max" value="3000" />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="f-label">Stok aralığı</label>
+          <div class="range">
+            <input class="f-input f-num" type="text" placeholder="min" value="" />
+            <span class="dash">–</span>
+            <input class="f-input f-num" type="text" placeholder="max" value="" />
+          </div>
+        </div>
+
+        <div class="filter-group">
+          <label class="f-label">Sıralama</label>
+          <select class="f-select">
+            <option>Varsayılan</option>
+            <option>Ada göre (A→Z)</option>
+            <option selected>Fiyat (artan)</option>
+            <option>Fiyat (azalan)</option>
+            <option>Stok (artan)</option>
+          </select>
+        </div>
+
+        <button class="btn btn-ghost">Temizle</button>
+      </section>
+
+      <!-- Sonuç bilgisi: total ve sayfa aralığı PagedResult'tan gelir -->
+      <p class="result-meta">
+        <strong>34</strong> sonuç · <span class="muted">11–20 arası gösteriliyor</span>
+      </p>
+
+      <!-- ===================================================================
+           SONUÇ LİSTESİ
+           @if (isLoading()) {...} @else if (error()) {...}
+           @else { @for (p of products(); track p.id) { ...<li>... } @empty {...} }
+      ==================================================================== -->
+      <ul class="admin-list">
+
+        <li class="admin-row">
+          <div class="a-main">
+            <span class="a-name">Nova Kahve Değirmeni Pro</span>
+            <span class="a-cat">Mutfak</span>
+          </div>
+          <span class="a-price">₺1.284,50</span>
+          <span class="stock stock-ok">142 adet</span>
+          <button class="del-btn" aria-label="Sil">&times;</button>
         </li>
-        <li class="cart-row">
-          <span class="c-name">USB-C Kablo</span>
-          <span class="c-price">₺149.00</span>
-          <button class="remove-btn" aria-label="Çıkar">&times;</button>
+
+        <li class="admin-row">
+          <div class="a-main">
+            <span class="a-name">Aurora French Press Classic</span>
+            <span class="a-cat">Mutfak</span>
+          </div>
+          <span class="a-price">₺879,00</span>
+          <span class="stock stock-low">12 adet</span>
+          <button class="del-btn" aria-label="Sil">&times;</button>
         </li>
+
+        <li class="admin-row">
+          <div class="a-main">
+            <span class="a-name">Lumen Kahve Değirmeni Lite</span>
+            <span class="a-cat">Mutfak</span>
+          </div>
+          <span class="a-price">₺1.640,25</span>
+          <span class="stock stock-out">Tükendi</span>
+          <button class="del-btn" aria-label="Sil">&times;</button>
+        </li>
+
+        <li class="admin-row">
+          <div class="a-main">
+            <span class="a-name">Terra Espresso Makinesi Mini</span>
+            <span class="a-cat">Mutfak</span>
+          </div>
+          <span class="a-price">₺2.945,90</span>
+          <span class="stock stock-ok">63 adet</span>
+          <button class="del-btn" aria-label="Sil">&times;</button>
+        </li>
+
+        <li class="admin-row">
+          <div class="a-main">
+            <span class="a-name">Zenit Kahve Değirmeni Air</span>
+            <span class="a-cat">Elektronik</span>
+          </div>
+          <span class="a-price">₺2.310,00</span>
+          <span class="stock stock-low">7 adet</span>
+          <button class="del-btn" aria-label="Sil">&times;</button>
+        </li>
+
       </ul>
 
-      <div class="cart-total">
-        <span>Toplam</span>
-        <span class="total-value">₺1,448.00</span>
+      <!-- ===================================================================
+           PAGINATION
+           page/totalPages/hasPrevious/hasNext → PagedResult'tan gelir.
+           (click)="goTo(n)" → page.set(n) → httpResource yeniler.
+           pageSize seçimi de bir signal'dir.
+      ==================================================================== -->
+      <nav class="pager">
+        <div class="page-size">
+          <span class="f-label">Sayfa boyutu</span>
+          <select class="f-select sm">
+            <option>5</option>
+            <option selected>10</option>
+            <option>20</option>
+            <option>50</option>
+          </select>
+        </div>
+
+        <div class="pages">
+          <button class="pg-btn">&laquo;</button>
+          <button class="pg-btn">1</button>
+          <button class="pg-btn active">2</button>
+          <button class="pg-btn">3</button>
+          <button class="pg-btn">4</button>
+          <span class="pg-gap">…</span>
+          <button class="pg-btn">24</button>
+          <button class="pg-btn">&raquo;</button>
+        </div>
+      </nav>
+
+      <!-- ===== YÜKLENİYOR: @if (isLoading()) =====
+      <div class="skeleton">
+        <div class="skel-row"></div>
+        <div class="skel-row"></div>
+        <div class="skel-row"></div>
       </div>
-    </div>
+      -->
 
+      <!-- ===== HATA: @else if (error()) =====
+      <div class="state-box">
+        <span class="state-title">Ürünler yüklenemedi.</span>
+        <span class="muted">Sunucuya ulaşılamıyor olabilir.</span>
+        <button class="btn btn-primary">Tekrar dene</button>
+      </div>
+      -->
+
+      <!-- ===== SONUÇ YOK: @empty =====
+      <div class="state-box">
+        <span class="state-title">Aramana uyan ürün yok.</span>
+        <span class="muted">Filtreleri temizleyip yeniden dene.</span>
+      </div>
+      -->
+
+    </div>
   </main>
 </body>
 </html>
