@@ -1,0 +1,80 @@
+<section class="filters">
+  <div class="filter-group grow">
+    <label class="f-label" for="f-name">Ürün adı</label>
+    <input
+      id="f-name"
+      class="f-input"
+      type="text"
+      placeholder="ada göre ara..."
+      [value]="name() ?? ''"
+      (input)="onName($any($event.target).value)"
+    />
+  </div>
+
+  <div class="filter-group">
+    <label class="f-label">Fiyat aralığı</label>
+    <div class="range">
+      <input
+        class="f-input f-num"
+        type="number"
+        placeholder="min"
+        min="0"
+        [value]="minPrice() ?? ''"
+        (input)="onMinPrice($any($event.target).value)"
+      />
+      <span class="dash">–</span>
+      <input
+        class="f-input f-num"
+        type="number"
+        placeholder="max"
+        min="0"
+        [value]="maxPrice() ?? ''"
+        (input)="onMaxPrice($any($event.target).value)"
+      />
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="f-label">Stok aralığı</label>
+    <div class="range">
+      <input
+        class="f-input f-num"
+        type="number"
+        placeholder="min"
+        min="0"
+        [value]="minStock() ?? ''"
+        (input)="onMinStock($any($event.target).value)"
+      />
+      <span class="dash">–</span>
+      <input
+        class="f-input f-num"
+        type="number"
+        placeholder="max"
+        min="0"
+        [value]="maxStock() ?? ''"
+        (input)="onMaxStock($any($event.target).value)"
+      />
+    </div>
+  </div>
+
+  <div class="filter-group">
+    <label class="f-label" for="f-sort">Sıralama</label>
+    <select
+      id="f-sort"
+      class="f-select"
+      [value]="sort() ?? ''"
+      (change)="onSort($any($event.target).value)"
+    >
+      <option value="">Varsayılan</option>
+      <option value="name">Ada göre (A→Z)</option>
+      <option value="-name">Ada göre (Z→A)</option>
+      <option value="price">Fiyat (artan)</option>
+      <option value="-price">Fiyat (azalan)</option>
+      <option value="stock">Stok (artan)</option>
+      <option value="-stock">Stok (azalan)</option>
+      <option value="-createdAt">En yeni</option>
+    </select>
+  </div>
+
+  <button class="btn btn-ghost" (click)="reset()">Temizle</button>
+</section>

@@ -1,0 +1,203 @@
+/* === SONUÇ BİLGİSİ ===  HTML: <p class="result-meta"> */
+.result-meta {
+  margin: 0;
+  padding: 10px 22px 8px;
+  font-size: 13px;
+  color: var(--color-text);
+
+  strong {
+    color: var(--color-accent);
+  }
+
+  .muted {
+    color: var(--color-text-muted);
+  }
+}
+
+.muted {
+  color: var(--color-text-muted);
+}
+
+/* === LİSTE ===  HTML: <ul class="admin-list"> <li class="admin-row"> */
+.admin-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 11px 22px;
+  border-top: 1px solid var(--color-border-row);
+
+  &:hover {
+    background: var(--color-surface-hover);
+  }
+}
+
+.a-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.a-name {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.a-cat {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-accent-alt);
+  background: var(--color-chip-bg);
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.a-price {
+  font-size: 13.5px;
+  font-weight: 800;
+  min-width: 92px;
+  text-align: right;
+}
+
+/* === STOK ROZETİ ===
+   HTML: <span class="stock stock-*">
+   Angular'da: <span [appStockLevel]="product.stock"> (Modül 6 directive'i) */
+.stock {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--color-text-on-status);
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  min-width: 78px;
+  text-align: center;
+}
+
+.stock-ok {
+  background: var(--color-success);
+}
+
+/* bol stok  -> yeşil   */
+.stock-low {
+  background: var(--color-warning);
+}
+
+/* az stok   -> turuncu */
+.stock-out {
+  background: var(--color-danger);
+}
+
+/* tükendi   -> kırmızı */
+
+/* Silme butonu */
+.del-btn {
+  border: none;
+  background: var(--color-surface-muted);
+  color: var(--color-accent);
+  cursor: pointer;
+  width: 26px;
+  height: 26px;
+  border-radius: 7px;
+  font-size: 17px;
+  line-height: 1;
+}
+
+/* === PAGINATION ===  HTML: <nav class="pager"> */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 12px 20px 16px;
+  border-top: 2px solid var(--color-border-strong);
+}
+
+.page-size {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  .f-label {
+    margin: 0;
+  }
+}
+
+.pages {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pg-btn {
+  min-width: 30px;
+  height: 30px;
+  padding: 0 8px;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text);
+  border-radius: 8px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--color-accent-alt);
+    color: var(--color-accent-alt);
+  }
+
+  /* Aktif sayfa — Angular'da: [class.active]="p === page()" */
+  &.active {
+    color: var(--color-text-on-status);
+    border-color: transparent;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-alt));
+  }
+
+  /* Devre dışı — Angular'da: [disabled]="!hasPrevious()" */
+  &:disabled {
+    color: var(--color-text-disabled);
+    background: var(--color-surface-disabled);
+    cursor: not-allowed;
+  }
+}
+
+.pg-gap {
+  color: var(--color-dash);
+  padding: 0 2px;
+}
+
+/* === DURUMLAR: yükleniyor / hata / boş === */
+.skeleton {
+  padding: 12px 20px;
+}
+
+.skel-row {
+  height: 46px;
+  border-radius: 10px;
+  margin: 9px 0;
+  background: linear-gradient(90deg, var(--color-surface-skeleton) 25%, var(--color-surface-skeleton-highlight) 37%, var(--color-surface-skeleton) 63%);
+}
+
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 32px 20px;
+  font-size: 13.5px;
+
+  .state-title {
+    font-size: 15px;
+    font-weight: 700;
+  }
+}

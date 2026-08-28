@@ -1,5 +1,5 @@
 import { HttpInterceptorFn } from '@angular/common/http';
-import { environment } from '../environments/environment';
+import { environment } from '@app/environments/environment';
 
 export const baseUrlInterceptor: HttpInterceptorFn = (req, next) => {
   // Eğer zaten tam url ise (http/https ile başlıyorsa) dokunma

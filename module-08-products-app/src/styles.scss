@@ -1,4 +1,86 @@
-@use './app/styles/variables' as *;
+/* ============================================================
+   TASARIM TOKEN'LARI (design tokens)
+   ------------------------------------------------------------
+   1. Primitive : ham değerler. İsim değeri anlatır, kullanımı değil.
+                  Bileşenler bunlara DOĞRUDAN dokunmaz.
+   2. Semantic  : anlam taşır, bir primitive'e işaret eder.
+                  Bileşenler SADECE bu katmanı kullanır.
+
+   Ayrımın sebebi: tema değiştirmek (ör. dark mode) gerektiğinde
+   yalnızca 2. katmanı yeniden tanımlamak yeterli olur; ham renk
+   paleti olduğu gibi kalır.
+   ============================================================ */
+:root {
+  /* --- 1. KATMAN: Primitive ------------------------------- */
+  --white: #ffffff;
+  --gray-50: #fbfafc;
+  --gray-100: #f1f0f5;
+  --gray-200: #e6e8ee;
+  --gray-300: #bfc4cf;
+  --gray-400: #aaaabb;
+  --gray-500: #6b7280;
+  --gray-900: #1f2430;
+
+  /* Mor tonlu nötrler — gri skalasından ayrı tutuluyor çünkü
+     iskelet animasyonundaki parlama farkı bu iki tondan geliyor. */
+  --plum-100: #efe9f3;
+  --plum-200: #e7e3ee;
+
+  --red-500: #ef4444;
+  --red-600: #dd0031;
+  --amber-500: #f59e0b;
+  --green-600: #22a06b;
+  --purple-700: #7a1fa2;
+
+  /* --- 2. KATMAN: Semantic -------------------------------- */
+
+  /* Vurgu */
+  --color-accent: var(--red-600);
+  --color-accent-alt: var(--purple-700);
+  /* Odak halkası: vurgu renginin %12 saydamı.
+     color-mix sayesinde --color-accent değişince bu da kendiliğinden uyar.
+     Sass'ta bu iş rgba()/darken() ile yapılırdı; artık CSS tarafında yapılıyor. */
+  --color-accent-ring: color-mix(in srgb, var(--color-accent) 12%, transparent);
+
+  /* Durum renkleri (stok rozetleri, uyarilar) */
+  --color-success: var(--green-600);
+  --color-warning: var(--amber-500);
+  --color-danger: var(--red-500);
+  --color-text-on-status: var(--white);
+
+  /* Metin */
+  --color-text: var(--gray-900);
+  --color-text-muted: var(--gray-500);
+  --color-text-placeholder: var(--gray-400);
+  --color-text-disabled: var(--gray-300);
+  --color-text-on-accent: var(--white);
+
+  /* Yüzeyler */
+  --color-surface: var(--white);
+  --color-surface-page: var(--gray-100);
+  --color-surface-subtle: var(--gray-50);
+  --color-surface-hover: var(--gray-50);
+  --color-surface-disabled: var(--gray-50);
+  --color-surface-muted: var(--gray-100);
+  --color-surface-skeleton: var(--gray-100);
+  --color-surface-skeleton-highlight: var(--plum-200);
+
+  /* Kategori rozeti: ikincil vurgunun %8 saydami */
+  --color-chip-bg: color-mix(in srgb, var(--color-accent-alt) 8%, transparent);
+
+  /* Çizgiler */
+  --color-border: var(--gray-200);
+  --color-border-subtle: var(--gray-100);
+  --color-border-row: var(--gray-100);
+  --color-border-strong: var(--plum-100);
+  --color-dash: var(--gray-300);
+
+  /* Ölçü ve efektler */
+  --radius-sm: 9px;
+  --radius-lg: 18px;
+  --radius-pill: 999px;
+  --shadow-card: 0 12px 40px rgb(31 36 48 / 10%);
+}
 
 * {
   box-sizing: border-box;
@@ -7,5 +89,69 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  color: $ink;
+  color: var(--color-text);
+}
+
+/* === ORTAK FORM ELEMANLARI === */
+.f-input,
+.f-select {
+  padding: 8px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-size: 13.5px;
+  outline: none;
+  background: var(--color-surface);
+  min-width: 0;
+  color: var(--color-text);
+
+  &::placeholder {
+    color: var(--color-text-placeholder);
+  }
+
+  &:focus {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-ring);
+  }
+}
+
+.f-select {
+  cursor: pointer;
+}
+
+.f-select.sm {
+  padding: 5px 8px;
+  font-size: 12.5px;
+}
+
+.f-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  margin-bottom: 4px;
+}
+
+/* Butonlar */
+.btn {
+  border: none;
+  border-radius: var(--radius-sm);
+  padding: 9px 15px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.btn-primary {
+  color: var(--color-text-on-accent);
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-alt));
+}
+
+.btn-ghost {
+  color: var(--color-text-muted);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  align-self: flex-end;
 }

@@ -1,0 +1,84 @@
+@if (isLoading()) {
+  <!-- ===== YÜKLENİYOR ===== -->
+  <div class="skeleton">
+    <div class="skel-row"></div>
+    <div class="skel-row"></div>
+    <div class="skel-row"></div>
+  </div>
+} @else if (error()) {
+  <!-- ===== HATA ===== -->
+  <div class="state-box">
+    <span class="state-title">Ürünler yüklenemedi.</span>
+    <span class="muted">Sunucuya ulaşılamıyor olabilir.</span>
+    <button class="btn btn-primary" (click)="retry()">Tekrar dene</button>
+  </div>
+} @else {
+  <!-- Sonuç bilgisi: total ve sayfa aralığı PagedResult'tan gelir -->
+  <p class="result-meta">
+    @if (total() > 0) {
+      <strong>{{ total() }}</strong> sonuç ·
+      <span class="muted">{{ lowerLimit() }}–{{ upperLimit() }} arası gösteriliyor</span>
+    } @else {
+      <span class="muted">Sonuç yok</span>
+    }
+  </p>
+
+  <ul class="admin-list">
+    @for (p of products(); track p.id) {
+      <li class="admin-row">
+        <div class="a-main">
+          <span class="a-name">{{ p.name }}</span>
+          <span class="a-cat">{{ p.category }}</span>
+        </div>
+        <span class="a-price">{{ p.price | currency: 'TRY' : 'symbol' : '1.2-2' }}</span>
+        <span class="stock" [class]="stockClass(p.stock)">{{ p.stock }} adet</span>
+        <button class="del-btn" aria-label="Sil" (click)="remove(p)">&times;</button>
+      </li>
+    } @empty {
+      <!-- ===== SONUÇ YOK ===== -->
+      <div class="state-box">
+        <span class="state-title">Aramana uyan ürün yok.</span>
+        <span class="muted">Filtreleri temizleyip yeniden dene.</span>
+      </div>
+    }
+  </ul>
+
+  <!-- ===================================================================
+         PAGINATION
+         page/totalPages/hasPrevious/hasNext → PagedResult'tan gelir.
+         Butona basınca currentPage signal'i değişir, httpResource yeni
+         isteği kendiliğinden atar.
+    ==================================================================== -->
+  <nav class="pager">
+    <div class="page-size">
+      <span class="f-label">Sayfa boyutu</span>
+      <select class="f-select sm" [value]="pageSize()" (change)="onPageSize($any($event.target).value)">
+        @for (size of pageSizeOptions; track size) {
+          <option [value]="size">{{ size }}</option>
+        }
+      </select>
+    </div>
+
+    @if (totalPages() > 1) {
+      <div class="pages">
+        <button class="pg-btn" [disabled]="!hasPreviousPage()" (click)="previousPage()" aria-label="Önceki sayfa">
+          &laquo;
+        </button>
+
+        @for (page of pageNumbers(); track $index) {
+          @if (page === '…') {
+            <span class="pg-gap">…</span>
+          } @else {
+            <button class="pg-btn" [class.active]="page === currentPage()" (click)="goToPage($any(page))">
+              {{ page }}
+            </button>
+          }
+        }
+
+        <button class="pg-btn" [disabled]="!hasNextPage()" (click)="nextPage()" aria-label="Sonraki sayfa">
+          &raquo;
+        </button>
+      </div>
+    }
+  </nav>
+}

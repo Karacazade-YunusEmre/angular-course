@@ -1,0 +1,45 @@
+<!-- Ekleme formu: POST /api/products, cevap gelince liste tazelenir. -->
+<section class="form-row">
+  <input
+    class="f-input f-name"
+    type="text"
+    placeholder="Ürün adı"
+    [value]="name()"
+    (input)="onName($any($event.target).value)"
+    (keyup.enter)="submit()"
+  />
+  <input
+    class="f-input f-cat"
+    type="text"
+    placeholder="Kategori"
+    [value]="category()"
+    (input)="onCategory($any($event.target).value)"
+    (keyup.enter)="submit()"
+  />
+  <input
+    class="f-input f-num"
+    type="number"
+    placeholder="Fiyat"
+    min="0"
+    step="0.01"
+    [value]="price() ?? ''"
+    (input)="onPrice($any($event.target).value)"
+    (keyup.enter)="submit()"
+  />
+  <input
+    class="f-input f-num"
+    type="number"
+    placeholder="Stok"
+    min="0"
+    [value]="stock() ?? ''"
+    (input)="onStock($any($event.target).value)"
+    (keyup.enter)="submit()"
+  />
+  <button class="btn btn-primary" [disabled]="!canSubmit()" (click)="submit()">
+    {{ saving() ? 'Ekleniyor…' : 'Ekle' }}
+  </button>
+</section>
+
+@if (errorMessage(); as message) {
+  <p class="form-error">{{ message }}</p>
+}
