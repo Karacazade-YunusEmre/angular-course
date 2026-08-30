@@ -39,6 +39,20 @@ builder.Services.AddScoped<IProductRepository, ProductRepository>();
 
 var app = builder.Build();
 
+// Geliştirme ortamında bekleyen migration'ları uygular; veritabanı yoksa oluşturur.
+// Olmadığı zaman, container'ın volume'ü silindiğinde ya da proje başka bir makinede
+// ilk kez açıldığında istekler "Failed to open the explicitly specified database"
+// hatasıyla düşer. Migrate() ayrıca DbContext'teki UseAsyncSeeding'i tetikler,
+// yani tablo oluştuktan sonra products.json otomatik yüklenir.
+// Üretimde bu kalıp önerilmez: migration'ı uygulamanın kendisi değil, ayrı bir
+// dağıtım adımı çalıştırmalı — aksi halde her replika aynı anda şemayı değiştirmeye çalışır.
+if (app.Environment.IsDevelopment())
+{
+    using var scope = app.Services.CreateScope();
+    var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    await db.Database.MigrateAsync();
+}
+
 app.UseExceptionHandler();
 
 app.UseStatusCodePages();
