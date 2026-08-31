@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rol Tabanlı Yönetim Paneli — Ürünler</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      ROL TABANLI YÖNETİM PANELİ — STATİK referans (JS YOK).
+      Bu ekran: /panel/urunler?q=&page=2   (rol: admin)
+
+      ROTA HARİTASI (senin kuracağın yapı):
+        ''                       -> redirect  'panel'
+        'panel'                  -> Dashboard  (KABUK: sidebar + <router-outlet/>)
+           ''                    -> redirect  'genel-bakis'   (pathMatch: 'full')
+           'genel-bakis'         -> Overview
+           'urunler'             -> ProductList     (query param: q, page)
+           'urunler/:id'         -> ProductDetail   (route param + resolver)
+           'yeni-urun'           -> ProductCreate   (canActivate: adminGuard)
+           'raporlar'            -> LAZY loadComponent  (canMatch: adminGuard)
+        'yetkisiz'               -> Denied
+        '**'                     -> NotFound
+
+      BU EKRANDAKİ ANGULAR KARŞILIKLARI:
+        • sol menü      -> <a routerLink="urunler" routerLinkActive="active">
+        • içerik alanı  -> <router-outlet />  (.content'in yerine gelir)
+        • arama + sayfa -> QUERY PARAMETRESİ; URL'de tutulur, input() ile okunur
+        • "Detay"       -> [routerLink]="[product.id]"  (göreli gezinme)
+        • fiyat         -> {{ product.price | currency:'TRY' }}      (Modül 6)
+        • stok rozeti   -> <span [appStockLevel]="product.stock">    (Modül 6)
+        • veri          -> ProductService + httpResource              (Modül 7/8)
+
+      Aşağıda "dolu liste" durumu görünür; yükleniyor/hata/boş blokları yorumda.
+    -->
+    <div class="shell">
+      <!-- ===== SOL MENÜ (kabukta sabit, rota değişse de yeniden çizilmez) ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="brand-name">Ürün Paneli</p>
+          <p class="brand-sub">Modül 9 · Routing</p>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link"><span class="dot"></span>Genel Bakış</a>
+          <a class="nav-link active"><span class="dot"></span>Ürünler</a>
+
+          <p class="nav-section">Yönetim</p>
+          <!-- canActivate: adminGuard — viewer rolünde /yetkisiz'e yönlenir -->
+          <a class="nav-link"><span class="dot"></span>Yeni Ürün<span class="nav-tag">admin</span></a>
+          <!-- canMatch: adminGuard — viewer rolünde bağlantı .locked görünür -->
+          <a class="nav-link"><span class="dot"></span>Raporlar<span class="nav-tag">lazy</span></a>
+        </nav>
+      </aside>
+
+      <!-- ===== SAĞ TARAF ===== -->
+      <section class="main">
+        <!-- Kırıntı yolu: iç içe rotaların görsel karşılığı -->
+        <header class="topbar">
+          <div class="crumbs">
+            <span>Panel</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-current">Ürünler</span>
+          </div>
+          <div class="role-switch">
+            <span>Rol:</span>
+            <select class="role-select">
+              <option>Yönetici</option>
+              <option>İzleyici</option>
+            </select>
+          </div>
+        </header>
+
+        <!-- ===== <router-outlet /> BURAYA BASAR ===== -->
+        <div class="content">
+          <h1 class="page-title">Ürünler</h1>
+          <p class="page-sub">238 üründen 5 tanesi gösteriliyor · sayfa 2 / 48</p>
+
+          <!-- Arama ve sayfa boyutu: değerleri URL'de query parametresi olarak tutulur
+               (/panel/urunler?q=kahve&page=2&pageSize=5) -->
+          <div class="toolbar">
+            <input class="search-input" type="text" placeholder="Ürün adında ara..." value="" />
+            <select class="page-size">
+              <option>5 / sayfa</option>
+              <option>10 / sayfa</option>
+              <option>20 / sayfa</option>
+            </select>
+          </div>
+
+          <div class="table">
+            <div class="row head">
+              <span>Ürün</span>
+              <span>Kategori</span>
+              <span class="cell-price">Fiyat</span>
+              <span class="cell-stock">Stok</span>
+              <span class="cell-action"></span>
+            </div>
+
+            <!-- @for (product of products(); track product.id) { ...bu .row... } -->
+            <div class="row">
+              <span class="cell-name">Terra Aroma Difüzör Max</span>
+              <span class="cell-category">Ev &amp; Yaşam</span>
+              <span class="cell-price">1.277,59 ₺</span>
+              <span class="cell-stock"><span class="stock stock-ok">471 adet</span></span>
+              <span class="cell-action"><a class="detail-link">Detay &rsaquo;</a></span>
+            </div>
+            <div class="row">
+              <span class="cell-name">Nordic Seramik Kupa Seti</span>
+              <span class="cell-category">Mutfak</span>
+              <span class="cell-price">449,00 ₺</span>
+              <span class="cell-stock"><span class="stock stock-low">12 adet</span></span>
+              <span class="cell-action"><a class="detail-link">Detay &rsaquo;</a></span>
+            </div>
+            <div class="row">
+              <span class="cell-name">Vertex Kablosuz Kulaklık</span>
+              <span class="cell-category">Elektronik</span>
+              <span class="cell-price">2.899,90 ₺</span>
+              <span class="cell-stock"><span class="stock stock-out">Tükendi</span></span>
+              <span class="cell-action"><a class="detail-link">Detay &rsaquo;</a></span>
+            </div>
+            <div class="row">
+              <span class="cell-name">Lumen Masa Lambası</span>
+              <span class="cell-category">Ev &amp; Yaşam</span>
+              <span class="cell-price">899,50 ₺</span>
+              <span class="cell-stock"><span class="stock stock-ok">86 adet</span></span>
+              <span class="cell-action"><a class="detail-link">Detay &rsaquo;</a></span>
+            </div>
+            <div class="row">
+              <span class="cell-name">Atlas Sırt Çantası 28L</span>
+              <span class="cell-category">Outdoor</span>
+              <span class="cell-price">1.649,00 ₺</span>
+              <span class="cell-stock"><span class="stock stock-low">7 adet</span></span>
+              <span class="cell-action"><a class="detail-link">Detay &rsaquo;</a></span>
+            </div>
+          </div>
+
+          <!-- Sayfa numarası da query parametresidir: ?page=3 -->
+          <div class="pager">
+            <button class="pager-btn">&lsaquo; Önceki</button>
+            <span class="pager-info">Sayfa 2 / 48</span>
+            <button class="pager-btn">Sonraki &rsaquo;</button>
+          </div>
+
+          <!-- ===== YÜKLENİYOR: @if (productService.isLoading()) =====
+          <div class="skeleton">
+            <div class="skel-row"></div>
+            <div class="skel-row"></div>
+            <div class="skel-row"></div>
+          </div>
+          -->
+
+          <!-- ===== HATA: @else if (productService.error()) =====
+          <div class="state-box">
+            <span>Ürünler yüklenemedi.</span>
+            <button class="btn btn-primary">Tekrar dene</button>
+          </div>
+          -->
+
+          <!-- ===== BOŞ: @empty =====
+          <div class="state-box"><span>Aramana uyan ürün yok.</span></div>
+          -->
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

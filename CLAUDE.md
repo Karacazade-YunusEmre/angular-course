@@ -141,7 +141,7 @@ Bu proje Angular **v22** kullanır. Eski API'lere ait öneri verme.
 başına `-` → azalan), `name` (içerir, harf duyarsız), `minPrice`/`maxPrice`,
 `minStock`/`maxStock`.
 
-- Cevap sarmalayıcısı: `{ items, page, pageSize, total, totalPages, hasPrevious, hasNext }`
+- Cevap sarmalayıcısı: `{ items, page, pageSize, total, totalPages, hasPreviousPage, hasNextPage }`
   → **Angular tarafındaki interface bu adlarla birebir aynı olmalı.**
 - Hatalar `application/problem+json`: `400` + `ValidationProblemDetails`,
   `404` + `ProblemDetails`.

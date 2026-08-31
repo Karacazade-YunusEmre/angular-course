@@ -23,6 +23,8 @@ from pathlib import Path
 import sass
 from playwright.sync_api import sync_playwright
 
+from browser import launch_chromium
+
 ROOT = Path(__file__).parent
 MOCKUP_DIR = ROOT / "mockups"
 
@@ -67,7 +69,7 @@ def main() -> int:
 
     out_png = MOCKUP_DIR / f"m{module_no:02d}_{args.name}.png"
     with sync_playwright() as pw:
-        browser = pw.chromium.launch()
+        browser = launch_chromium(pw)
         page = browser.new_page(
             viewport={"width": args.width, "height": args.height},
             device_scale_factor=2,

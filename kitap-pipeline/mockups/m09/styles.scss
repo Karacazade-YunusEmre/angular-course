@@ -1,0 +1,497 @@
+/* ===================================================================
+   Rol Tabanlı Yönetim Paneli — stil kaynağı (SCSS)
+
+   BÖLME REHBERİ (hangi blok hangi HTML'e ait):
+     • .shell ............................... panelin dış kabuğu (sidebar + main)
+     • .sidebar .brand ...................... sol menü başlığı
+     • .nav .nav-link ....................... menü bağlantıları
+       (.nav-link.active -> Angular'da routerLinkActive verecek)
+       (.nav-link.locked -> guard'ın engellediği bağlantı)
+     • .main .topbar .crumbs ................ üst şerit + kırıntı yolu
+     • .role-switch ......................... rol değiştirici (admin / viewer)
+     • .content ............................. <router-outlet> ile dolan alan
+     • .toolbar .search-input .page-size .... liste araç çubuğu
+     • .table .row .cell-* .................. ürün tablosu
+     • .stock.stock-* ....................... stok rozeti
+       (Angular'da rengi [appStockLevel] DIRECTIVE'i verecek — Modül 6;
+        buradaki renkler yalnızca referans görünüm içindir)
+     • .pager ............................... sayfalama
+     • .detail-card .dl .................... ürün detayı (route parametresi)
+     • .denied-box .......................... guard reddettiğinde görünen kutu
+     • .skeleton .skel-row .state-box ....... yükleniyor / hata / boş
+=================================================================== */
+
+/* --- Renk ve ölçü değişkenleri --- */
+$accent: #dd0031;
+$accent2: #7a1fa2;
+$ink: #1f2430;
+$muted: #6b7280;
+$line: #e6e8ee;
+$sidebar-w: 232px;
+
+/* === DEMO SAYFA ARKA PLANI (yalnızca önizleme) === */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: $ink;
+  background: #f3f1f5;
+  padding: 28px 16px;
+  display: flex;
+  justify-content: center;
+}
+
+/* === KABUK ===  HTML: <div class="shell">
+   Angular'da: Dashboard (üst component) — sidebar sabit, sağ taraf
+   <router-outlet /> ile değişir. */
+.shell {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 470px;
+  display: grid;
+  grid-template-columns: $sidebar-w 1fr;
+  background: #fff;
+  border: 1px solid $line;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(31, 36, 48, 0.1);
+  overflow: hidden;
+}
+
+/* === SOL MENÜ ===  HTML: <aside class="sidebar"> === */
+.sidebar {
+  background: linear-gradient(160deg, #241b2e, #1a1622);
+  color: #fff;
+  padding: 20px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.brand {
+  padding: 0 8px;
+  .brand-name {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 800;
+    letter-spacing: 0.2px;
+  }
+  .brand-sub {
+    margin: 3px 0 0;
+    font-size: 11.5px;
+    opacity: 0.55;
+  }
+}
+
+/* === MENÜ BAĞLANTILARI ===
+   HTML: <nav class="nav"> <a class="nav-link"> …
+   Angular'da: <a routerLink="products" routerLinkActive="active"> */
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 11px;
+  border-radius: 9px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.72);
+  text-decoration: none;
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.5;
+    flex: none;
+  }
+  &:hover {
+    background: rgba(255, 255, 255, 0.06);
+    color: #fff;
+  }
+  /* aktif rota — Angular'da routerLinkActive="active" bu sınıfı verir */
+  &.active {
+    background: linear-gradient(135deg, $accent, $accent2);
+    color: #fff;
+    .dot {
+      opacity: 1;
+    }
+  }
+  /* guard'ın kapattığı bağlantı: görünür ama erişilemez */
+  &.locked {
+    opacity: 0.42;
+  }
+}
+.nav-tag {
+  margin-left: auto;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  padding: 2px 6px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.14);
+  text-transform: uppercase;
+}
+.nav-section {
+  margin: 12px 0 2px;
+  padding: 0 11px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  opacity: 0.38;
+}
+
+/* === SAĞ TARAF ===  HTML: <section class="main"> === */
+.main {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* === ÜST ŞERİT ===  HTML: <header class="topbar"> === */
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 15px 22px;
+  border-bottom: 1px solid $line;
+}
+/* Kırıntı yolu — iç içe rotaların (nested routes) görsel karşılığı */
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: $muted;
+  min-width: 0;
+  .crumb-sep {
+    opacity: 0.45;
+  }
+  .crumb-current {
+    color: $ink;
+    font-weight: 700;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+/* Rol değiştirici — hangi guard'ın geçeceğini belirler */
+.role-switch {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12.5px;
+  color: $muted;
+  .role-select {
+    padding: 6px 10px;
+    border: 1px solid $line;
+    border-radius: 8px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: $ink;
+    background: #fff;
+  }
+}
+
+/* === İÇERİK ALANI ===
+   HTML: <div class="content">
+   Angular'da burası <router-outlet /> — çocuk rota buraya basılır. */
+.content {
+  padding: 18px 22px 22px;
+  flex: 1;
+  min-width: 0;
+}
+.page-title {
+  margin: 0 0 3px;
+  font-size: 18px;
+  font-weight: 800;
+}
+.page-sub {
+  margin: 0 0 16px;
+  font-size: 12.5px;
+  color: $muted;
+}
+
+/* === ARAÇ ÇUBUĞU ===  HTML: <div class="toolbar">
+   Angular'da: arama ve sayfa boyutu QUERY PARAMETRESİ olarak URL'de tutulur. */
+.toolbar {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.search-input {
+  flex: 1;
+  padding: 9px 13px;
+  border: 1px solid $line;
+  border-radius: 9px;
+  font-size: 13.5px;
+  outline: none;
+  &::placeholder {
+    color: #aab;
+  }
+  &:focus {
+    border-color: $accent;
+  }
+}
+.page-size {
+  padding: 9px 11px;
+  border: 1px solid $line;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  background: #fff;
+  color: $ink;
+}
+
+/* === ÜRÜN TABLOSU ===
+   HTML: <div class="table"> <div class="row"> … </div> </div> */
+.table {
+  border: 1px solid $line;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 116px 96px 104px 68px;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid #eef0f5;
+  font-size: 13.5px;
+  &:last-child {
+    border-bottom: none;
+  }
+  &:hover {
+    background: #faf9fb;
+  }
+}
+/* Başlık satırı: aynı ızgara, farklı görünüm */
+.row.head {
+  background: #f7f6f9;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: $muted;
+  &:hover {
+    background: #f7f6f9;
+  }
+}
+.cell-name {
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cell-category {
+  color: $muted;
+  font-size: 12.5px;
+}
+.cell-price {
+  font-weight: 700;
+  text-align: right;
+}
+.cell-stock {
+  display: flex;
+  justify-content: center;
+}
+.cell-action {
+  text-align: right;
+}
+/* Detaya giden bağlantı — Angular'da [routerLink]="[product.id]" */
+.detail-link {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: $accent2;
+  text-decoration: none;
+  white-space: nowrap;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+/* === STOK ROZETİ ===
+   HTML: <span class="stock stock-*">
+   Angular'da rengi [appStockLevel]="product.stock" directive'i verecek. */
+.stock {
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+  padding: 3px 9px;
+  border-radius: 999px;
+  min-width: 74px;
+  text-align: center;
+}
+.stock-ok {
+  background: #22a06b;
+} /* bol stok -> yeşil */
+.stock-low {
+  background: #f59e0b;
+} /* az stok  -> turuncu */
+.stock-out {
+  background: #ef4444;
+} /* tükendi  -> kırmızı */
+
+/* === SAYFALAMA ===  HTML: <div class="pager">
+   Angular'da sayfa numarası da QUERY PARAMETRESİ (?page=3). */
+.pager {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  font-size: 13px;
+}
+.pager-btn {
+  border: 1px solid $line;
+  background: #fff;
+  color: $ink;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+.pager-info {
+  color: $muted;
+  font-weight: 600;
+  min-width: 92px;
+  text-align: center;
+}
+
+/* === ÜRÜN DETAYI ===
+   HTML: <div class="detail-card">
+   Angular'da: /panel/urunler/:id — id, aynı adlı input() ile gelir. */
+.detail-card {
+  border: 1px solid $line;
+  border-radius: 14px;
+  padding: 20px 22px;
+}
+.detail-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 4px;
+  h2 {
+    margin: 0;
+    font-size: 19px;
+    font-weight: 800;
+  }
+}
+.chip {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: #f4eef7;
+  color: $accent2;
+}
+.detail-id {
+  margin: 0 0 16px;
+  font-size: 12.5px;
+  color: $muted;
+}
+/* Alan/değer listesi */
+.dl {
+  display: grid;
+  grid-template-columns: 132px 1fr;
+  gap: 9px 14px;
+  margin: 0 0 20px;
+  font-size: 13.5px;
+  dt {
+    color: $muted;
+    font-weight: 600;
+  }
+  dd {
+    margin: 0;
+    font-weight: 700;
+  }
+}
+.detail-actions {
+  display: flex;
+  gap: 9px;
+}
+.btn {
+  border: none;
+  border-radius: 9px;
+  padding: 9px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, $accent, $accent2);
+}
+.btn-ghost {
+  color: $ink;
+  background: #fff;
+  border: 1px solid $line;
+}
+
+/* === ERİŞİM ENGELİ ===
+   HTML: <div class="denied-box">
+   Guard false döndüğünde yönlendirilen ekran. */
+.denied-box {
+  margin: 46px auto 0;
+  max-width: 400px;
+  text-align: center;
+  border: 1px solid $line;
+  border-radius: 14px;
+  padding: 32px 24px;
+  .denied-mark {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 14px;
+    border-radius: 50%;
+    background: #fdecec;
+    color: $accent;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 46px;
+  }
+  h2 {
+    margin: 0 0 7px;
+    font-size: 17px;
+    font-weight: 800;
+  }
+  p {
+    margin: 0 0 18px;
+    font-size: 13px;
+    color: $muted;
+    line-height: 1.55;
+  }
+}
+
+/* === DURUMLAR: yükleniyor / hata / boş === */
+.skeleton {
+  padding: 4px 0;
+}
+.skel-row {
+  height: 42px;
+  border-radius: 10px;
+  margin: 8px 0;
+  background: linear-gradient(90deg, #f0eef4 25%, #e7e3ee 37%, #f0eef4 63%);
+}
+.state-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  color: $muted;
+  padding: 34px 20px;
+  font-size: 14px;
+}

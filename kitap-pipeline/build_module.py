@@ -25,6 +25,8 @@ from pathlib import Path
 import pypdf
 from playwright.sync_api import sync_playwright
 
+from browser import launch_chromium
+
 from assets import CSS
 from curriculum import MODULE_SLUGS
 
@@ -64,7 +66,7 @@ def render_pdf(body_html: str, module_no: int, out_path: Path) -> None:
         f"Angular v22 Eğitim Programı · Modül {module_no} · Hazırlayan: Claude</div>"
     )
     with sync_playwright() as pw:
-        browser = pw.chromium.launch()
+        browser = launch_chromium(pw)
         page = browser.new_page()
         page.set_content(page_html, wait_until="load")
         page.pdf(

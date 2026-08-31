@@ -153,6 +153,9 @@ Bunlar kitabın pedagojisidir; `content_template.py` başında da özetlenmişti
 dosya adı `mockups/mNN_x.png` olmalı (küçük harf).
 
 **Playwright hatası** → `playwright install chromium` çalıştırıldı mı?
+Kurumsal ağ (TLS proxy'si) arkasında bu indirme başarısız olabilir; o durumda
+`browser.py` sistemde kurulu Edge/Chrome'a düşer, ek bir şey yapman gerekmez.
+Üçü de Chromium motoru olduğu için çıktı aynıdır.
 
 **Türkçe karakterler bozuk** → dosyaları UTF-8 kaydet; Windows'ta
 `PYTHONUTF8=1` ortam değişkeni yardımcı olur.

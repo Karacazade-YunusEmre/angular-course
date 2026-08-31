@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rol Tabanlı Yönetim Paneli — Ürün Detayı</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      ÜRÜN DETAYI — STATİK referans (JS YOK).
+      Bu ekran: /panel/urunler/1   (rol: admin)
+
+      ANGULAR KARŞILIKLARI:
+        • :id parametresi  -> id = input.required<string>()  ile gelir
+                              (provideRouter'a withComponentInputBinding() eklenmiş olmalı)
+        • ürün verisi      -> RESOLVER ile rota geçmeden ÖNCE çözülür
+                              resolve: { product: productResolver }
+                              -> product = input.required<Product>()
+                              Böylece sayfa açılırken boş/yükleniyor titremesi olmaz.
+        • ürün yoksa       -> resolver RedirectCommand döndürür (/panel/urunler)
+        • "Geri"           -> routerLink="../.."  ya da router.navigate(['..'])
+        • "Düzenle"        -> yalnızca admin görür (Modül 9 guard mantığı)
+        • fiyat            -> {{ product().price | currency:'TRY' }}   (Modül 6)
+        • stok rozeti      -> [appStockLevel]="product().stock"        (Modül 6)
+
+      Kırıntı yolundaki son parça ürün adıdır — iç içe rotanın (nested route)
+      görsel karşılığı: Panel / Ürünler / <ürün adı>
+    -->
+    <div class="shell">
+      <!-- ===== SOL MENÜ — kabuk aynı kalır, yalnızca .content değişir ===== -->
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="brand-name">Ürün Paneli</p>
+          <p class="brand-sub">Modül 9 · Routing</p>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link"><span class="dot"></span>Genel Bakış</a>
+          <!-- routerLinkActive alt rotada da açık kalsın istiyorsan
+               [routerLinkActiveOptions]="{ exact: false }" (varsayılan) -->
+          <a class="nav-link active"><span class="dot"></span>Ürünler</a>
+
+          <p class="nav-section">Yönetim</p>
+          <a class="nav-link"><span class="dot"></span>Yeni Ürün<span class="nav-tag">admin</span></a>
+          <a class="nav-link"><span class="dot"></span>Raporlar<span class="nav-tag">lazy</span></a>
+        </nav>
+      </aside>
+
+      <section class="main">
+        <header class="topbar">
+          <div class="crumbs">
+            <span>Panel</span>
+            <span class="crumb-sep">/</span>
+            <span>Ürünler</span>
+            <span class="crumb-sep">/</span>
+            <span class="crumb-current">Terra Aroma Difüzör Max</span>
+          </div>
+          <div class="role-switch">
+            <span>Rol:</span>
+            <select class="role-select">
+              <option>Yönetici</option>
+              <option>İzleyici</option>
+            </select>
+          </div>
+        </header>
+
+        <!-- ===== <router-outlet /> — çocuk rota buraya basar ===== -->
+        <div class="content">
+          <div class="detail-card">
+            <div class="detail-head">
+              <h2>Terra Aroma Difüzör Max</h2>
+              <span class="chip">Ev &amp; Yaşam</span>
+            </div>
+            <p class="detail-id">Ürün no: #1</p>
+
+            <dl class="dl">
+              <dt>Fiyat</dt>
+              <dd>1.277,59 ₺</dd>
+
+              <dt>Stok</dt>
+              <dd><span class="stock stock-ok">471 adet</span></dd>
+
+              <dt>Kategori</dt>
+              <dd>Ev &amp; Yaşam</dd>
+
+              <dt>Eklenme tarihi</dt>
+              <dd>30 Nisan 2026</dd>
+            </dl>
+
+            <div class="detail-actions">
+              <!-- Yalnızca admin rolünde görünür -->
+              <a class="btn btn-primary">Düzenle</a>
+              <!-- Bir üst rotaya dön: routerLink="../.." -->
+              <a class="btn btn-ghost">Listeye dön</a>
+            </div>
+          </div>
+
+          <!-- ===== YÜKLENİYOR =====
+               Resolver kullanırsan bu ekrana İHTİYAÇ KALMAZ: rota, veri
+               hazır olmadan aktive olmaz. Resolver'sız çözersen gerekir:
+          <div class="skeleton">
+            <div class="skel-row"></div>
+            <div class="skel-row"></div>
+          </div>
+          -->
+
+          <!-- ===== BULUNAMADI: id geçersizse (404) =====
+          <div class="state-box">
+            <span>Böyle bir ürün yok.</span>
+            <a class="btn btn-ghost">Listeye dön</a>
+          </div>
+          -->
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

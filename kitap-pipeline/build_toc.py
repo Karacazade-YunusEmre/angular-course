@@ -15,6 +15,8 @@ from pathlib import Path
 import pypdf
 from playwright.sync_api import sync_playwright
 
+from browser import launch_chromium
+
 from curriculum import DONE_FILES, FUTURE, LEVELS
 
 ROOT = Path(__file__).parent
@@ -175,7 +177,7 @@ def main() -> int:
 
     out_path = OUT_DIR / "00-Icindekiler.pdf"
     with sync_playwright() as pw:
-        browser = pw.chromium.launch()
+        browser = launch_chromium(pw)
         page = browser.new_page()
         page.set_content(build_html(done), wait_until="load")
         page.pdf(path=str(out_path), format="A4", print_background=True,

@@ -38,14 +38,11 @@ DONE_FILES = {
     6: "Modul-06-Directives-Pipes.pdf",
     7: "Modul-07-Services-DI.pdf",
     8: "Modul-08-HTTP.pdf",
+    9: "Modul-09-Routing.pdf",
 }
 
 # Henüz işlenmemiş modüller: (başlık, planlanan ders başlıkları)
 FUTURE = {
-    9: ("Routing & Navigation", [
-        "Temel routing", "Route parameters & component input binding",
-        "Functional guards", "Functional resolvers", "Lazy loading routes",
-        "Nested routes", "Mini proje: Multi-role dashboard"]),
     10: ("Project Structure & Feature-Based Architecture", [
         "Neden klasör yapısı önemli?", "Feature-based architecture",
         "core / shared / features ayrımı", "Bağımlılık kuralları",

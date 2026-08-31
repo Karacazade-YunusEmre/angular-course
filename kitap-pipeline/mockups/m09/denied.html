@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rol Tabanlı Yönetim Paneli — Yetkisiz</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!--
+      YETKİSİZ ERİŞİM — STATİK referans (JS YOK).
+      Bu ekran: /yetkisiz   (rol: viewer iken /panel/yeni-urun denenmiş)
+
+      NASIL BURAYA GELİNİR?
+        adminGuard, rol 'admin' değilse false yerine bir YÖNLENDİRME döndürür:
+          return inject(Router).createUrlTree(['/yetkisiz']);
+        (ya da new RedirectCommand(router.parseUrl('/yetkisiz')) )
+        Guard'dan düz false dönmek de mümkündür ama o zaman kullanıcı
+        bulunduğu sayfada kalır ve NEDEN gidemediğini anlamaz.
+
+      canActivate vs canMatch farkı (mini projede ikisi de var):
+        • 'yeni-urun'  -> canActivate: adminGuard
+             rota EŞLEŞİR, sonra guard engeller -> /yetkisiz'e yönlenir (bu ekran)
+        • 'raporlar'   -> canMatch: adminGuard
+             rota HİÇ EŞLEŞMEZ -> lazy chunk indirilmez, '**' devreye girer
+
+      Sol menüde 'Yeni Ürün' ve 'Raporlar' soluk (.locked): viewer rolünde
+      erişilemeyeceklerini gösteriyor.
+    -->
+    <div class="shell">
+      <aside class="sidebar">
+        <div class="brand">
+          <p class="brand-name">Ürün Paneli</p>
+          <p class="brand-sub">Modül 9 · Routing</p>
+        </div>
+
+        <nav class="nav">
+          <a class="nav-link"><span class="dot"></span>Genel Bakış</a>
+          <a class="nav-link"><span class="dot"></span>Ürünler</a>
+
+          <p class="nav-section">Yönetim</p>
+          <!-- viewer rolünde erişilemez -> .locked -->
+          <a class="nav-link locked"><span class="dot"></span>Yeni Ürün<span class="nav-tag">admin</span></a>
+          <a class="nav-link locked"><span class="dot"></span>Raporlar<span class="nav-tag">lazy</span></a>
+        </nav>
+      </aside>
+
+      <section class="main">
+        <header class="topbar">
+          <div class="crumbs">
+            <span class="crumb-current">Yetkisiz erişim</span>
+          </div>
+          <div class="role-switch">
+            <span>Rol:</span>
+            <select class="role-select">
+              <option>İzleyici</option>
+              <option>Yönetici</option>
+            </select>
+          </div>
+        </header>
+
+        <div class="content">
+          <div class="denied-box">
+            <div class="denied-mark">!</div>
+            <h2>Bu sayfaya erişemezsin</h2>
+            <p>
+              <strong>Yeni Ürün</strong> sayfası yalnızca yönetici rolüne açık.
+              Üst köşeden rolünü <strong>Yönetici</strong> yapıp tekrar dene.
+            </p>
+            <a class="btn btn-primary">Panele dön</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
