@@ -6,12 +6,12 @@ Kullanım:
     python build_mockup.py 09 main --selector ".card" --width 800
 
 Ne yapar:
-  1. mockups/m09/styles.scss  ->  mockups/m09/styles.css  (derler)
-  2. mockups/m09/index.html   ->  mockups/m09_main.png    (ekran görüntüsü)
+  1. ../mockups/m09/styles.scss  ->  ../mockups/m09/styles.css  (derler)
+  2. ../mockups/m09/index.html   ->  ../mockups/m09_main.png    (ekran görüntüsü)
 
 Üretilen PNG'yi content_m09.py içinde şu şekilde kullanırsın:
     shot("__SHOT_MAIN__", "Ana ekran: liste ve filtreler")
-  (build_module.py, __SHOT_MAIN__ -> mockups/m09_main.png eşlemesini yapar.)
+  (build_module.py, __SHOT_MAIN__ -> ../mockups/m09_main.png eşlemesini yapar.)
 
 Birden fazla ekran için ayrı HTML dosyaları tut:
     python build_mockup.py 09 error --html error.html   ->  m09_error.png
@@ -26,7 +26,9 @@ from playwright.sync_api import sync_playwright
 from browser import launch_chromium
 
 ROOT = Path(__file__).parent
-MOCKUP_DIR = ROOT / "mockups"
+# Çıktı klasörleri depo kökünde durur; pipeline yalnızca üretir.
+REPO = ROOT.parent
+MOCKUP_DIR = REPO / "mockups"
 
 
 def main() -> int:

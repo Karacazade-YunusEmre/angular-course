@@ -6,7 +6,7 @@ Kullanım:
 
 Tamamlanan modüllerin başlık ve ders listesini kendi PDF'lerinin yer
 imlerinden okur; kalanları curriculum.FUTURE'dan alır.
-Çıktı: moduller/00-Icindekiler.pdf
+Çıktı: ../modules/00-Icindekiler.pdf
 """
 import html as _html
 import sys
@@ -20,7 +20,9 @@ from browser import launch_chromium
 from curriculum import DONE_FILES, FUTURE, LEVELS
 
 ROOT = Path(__file__).parent
-OUT_DIR = ROOT / "moduller"
+# Çıktı klasörleri depo kökünde durur; pipeline yalnızca üretir.
+REPO = ROOT.parent
+OUT_DIR = REPO / "modules"
 
 
 def esc(s) -> str:

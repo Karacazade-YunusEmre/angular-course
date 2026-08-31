@@ -19,21 +19,28 @@ playwright install chromium
 
 ## Klasör yapısı
 
+Üretim hattı `book-pipeline/` içinde, **çıktılar depo kökündedir**:
+
 ```
-kitap-pipeline/
-├── assets.py              # ikonlar + PDF CSS'i        (DEĞİŞMEZ)
-├── components.py          # içerik yazma yardımcıları  (DEĞİŞMEZ)
-├── curriculum.py          # 30 modüllük müfredat       (her modülde güncellenir)
-├── build_module.py        # tek modülün PDF'ini üretir
-├── build_toc.py           # içindekiler tablosunu üretir
-├── build_mockup.py        # mini proje ekran görüntüsünü üretir
-├── content_template.py    # yeni modül şablonu (örnek ders dahil)
-├── content_mNN.py         # her modülün içeriği (sen yazarsın)
-├── mockups/
-│   ├── mNN/               # mini proje kaynağı: index.html + styles.scss
-│   └── mNN_main.png       # üretilen ekran görüntüleri
-└── moduller/              # ÇIKTI: modül PDF'leri + içindekiler
+angular-course/
+├── book-pipeline/
+│   ├── assets.py              # ikonlar + PDF CSS'i        (DEĞİŞMEZ)
+│   ├── components.py          # içerik yazma yardımcıları  (DEĞİŞMEZ)
+│   ├── browser.py             # tarayıcı seçimi            (DEĞİŞMEZ)
+│   ├── curriculum.py          # 30 modüllük müfredat       (her modülde güncellenir)
+│   ├── build_module.py        # tek modülün PDF'ini üretir
+│   ├── build_toc.py           # içindekiler tablosunu üretir
+│   ├── build_mockup.py        # mini proje ekran görüntüsünü üretir
+│   ├── content_template.py    # yeni modül şablonu (örnek ders dahil)
+│   └── content_mNN.py         # her modülün içeriği (sen yazarsın)
+├── mockups/                   # mini proje materyalleri
+│   ├── mNN/                   # kaynak: index.html + styles.scss + styles.css
+│   └── mNN_main.png           # üretilen ekran görüntüleri
+└── modules/                   # ÇIKTI: modül PDF'leri + içindekiler
 ```
+
+Script'ler her zaman `book-pipeline/` içinden çalıştırılır; yolları kendileri
+bir üst klasöre çözer.
 
 ---
 
@@ -51,7 +58,7 @@ anchor'larla **birebir aynı** olmalı; yoksa yer imi oluşmaz (build uyarı ver
 
 ### 2. Mini proje referansını hazırla
 
-`mockups/m09/index.html` ve `mockups/m09/styles.scss` yaz
+`../mockups/m09/index.html` ve `../mockups/m09/styles.scss` yaz
 (**JS YOK** — sadece statik HTML + SCSS; ayrıntı için aşağıdaki kurallara bak),
 sonra:
 
@@ -61,7 +68,7 @@ python build_mockup.py 09 main
 python build_mockup.py 09 error --html error.html
 ```
 
-Bu, `mockups/m09_main.png` üretir. İçerikte `shot("__SHOT_MAIN__", "açıklama")`
+Bu, `../mockups/m09_main.png` üretir. İçerikte `shot("__SHOT_MAIN__", "açıklama")`
 yazdığında build bunu otomatik bulur (`__SHOT_MAIN__` → `m09_main.png`).
 
 ### 3. PDF'i bas
@@ -70,7 +77,7 @@ yazdığında build bunu otomatik bulur (`__SHOT_MAIN__` → `m09_main.png`).
 python build_module.py 09
 ```
 
-Çıktı: `moduller/Modul-09-Routing.pdf` (dosya adı `curriculum.MODULE_SLUGS`'tan gelir).
+Çıktı: `../modules/Modul-09-Routing.pdf` (dosya adı `curriculum.MODULE_SLUGS`'tan gelir).
 
 ### 4. Müfredatı güncelle ve içindekileri yenile
 
@@ -150,7 +157,7 @@ Bunlar kitabın pedagojisidir; `content_template.py` başında da özetlenmişti
 `lesson_open(..., anchor)` uyuşmuyor. İkisini eşitle.
 
 **"__SHOT_X__ için görsel bulunamadı"** → önce `build_mockup.py` çalıştır;
-dosya adı `mockups/mNN_x.png` olmalı (küçük harf).
+dosya adı `../mockups/mNN_x.png` olmalı (küçük harf).
 
 **Playwright hatası** → `playwright install chromium` çalıştırıldı mı?
 Kurumsal ağ (TLS proxy'si) arkasında bu indirme başarısız olabilir; o durumda

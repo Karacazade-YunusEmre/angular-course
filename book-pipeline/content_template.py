@@ -138,7 +138,7 @@ def _mini_proje() -> str:
     h = [lesson_open("\u2014", "Mini Proje: ...", "m9proje", icon="rocket")]
     h.append(p("Bu modülün kavramlarını birleştiren uygulama."))
 
-    # __SHOT_MAIN__ -> mockups/m09_main.png
+    # __SHOT_MAIN__ -> ../mockups/m09_main.png
     h.append(shot("__SHOT_MAIN__", "Ana ekran"))
 
     h.append(h3("Özellikler / Gereksinimler"))

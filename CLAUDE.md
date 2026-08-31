@@ -17,8 +17,9 @@ Repo içeriği:
     projeleri, her biri ayrı bir Angular v22 uygulaması
   - `Module08ProductApi/` — .NET 10 minimal API + SQL Server
     (Modül 8'den itibaren mini projelerin backend'i)
-- `kitap-pipeline/` — ders kitabının PDF üretim hattı (modül PDF'leri burada üretilir)
-- `tutorials/` — üretilmiş modül PDF'lerinin okuma kopyası
+- `book-pipeline/` — ders kitabının PDF üretim hattı (script'ler burada)
+- `mockups/` — mini proje materyalleri (statik HTML/SCSS + ekran görüntüleri)
+- `modules/` — ÇIKTI: üretilmiş modül PDF'leri + içindekiler
 
 Bu repo hem **kodu** hem **ders kitabını** barındırır. Kitap modül modül
 ilerler: önce modülün PDF'i hazırlanır, sonra ben mini projeyi yazarım,
@@ -166,15 +167,17 @@ başına `-` → azalan), `name` (içerir, harf duyarsız), `minPrice`/`maxPrice
 
 ---
 
-## 7. Ders kitabı üretimi (`kitap-pipeline/`)
+## 7. Ders kitabı üretimi (`book-pipeline/`)
 
 Kitap 30 modüllük bir müfredattır; her modül **ayrı bir PDF**tir.
-Ayrıntılı kullanım: `kitap-pipeline/README.md`.
+Ayrıntılı kullanım: `book-pipeline/README.md`.
+Script'ler `book-pipeline/` içinden çalıştırılır; materyaller `mockups/`,
+PDF çıktıları `modules/` klasörüne yazılır (ikisi de depo kökünde).
 
 ### Yeni modül üretme akışı
 
 ```bash
-cd kitap-pipeline
+cd book-pipeline
 cp content_template.py content_m09.py     # içeriği yaz
 python build_mockup.py 09 main            # mini proje ekran görüntüsü
 python build_module.py 09                 # modül PDF'i
@@ -183,7 +186,7 @@ python build_toc.py                       # içindekiler tablosu
 ```
 
 **Geçmiş modüllerin PDF'lerini YENİDEN ÜRETME.** Sadece yeni modül basılır.
-`moduller/` klasöründeki mevcut PDF'lere dokunulmaz.
+`modules/` klasöründeki mevcut PDF'lere dokunulmaz.
 
 ### İçerik yazım kuralları (kitabın pedagojisi)
 

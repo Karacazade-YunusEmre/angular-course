@@ -6,11 +6,11 @@ Kullanım:
 
 Ne yapar:
   1. content_m09.py dosyasını içe aktarır ve render() ile HTML üretir.
-  2. İçindeki __SHOT_*__ yer tutucularını mockups/ klasöründeki PNG'lerle
+  2. İçindeki __SHOT_*__ yer tutucularını ../mockups/ klasöründeki PNG'lerle
      (base64 data-uri) değiştirir.
   3. Playwright ile A4 PDF basar (altbilgi: "Modül 9").
   4. Named destination'lardan modülün yerel yer imlerini kurar.
-  5. moduller/Modul-09-<Slug>.pdf olarak kaydeder.
+  5. ../modules/Modul-09-<Slug>.pdf olarak kaydeder.
 
 ÖNEMLİ: Geçmiş modüllerin PDF'lerine DOKUNMAZ. Sadece verilen modülü üretir.
 Bittikten sonra içindekiler için ayrıca `python build_toc.py` çalıştır.
@@ -31,8 +31,10 @@ from assets import CSS
 from curriculum import MODULE_SLUGS
 
 ROOT = Path(__file__).parent
-OUT_DIR = ROOT / "moduller"
-MOCKUP_DIR = ROOT / "mockups"
+# Çıktı klasörleri depo kökünde durur; pipeline yalnızca üretir.
+REPO = ROOT.parent
+OUT_DIR = REPO / "modules"
+MOCKUP_DIR = REPO / "mockups"
 TMP_DIR = ROOT / ".tmp"
 
 
@@ -41,7 +43,7 @@ def data_uri(path: Path) -> str:
 
 
 def inject_screenshots(html: str, module_no: int) -> str:
-    """__SHOT_XXX__ yer tutucularını mockups/mNN_xxx.png ile değiştirir."""
+    """__SHOT_XXX__ yer tutucularını ../mockups/mNN_xxx.png ile değiştirir."""
     placeholders = set(re.findall(r"__SHOT_[A-Z0-9_]+__", html))
     for ph in placeholders:
         key = ph.strip("_").replace("SHOT_", "", 1).lower()
