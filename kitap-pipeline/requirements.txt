@@ -1,0 +1,4 @@
+# Kitap pipeline bağımlılıkları
+pypdf>=5.0
+playwright>=1.48
+libsass>=0.23
