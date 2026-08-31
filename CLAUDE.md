@@ -12,9 +12,11 @@ Paralel yürüyen bir **Türkçe ders kitabı** var; bu repodaki kod, o kitabın
 modül sonu mini projelerini içerir.
 
 Repo içeriği:
-- `angular-app/` — Angular v22 uygulaması (öğrenme projeleri)
-- `products-api/` — .NET 10 minimal API (JSON dosyası tabanlı, 238 ürün)
+- `apps/` — modül sonu mini projeleri, her biri ayrı bir Angular v22 uygulaması
+  (`module-01-hello-angular` … `module-08-products-app`)
+- `Module08ProductApi/` — .NET 10 minimal API + SQL Server (Modül 8'den itibaren backend)
 - `kitap-pipeline/` — ders kitabının PDF üretim hattı (modül PDF'leri burada üretilir)
+- `tutorials/` — üretilmiş modül PDF'lerinin okuma kopyası
 
 Bu repo hem **kodu** hem **ders kitabını** barındırır. Kitap modül modül
 ilerler: önce modülün PDF'i hazırlanır, sonra ben mini projeyi yazarım,
@@ -112,21 +114,41 @@ Bu proje Angular **v22** kullanır. Eski API'lere ait öneri verme.
 
 ---
 
-## 5. .NET API (`products-api/`)
+## 5. .NET API (`Module08ProductApi/`)
 
-.NET 10 minimal API, veritabanı yok — JSON dosyası (`Data/products.json`, 238 ürün).
+.NET 10 minimal API + **SQL Server** (Docker'da), EF Core üzerinden repository deseni.
+238 ürün, 8 kategori (15'i stokta yok). Ayrıntı: `Module08ProductApi/README.md`.
 
-- Çalıştırma: `dotnet run` (Windows/Linux fark etmez)
-- Uçlar: `/api/products` (sayfalı, filtreli), `/{id}`, `/by-name?q=`,
-  `/by-price?min=&max=`, `/by-stock?min=&max=`, `/categories`,
-  `POST`, `PUT /{id}`, `DELETE /{id}`
-- Ortak parametreler: `page`, `pageSize` (max 100), `sort`
-  (`name`/`price`/`stock`/`createdAt`, başına `-` → azalan)
+- Çalıştırma: `docker compose up -d` → `cd WebApi && dotnet run`
+  (şema ve tohum veri uygulama açılışında `MigrateAsync()` ile otomatik uygulanır;
+  tablo doluysa tekrar veri eklemez)
+- Adres: `http://localhost:5047` · gezinti arayüzü `/scalar/v1`
+- CORS `http://localhost:4200` için açık
+
+**Uçlar** (`/api/products` altında):
+
+| Metot | Adres | Yanıt |
+|---|---|---|
+| GET | `` (liste) | `200` + `PagedResult<Product>` |
+| GET | `/{id}` | `200` · `404` |
+| POST | `` | `201` · `400` |
+| PUT | `/{id}` | `200` · `400` · `404` |
+| DELETE | `/{id}` | `204` · `404` |
+| GET | `/error-demo` | `500` (bilerek) |
+
+**Filtreleme ayrı uç değil, liste ucunun query parametreleridir:**
+`page` (1), `pageSize` (10, max 200), `sort` (`id`/`name`/`price`/`stock`/`createdAt`,
+başına `-` → azalan), `name` (içerir, harf duyarsız), `minPrice`/`maxPrice`,
+`minStock`/`maxStock`.
+
 - Cevap sarmalayıcısı: `{ items, page, pageSize, total, totalPages, hasPrevious, hasNext }`
   → **Angular tarafındaki interface bu adlarla birebir aynı olmalı.**
-- Test kolaylıkları: herhangi bir uca `?delay=1500` (yükleniyor ekranı),
-  `GET /api/products/error-demo` (hata ekranı)
-- Yazma işlemleri dosyaya **kalıcı** yazar. Sıfırlamak için `Data/products.seed.json`.
+- Hatalar `application/problem+json`: `400` + `ValidationProblemDetails`,
+  `404` + `ProblemDetails`.
+- Test kolaylıkları (yalnızca `Development`): herhangi bir uca `?delay=1500`
+  (yükleniyor ekranı, max 10000 ms), `GET /api/products/error-demo` (hata ekranı).
+- Yazma işlemleri veritabanına **kalıcı** yazar. Sıfırlamak için
+  `docker compose down -v` → yeniden `dotnet run`.
 
 ---
 
