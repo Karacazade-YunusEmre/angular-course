@@ -16,7 +16,7 @@ erişim **EF Core** üzerinden repository deseniyle yapılır.
 ### 1. Veritabanını başlat
 
 ```bash
-cd Module08ProductApi
+cd apps/Module08ProductApi
 docker compose up -d
 ```
 

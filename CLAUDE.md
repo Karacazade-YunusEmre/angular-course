@@ -12,9 +12,11 @@ Paralel yürüyen bir **Türkçe ders kitabı** var; bu repodaki kod, o kitabın
 modül sonu mini projelerini içerir.
 
 Repo içeriği:
-- `apps/` — modül sonu mini projeleri, her biri ayrı bir Angular v22 uygulaması
-  (`module-01-hello-angular` … `module-08-products-app`)
-- `Module08ProductApi/` — .NET 10 minimal API + SQL Server (Modül 8'den itibaren backend)
+- `apps/` — çalışan her şey burada:
+  - `module-01-hello-angular` … `module-08-products-app` — modül sonu mini
+    projeleri, her biri ayrı bir Angular v22 uygulaması
+  - `Module08ProductApi/` — .NET 10 minimal API + SQL Server
+    (Modül 8'den itibaren mini projelerin backend'i)
 - `kitap-pipeline/` — ders kitabının PDF üretim hattı (modül PDF'leri burada üretilir)
 - `tutorials/` — üretilmiş modül PDF'lerinin okuma kopyası
 
@@ -114,10 +116,10 @@ Bu proje Angular **v22** kullanır. Eski API'lere ait öneri verme.
 
 ---
 
-## 5. .NET API (`Module08ProductApi/`)
+## 5. .NET API (`apps/Module08ProductApi/`)
 
 .NET 10 minimal API + **SQL Server** (Docker'da), EF Core üzerinden repository deseni.
-238 ürün, 8 kategori (15'i stokta yok). Ayrıntı: `Module08ProductApi/README.md`.
+238 ürün, 8 kategori (15'i stokta yok). Ayrıntı: `apps/Module08ProductApi/README.md`.
 
 - Çalıştırma: `docker compose up -d` → `cd WebApi && dotnet run`
   (şema ve tohum veri uygulama açılışında `MigrateAsync()` ile otomatik uygulanır;
